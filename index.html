@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>"
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Title</title>
+
+</head>
+
+<body>
+
+    <div class="col-lg-9 mx-auto p-5 py-md-7 justify-content-center text-center">
+        <main>
+            <h2>Water Quality Monitoring</h2>
+            <br>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true">
+                    Location
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Dhaka</a>
+                    <a class="dropdown-item" href="#">Gulshan</a>
+                    <a class="dropdown-item" href="#">Banani</a>
+                    <a class="dropdown-item" href="#">Uttara</a>
+                </div>
+            </div>
+            <br>
+            <div class="row g-5">
+
+                <div class="col-md-6 justify-content-center text-center">
+                    <div>
+                        <canvas id="OxygenTable"></canvas>
+                    </div>
+                    <br>
+                    <div>
+                        <button type="button" class="btn btn-outline-danger">View Detailed Oxygen Data</button>
+                    </div>
+                </div>
+
+                <div class="col-md-6 justify-content-center text-center">
+                    <div>
+                        <canvas id="AmmoniaTable"></canvas>
+                    </div>
+                    <br>
+                    <div>
+                        <button type="button" class="btn btn-outline-primary">View Detailed Ammonia & Nitrogen Data</button>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row g-5">
+
+                <div class="col-md-6 justify-content-center text-center">
+                    <div>
+                        <canvas id="PHTable"></canvas>
+                    </div>
+                    <br>
+                    <div>
+                        <button type="button" class="btn btn-outline-dark">View Detailed pH Data</button>
+                    </div>
+                </div>
+
+                <div class="col-md-6 justify-content-center text-center">
+                    <div>
+                        <canvas id="DissolvedTable"></canvas>
+                    </div>
+                    <br>
+                    <div>
+                        <button type="button" class="btn btn-outline-success">View Detailed Dissolved Oxygen Data</button>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+    </div>
+
+</body>
+</html>
+
+
+<script src="js/index.js"></script>
