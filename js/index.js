@@ -2,6 +2,15 @@ console.log("Running");
 
 Chart.defaults.scale.ticks.beginAtZero = true;
 
+(function () {
+    'use strict'
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+        new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+})()
+
+
 // const url = "http://192.168.0.193/REST_test/api/post/read_last_100.php";
 const url = "https://water-initial-test.herokuapp.com/api/post/read_last_100.php";
 
