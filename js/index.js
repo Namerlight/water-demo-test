@@ -1,3 +1,4 @@
+
 console.log("Running");
 
 Chart.defaults.beginAtZero = true;
@@ -10,6 +11,13 @@ Chart.defaults.color = "#ffffff";
         new bootstrap.Tooltip(tooltipTriggerEl)
     })
 })()
+
+
+var offcanvasElementList = [].slice.call(document.querySelectorAll('.offcanvas'))
+var offcanvasList = offcanvasElementList.map(function (offcanvasEl) {
+    return new bootstrap.Offcanvas(offcanvasEl)
+})
+
 
 // const url = "http://192.168.0.193/REST_test/api/post/read_last_100.php";
 const url = "https://water-initial-test.herokuapp.com/api/post/read_last_100.php";

@@ -3,91 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
     <title>Title</title>
 
 </head>
 
 <style>
 
-    .bg {
-        position: fixed;
-        top: 0;
-        background-image: url("assets/waves.svg"), linear-gradient(90deg, #0162e0, #57a4f1, #64c4ed);
-        background-position: bottom;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        width: 100%;
-        height: 100%;
-    }
-
-    .card-bg {
-        border-radius: 0;
-        background: #2d334d;
-        box-shadow:  25px 25px 50px #4584be;
-        color: aliceblue;
-    }
-
-    a:link {
-        color: #eeeeee;
-    }
-
-    a:visited {
-        color: #eeeeee;
-    }
-
-    a:hover {
-        color: #80ffeb;
-    }
-
-    main {
-        height: 100vh;
-    }
-
-    nav {
-        height: 100vh;
-    }
-
-    .nav-item {
-        background-clip: content-box;
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-
-    .nav-block {
-        display: block;
-        text-decoration: none;
-        background-color: #2d334d;
-        margin-top: 0;
-        padding: 5px;
-        border-radius: 0
-    }
-
-    .nav-text-big {
-        font-size: 1.5rem;
-
-    }
-
-    .nav-text-small {
-        font-size: 1rem;
-        font-weight: lighter;
-    }
-
-    .bg-dark {
-        background-color: #2d334d
-    }
 
 
 </style>
 
 <body>
+
+<div class="offcanvas offcanvas-start" tabindex="1" id="offcanvasExample">
+    <div class="col">
+        <div class="bg-dark">
+            <ul class="nav bg-dark nav-pills flex-column flex-row text-truncate" style="height: 100vh; overflow: auto">
+                <li class="nav-item">
+                    <a class="btn btn-dark" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample" style="margin-top: 20px; margin-left: -10px">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-list" viewBox="1.5 1 13 13" style="padding-bottom: 5px">
+                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
+                        Close Menu
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-text-big nav-block text-truncate" style="display: block; background-color: #2d334d; margin-top: 14px">
+                        Home & Summary
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="quality.html" class="nav-block nav-text-big text-truncate" style="margin-top: 20px">
+                        Water Quality
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-block nav-text-small text-truncate">
+                        Oxygen
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-block nav-text-small text-truncate">
+                        Ammonia and Nitrogen
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-block nav-text-small text-truncate">
+                        pH
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-block nav-text-small text-truncate">
+                        Dissolved Oxygen
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-block nav-text-big text-truncate" style="margin-top: 20px">
+                        Water Quantity
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-block nav-text-small text-truncate">
+                        Volume and Usage
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-block nav-text-small text-truncate">
+                        Pressure
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-block nav-text-small text-truncate">
+                        Flow Speed
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-block nav-text-small text-truncate">
+                        Chlorine
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-block nav-text-small text-truncate">
+                        Arsenic
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-block nav-text-small text-truncate">
+                        Iron
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-block nav-text-small text-truncate">
+                        Chromium
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-block nav-text-small text-truncate" style="margin-bottom: 20px">
+                        Lead
+                    </a>
+                </li>
+                <div class="nav-block text-truncate" style="margin-bottom: 20px; margin-left: -8px; padding-right: -20px; bottom: 0; position: absolute;">
+                    <li class="nav-item">
+                        <a href="#" class="nav-block nav-text-small text-truncate" style="display: block">
+                            $USERNAME
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-block nav-text-small text-truncate" style="">
+                            $USERNAME
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-block nav-text-small text-truncate" style="">
+                            $USERNAME
+                        </a>
+                    </li>
+                </div>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
 <div class="bg" style="overflow: hidden">
     <div class="row">
-        <div class="col-sm-2">
+        <div class="col-sm-2 desk div-only-mobile">
             <div class="bg-dark">
-                <ul class="nav bg-dark nav-pills flex-sm-column flex-row text-truncate" style="height: 100vh; overflow: auto">
+                <ul class="nav bg-dark nav-pills flex-column flex-sm-column flex-row text-truncate" style="height: 100vh; overflow: auto">
                     <li class="nav-item">
                         <a href="#" class="nav-text-big nav-block text-truncate" style="display: block; background-color: #2d334d; margin-top: 14px">
                             Home & Summary
@@ -180,8 +227,6 @@
                             </a>
                         </li>
                     </div>
-
-
                 </ul>
             </div>
         </div>
@@ -190,6 +235,11 @@
                 <h2>Water Quality Monitoring</h2>
                 <br>
 
+            <a class="btn btn-dark div-vis-mobile div-hide-desktop" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample" style="position: fixed; top: 20px; left: 20px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-list" viewBox="1.5 1 13 13">
+                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                </svg>
+            </a>
                 <div class="row g-5 ">
                     <div class="col-md-4 justify-content-center text-center" style="margin-left: -12px">
                         <div class="card-bg card" style="">

@@ -1,0 +1,97 @@
+@media screen and (max-width : 1920px){
+    .desk {
+        visibility: hidden;
+
+    }
+    .div-only-mobile {
+        visibility:visible;
+    }
+}
+@media screen and (max-width : 1280px){
+    .div-only-mobile {
+        visibility:hidden;
+        display: none;
+    }
+
+    .div-vis-mobile {
+        visibility: visible;
+    }
+
+}
+@media screen and (min-width : 1280px){
+    .div-hide-desktop {
+        visibility: hidden;
+        display: none;
+    }
+}
+
+
+.bg {
+    position: fixed;
+    top: 0;
+    background-image: url("../assets/waves.svg"), linear-gradient(90deg, #0146af, #3e76a9, #45869f);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.card-bg {
+    border-radius: 0;
+    background: #2d334d;
+    box-shadow:  25px 25px 50px #4584be;
+    color: aliceblue;
+}
+
+a:link {
+    color: #eeeeee;
+}
+
+a:visited {
+    color: #eeeeee;
+}
+
+a:hover {
+    color: #80ffeb;
+}
+
+main {
+    height: 100vh;
+}
+
+nav {
+    height: 100vh;
+}
+
+.nav-item {
+    background-clip: content-box;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.nav-block {
+    display: block;
+    text-decoration: none;
+    background-color: #2d334d;
+    margin-top: 0;
+    padding: 5px;
+    border-radius: 0
+}
+
+.nav-text-big {
+    font-size: 1.5rem;
+
+}
+
+.nav-text-small {
+    font-size: 1rem;
+    font-weight: lighter;
+}
+
+.btn-dark {
+    color: #fff;
+    background-color: #2d334d;
+    border-color: #2d334d
+
+}
