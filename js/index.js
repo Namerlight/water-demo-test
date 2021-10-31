@@ -1,23 +1,9 @@
-
 console.log("Running");
-
-Chart.defaults.beginAtZero = true;
-Chart.defaults.color = "#ffffff";
-
-(function () {
-    'use strict'
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    tooltipTriggerList.forEach(function (tooltipTriggerEl) {
-        new bootstrap.Tooltip(tooltipTriggerEl)
-    })
-})()
-
 
 var offcanvasElementList = [].slice.call(document.querySelectorAll('.offcanvas'))
 var offcanvasList = offcanvasElementList.map(function (offcanvasEl) {
     return new bootstrap.Offcanvas(offcanvasEl)
 })
-
 
 // const url = "http://192.168.0.193/REST_test/api/post/read_last_100.php";
 const url = "https://water-initial-test.herokuapp.com/api/post/read_last_100.php";
@@ -33,6 +19,103 @@ async function getData() {
     let data = await response.json()
     return data
 }
+
+function getBill(cost, volume) {
+    return (volume*cost).toFixed(2);
+}
+
+function check_oxygen(quality_flag, oxygen_value) {
+
+    if (oxygen_value < 4 || oxygen_value > 6) {
+        quality_flag += 2
+    } else if (oxygen_value < 4.5 || oxygen_value > 5.5) {
+        quality_flag += 1;
+    } else {
+        // do nothing
+    }
+    return quality_flag
+
+}
+
+function check_ammonia(quality_flag, ammonia_value) {
+
+    if (ammonia_value < 0.015 || ammonia_value > 0.030) {
+        quality_flag += 2
+    } else if (ammonia_value < 0.020 || ammonia_value > 0.025) {
+        quality_flag += 1;
+    } else {
+        // do nothing
+    }
+    return quality_flag
+
+}
+
+function check_ph(quality_flag, ph_value) {
+
+    if (ph_value < 6 || ph_value > 8) {
+        quality_flag += 2
+    } else if (ph_value < 6.5 || ph_value > 7.5) {
+        quality_flag += 1;
+    } else {
+        // do nothing
+    }
+    return quality_flag
+
+}
+
+function check_dissolved(quality_flag, dissolved_value) {
+
+    if (dissolved_value < 6.5 || dissolved_value > 8.5) {
+        quality_flag += 2
+    } else if (dissolved_value < 7 || dissolved_value > 8) {
+        quality_flag += 1;
+    } else {
+        // do nothing
+    }
+    return quality_flag
+
+}
+
+function getQuality() {
+    let oxygen_value = oxygen_array.at(-1);
+    let ammonia_value = ammonia_array.at(-1);
+    let ph_value = ph_array.at(-1);
+    let dissolved_value = dissolved_array.at(-1);
+
+    let quality_flag = 0;     // if flag is 0, quality is good, flag = 1, quality is poor, flag = 2, quality is unsafe, higher is dangerous
+
+    quality_flag = check_oxygen(quality_flag, oxygen_value)
+    quality_flag = check_ammonia(quality_flag, ammonia_value)
+    quality_flag = check_ph(quality_flag, ph_value)
+    quality_flag = check_dissolved(quality_flag, dissolved_value)
+
+    switch(quality_flag) {
+        case 0:
+            return "Safe"
+        case 1:
+            return "Poor"
+        case 2:
+            return "Unsafe"
+        default:
+            return "Dangerous"
+    }
+
+}
+
+function getQuantity() {
+
+}
+
+function getPredQuality() {
+
+
+}
+
+function getPredQuantity() {
+
+
+}
+
 
 getData().then(data => {
 
@@ -54,15 +137,20 @@ getData().then(data => {
         console.log(time_array[i], oxygen_array[i], ammonia_array[i], ph_array[i], dissolved_array[i])
     }
 
-    document.getElementById("volume-data").innerHTML = "20G"
+    let water_volume = 200;         // in Litres
+    let cost = (14.46/1000);
+    document.getElementById("volume-data").innerHTML = (water_volume + " L")
     document.getElementById("pH-data").innerHTML = "7.0"
     document.getElementById("pressure-data").innerHTML = "500kpa"
     document.getElementById("ar-data").innerHTML = "0.1%"
     document.getElementById("speed-data").innerHTML = "2mph"
 
-    document.getElementById("quality-data").innerHTML = "Safe"
+    document.getElementById("quality-data").innerHTML = getQuality()
     document.getElementById("quantity-data").innerHTML = "Lots"
 
+    document.getElementById("water-cost").innerHTML = cost.toString() + " BDT per L";
+    document.getElementById("water-usage").innerHTML = water_volume.toString() + " L";
+    document.getElementById("water-bill").innerHTML = getBill(cost, water_volume).toString() + " BDT";
 
 });
 
