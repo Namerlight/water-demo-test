@@ -12,11 +12,11 @@ Chart.defaults.color = "#ffffff";
 })()
 
 
-// const url = "http://192.168.0.193/REST_test/api/post/read_all_oxy.php";
-const url = "https://water-initial-test.herokuapp.com/api/post/read_all_oxy.php";
+// const url = "http://192.168.0.193/REST_test/api/post/read_all_amn.php";
+const url = "https://water-initial-test.herokuapp.com/api/post/read_all_amn.php";
 
 let time_array = [];
-let oxygen_array = [];
+let ammonia_array = [];
 
 async function getData() {
     let response = await fetch(url);
@@ -24,24 +24,24 @@ async function getData() {
     return data
 }
 
-const data_oxy = {
+const data_amn = {
     labels: time_array,
     datasets: [{
-        label: 'Oxygen',
-        backgroundColor: 'rgb(255, 99, 132)',
-        borderColor: 'rgb(255, 99, 132)',
-        data: oxygen_array,
+        label: 'Ammonia',
+        backgroundColor: 'rgb(0,116,175)',
+        borderColor: 'rgb(0,116,175)',
+        data: ammonia_array,
     }]
 };
 
-let oxy_max = 6
+let oxy_max = 0.5
 let oxy_min = 0
 
 console.log(oxy_max, oxy_min)
 
 const config_oxy = {
     type: 'line',
-    data: data_oxy,
+    data: data_amn,
     options: {
         legend: {
             display: false,
@@ -100,11 +100,11 @@ getData().then(data => {
 
     for (let i = 0; i < length; i++) {
         time_array.push(output[i].id)
-        oxygen_array.push(output[i].oxygen)
+        ammonia_array.push(output[i].ammonia)
     }
 
     for (let i = 0; i < length; i++) {
-        console.log(time_array[i], oxygen_array[i])
+        console.log(time_array[i], ammonia_array[i])
     }
 
     OxygenChart.update();
@@ -123,7 +123,7 @@ function refresh() {
     console.log("refreshing")
 
     time_array = [];
-    oxygen_array = [];
+    ammonia_array = [];
 
     OxygenChart.destroy();
 
@@ -143,26 +143,26 @@ function refresh() {
 
         for (let i = 0; i < length; i++) {
             time_array.push(output[i].id)
-            oxygen_array.push(output[i].oxygen)
+            ammonia_array.push(output[i].oxygen)
         }
 
         for (let i = 0; i < length; i++) {
-            console.log(time_array[i], oxygen_array[i])
+            console.log(time_array[i], ammonia_array[i])
         }
 
         const data_oxy = {
             labels: time_array,
             datasets: [{
-                label: 'Oxygen',
+                label: 'Ammonia',
                 backgroundColor: 'rgb(255, 99, 132)',
                 borderColor: 'rgb(255, 99, 132)',
-                data: oxygen_array,
+                data: ammonia_array,
             }]
         };
 
         const config_oxy = {
             type: 'line',
-            data: data_oxy,
+            data: data_amn,
             options: {
                 legend: {
                     display: false,
@@ -241,7 +241,7 @@ function load_table() {
         cell = row.insertCell();
         cell.textContent = time_array[i];
         cell = row.insertCell();
-        cell.textContent = oxygen_array[i];
+        cell.textContent = ammonia_array[i];
         table.appendChild(row);
     }
 

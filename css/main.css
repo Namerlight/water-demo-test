@@ -25,11 +25,17 @@
     }
 }
 
+@media screen and (max-width : 770px){
+    .row-separator {
+        margin-top: 96px;
+    }
+}
+
 
 .bg {
     position: fixed;
     top: 0;
-    background-image: url("../assets/waves.svg"), linear-gradient(90deg, #0146af, #3e76a9, #45869f);
+    background-image: url("../assets/waves2.svg"), linear-gradient(90deg, #364164, #24344a, #233b56);
     background-position: bottom;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -40,8 +46,12 @@
 .card-bg {
     border-radius: 0;
     background: #2d334d;
-    box-shadow:  25px 25px 50px #4584be;
+    box-shadow:  25px 25px 50px #182d43;
     color: aliceblue;
+}
+
+h2 {
+    color: #eeeeee;
 }
 
 a:link {
@@ -93,5 +103,8 @@ nav {
     color: #fff;
     background-color: #2d334d;
     border-color: #2d334d
+}
 
+::-webkit-scrollbar {
+    width: 0;
 }

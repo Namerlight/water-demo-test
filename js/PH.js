@@ -12,11 +12,11 @@ Chart.defaults.color = "#ffffff";
 })()
 
 
-// const url = "http://192.168.0.193/REST_test/api/post/read_all_oxy.php";
-const url = "https://water-initial-test.herokuapp.com/api/post/read_all_oxy.php";
+// const url = "http://192.168.0.193/REST_test/api/post/read_all_PH.php";
+const url = "https://water-initial-test.herokuapp.com/api/post/read_all_PH.php";
 
 let time_array = [];
-let oxygen_array = [];
+let PH_array = [];
 
 async function getData() {
     let response = await fetch(url);
@@ -24,24 +24,24 @@ async function getData() {
     return data
 }
 
-const data_oxy = {
+const data_PH = {
     labels: time_array,
     datasets: [{
-        label: 'Oxygen',
-        backgroundColor: 'rgb(255, 99, 132)',
-        borderColor: 'rgb(255, 99, 132)',
-        data: oxygen_array,
+        label: 'PH',
+        backgroundColor: 'rgb(255,255,255)',
+        borderColor: 'rgb(255,255,255)',
+        data: PH_array,
     }]
 };
 
-let oxy_max = 6
-let oxy_min = 0
+let oxy_max = 8
+let oxy_min = 4
 
 console.log(oxy_max, oxy_min)
 
 const config_oxy = {
     type: 'line',
-    data: data_oxy,
+    data: data_PH,
     options: {
         legend: {
             display: false,
@@ -100,11 +100,11 @@ getData().then(data => {
 
     for (let i = 0; i < length; i++) {
         time_array.push(output[i].id)
-        oxygen_array.push(output[i].oxygen)
+        PH_array.push(output[i].PH)
     }
 
     for (let i = 0; i < length; i++) {
-        console.log(time_array[i], oxygen_array[i])
+        console.log(time_array[i], PH_array[i])
     }
 
     OxygenChart.update();
@@ -123,7 +123,7 @@ function refresh() {
     console.log("refreshing")
 
     time_array = [];
-    oxygen_array = [];
+    PH_array = [];
 
     OxygenChart.destroy();
 
@@ -143,20 +143,20 @@ function refresh() {
 
         for (let i = 0; i < length; i++) {
             time_array.push(output[i].id)
-            oxygen_array.push(output[i].oxygen)
+            PH_array.push(output[i].oxygen)
         }
 
         for (let i = 0; i < length; i++) {
-            console.log(time_array[i], oxygen_array[i])
+            console.log(time_array[i], PH_array[i])
         }
 
         const data_oxy = {
             labels: time_array,
             datasets: [{
                 label: 'Oxygen',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
-                data: oxygen_array,
+                backgroundColor: 'rgb(255,255,255)',
+                borderColor: 'rgb(255,255,255)',
+                data: PH_array,
             }]
         };
 
@@ -241,7 +241,7 @@ function load_table() {
         cell = row.insertCell();
         cell.textContent = time_array[i];
         cell = row.insertCell();
-        cell.textContent = oxygen_array[i];
+        cell.textContent = PH_array[i];
         table.appendChild(row);
     }
 
