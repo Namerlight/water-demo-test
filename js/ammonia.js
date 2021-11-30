@@ -34,12 +34,12 @@ const data_amn = {
     }]
 };
 
-let oxy_max = 0.5
-let oxy_min = 0
+let amn_max = 0.5
+let amn_min = 0
 
-console.log(oxy_max, oxy_min)
+console.log(amn_max, amn_min)
 
-const config_oxy = {
+const config_amn = {
     type: 'line',
     data: data_amn,
     options: {
@@ -51,12 +51,12 @@ const config_oxy = {
             zoom: {
                 pan: {
                     enabled: true,
-                    mode: 'x',
+                    mode: 'xy',
 
                 },
                 limits: {
                     y: {
-                        max: oxy_max*1.3,
+                        max: amn_max*1.3,
                         min: 0,
                     }
                 },
@@ -68,7 +68,7 @@ const config_oxy = {
                         enabled: true,
                     },
                     drag: {
-                        enabled: true,
+                        enabled: false,
                     },
                     mode: 'xy',
 
@@ -77,16 +77,16 @@ const config_oxy = {
         },
         scales: {
             y: {
-                max: oxy_max*1.3,
+                max: amn_max*1.3,
                 min: 0,
             }
         }
     }
 };
 
-var OxygenChart = new Chart(
-    document.getElementById('OxygenTable'),
-    config_oxy
+var AmmoniaChart = new Chart(
+    document.getElementById('AmmoniaTable'),
+    config_amn
 );
 
 
@@ -107,7 +107,7 @@ getData().then(data => {
         console.log(time_array[i], ammonia_array[i])
     }
 
-    OxygenChart.update();
+    AmmoniaChart.update();
 
     document.getElementById("refresh").innerHTML = "Refresh Data"
 
@@ -116,7 +116,7 @@ getData().then(data => {
 });
 
 function resetZoom() {
-    OxygenChart.resetZoom();
+    AmmoniaChart.resetZoom();
 }
 
 function refresh() {
@@ -125,7 +125,7 @@ function refresh() {
     time_array = [];
     ammonia_array = [];
 
-    OxygenChart.destroy();
+    AmmoniaChart.destroy();
 
     async function getData_Refresh() {
         let response = await fetch(url);
@@ -160,7 +160,7 @@ function refresh() {
             }]
         };
 
-        const config_oxy = {
+        const config_amn = {
             type: 'line',
             data: data_amn,
             options: {
@@ -172,12 +172,12 @@ function refresh() {
                     zoom: {
                         pan: {
                             enabled: true,
-                            mode: 'x',
+                            mode: 'xy',
 
                         },
                         limits: {
                             y: {
-                                max: oxy_max*1.3,
+                                max: amn_max*1.3,
                                 min: 0,
                             }
                         },
@@ -189,7 +189,7 @@ function refresh() {
                                 enabled: true,
                             },
                             drag: {
-                                enabled: true,
+                                enabled: false,
                             },
                             mode: 'xy',
 
@@ -198,7 +198,7 @@ function refresh() {
                 },
                 scales: {
                     y: {
-                        max: oxy_max*1.3,
+                        max: amn_max*1.3,
                         min: 0,
                     }
                 }
@@ -206,18 +206,14 @@ function refresh() {
         };
 
 
-        OxygenChart = new Chart(
-            document.getElementById('OxygenTable'),
-            config_oxy
+        AmmoniaChart = new Chart(
+            document.getElementById('AmmoniaTable'),
+            config_amn
         );
 
-        OxygenChart.update();
+        AmmoniaChart.update();
 
         load_table();
-
-        OxygenChart.onZoom = function () {
-            console.log("Hello")
-        };
 
         document.getElementById("refresh").innerHTML = "Refresh Data"
     });
@@ -236,7 +232,7 @@ setInterval(refresh, 600000);
 function load_table() {
 
     for (let i = 0; i < time_array.length; i++) {
-        let table = document.getElementById('oxy-body');
+        let table = document.getElementById('amn-body');
         var row = document.createElement('tr');
         cell = row.insertCell();
         cell.textContent = time_array[i];

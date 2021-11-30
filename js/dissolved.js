@@ -51,7 +51,7 @@ const config_diss = {
             zoom: {
                 pan: {
                     enabled: true,
-                    mode: 'x',
+                    mode: 'xy',
 
                 },
                 limits: {
@@ -68,7 +68,7 @@ const config_diss = {
                         enabled: true,
                     },
                     drag: {
-                        enabled: true,
+                        enabled: false,
                     },
                     mode: 'xy',
 
@@ -172,7 +172,7 @@ function refresh() {
                     zoom: {
                         pan: {
                             enabled: true,
-                            mode: 'x',
+                            mode: 'xy',
 
                         },
                         limits: {
@@ -189,7 +189,7 @@ function refresh() {
                                 enabled: true,
                             },
                             drag: {
-                                enabled: true,
+                                enabled: false,
                             },
                             mode: 'xy',
 
