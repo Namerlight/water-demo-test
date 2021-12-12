@@ -79,7 +79,8 @@ function check_dissolved(quality_flag, dissolved_value) {
 function getQuality() {
     let oxygen_value = oxygen_array.at(-1);
     let ammonia_value = ammonia_array.at(-1);
-    let ph_value = ph_array.at(-1);
+    // let ph_value = ph_array.at(-1);
+    let ph_value = 11.0;
     let dissolved_value = dissolved_array.at(-1);
 
     let quality_flag = 0;     // if flag is 0, quality is good, flag = 1, quality is poor, flag = 2, quality is unsafe, higher is dangerous
@@ -108,11 +109,9 @@ function getQuantity() {
 
 function getPredQuality() {
 
-
 }
 
 function getPredQuantity() {
-
 
 }
 
@@ -142,6 +141,8 @@ getData().then(data => {
     let water_volume = daily_use * 30;         // in Litres monthly
     let cost = (14.46/1000);
 
+    let check_flag = 0;
+
     document.getElementById("date-data").innerHTML = ("Date: " + time_array[time_array.length - 1]);
     document.getElementById("volume-data").innerHTML = (water_volume + " L")
     document.getElementById("PH-data").innerHTML = ph_array[ph_array.length - 1];
@@ -155,6 +156,8 @@ getData().then(data => {
     document.getElementById("water-cost").innerHTML = cost.toString() + " BDT per L";
     document.getElementById("water-usage").innerHTML = water_volume.toString() + " L";
     document.getElementById("water-bill").innerHTML = getBill(cost, water_volume).toString() + " BDT";
+
+    console.log(getQuality());
 
 });
 

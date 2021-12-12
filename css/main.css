@@ -152,6 +152,26 @@ table {
     border-collapse: collapse;
 }
 
+#pred td, #pred th {
+    border: 1px solid #ddd;
+}
+
+#pred tr:nth-child(even){background-color: rgba(242, 242, 242, 0.1);}
+
+#pred tr:hover {background-color: rgba(221, 221, 221, 0.3);}
+
+#pred th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #1f5669;
+    color: white;
+}
+
+#real {
+    border-collapse: collapse;
+}
+
 .topnav {
     background-color: #2d334d;
     overflow: hidden;
