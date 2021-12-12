@@ -137,13 +137,17 @@ getData().then(data => {
         console.log(time_array[i], oxygen_array[i], ammonia_array[i], ph_array[i], dissolved_array[i])
     }
 
-    let water_volume = 200;         // in Litres
+    let daily_use = 300         // in Litres
+
+    let water_volume = daily_use * 30;         // in Litres monthly
     let cost = (14.46/1000);
+
+    document.getElementById("date-data").innerHTML = ("Date: " + time_array[time_array.length - 1]);
     document.getElementById("volume-data").innerHTML = (water_volume + " L")
-    document.getElementById("pH-data").innerHTML = "7.0"
-    document.getElementById("pressure-data").innerHTML = "500kpa"
-    document.getElementById("ar-data").innerHTML = "0.1%"
-    document.getElementById("speed-data").innerHTML = "2mph"
+    document.getElementById("PH-data").innerHTML = ph_array[ph_array.length - 1];
+    document.getElementById("oxy-data").innerHTML = oxygen_array[oxygen_array.length - 1];
+    document.getElementById("diss-data").innerHTML = dissolved_array[dissolved_array.length - 1];
+    document.getElementById("amn-data").innerHTML = ammonia_array[ammonia_array.length - 1];
 
     document.getElementById("quality-data").innerHTML = getQuality()
     document.getElementById("quantity-data").innerHTML = "Lots"
@@ -153,6 +157,21 @@ getData().then(data => {
     document.getElementById("water-bill").innerHTML = getBill(cost, water_volume).toString() + " BDT";
 
 });
+
+function login() {
+    login_url = "https://water-initial-test.herokuapp.com/api/post/login.php"
+
+
+    const form = document.getElementById('form');
+    const data = new URLSearchParams(new FormData(form).entries());
+
+    console.log(data);
+
+}
+
+function register() {
+
+}
 
 
 

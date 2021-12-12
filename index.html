@@ -19,10 +19,84 @@
 
 <body>
 
+<div class="topnav">
+    <a class="btn-dark" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a>
+    <a class="btn-dark" data-bs-toggle="modal" data-bs-target="#loginModal">Log In</a>
+    <a href="profile.html">Username</a>
+    <h1 style="padding-left: 12px; float: left; color: #eeeeee">CWT</h1>
+</div>
+
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Log In</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="login_form">
+                    <div class="form-group">
+                        <label for="Email1">Email address</label>
+                        <input type="email" class="form-control" id="Email1" aria-describedby="emailHelp" placeholder="Enter email">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="Password1">Password</label>
+                        <input type="password" class="form-control" id="Password1" placeholder="Password">
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-dark" onclick="login()">Submit</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#registerModal">No Account? Register</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="registerModalLabel">Register</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="Email1">Email address</label>
+                        <input type="email" class="form-control" id="Email2" aria-describedby="emailHelp" placeholder="Enter email">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="Password1">Password</label>
+                        <input type="password" class="form-control" id="Password2" placeholder="Password">
+                    </div>
+                    <br>
+                    <label for="Location">Location: </label>
+                    <select class="custom-select" id="Location">
+                        <option selected></option>
+                        <option value="1">Gulshan</option>
+                        <option value="2">Banani</option>
+                        <option value="3">Uttara</option>
+                    </select>
+                    <br>
+                    <br>
+                    <button type="submit" class="btn btn-dark">Submit</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#loginModal">Got an account? Login</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="offcanvas offcanvas-start" tabindex="1" id="offcanvasExample">
     <div class="col">
         <div class="bg-dark">
-            <ul class="nav bg-dark nav-pills flex-column flex-row text-truncate" style="height: 100vh; overflow: auto">
+            <ul class="bg-dark nav-pills flex-column flex-row text-truncate" style="height: 100vh; overflow: auto">
                 <li class="nav-item">
                     <a class="btn btn-dark" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
                        aria-controls="offcanvasExample" style="margin-top: 20px; margin-left: -10px">
@@ -66,26 +140,6 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-block nav-text-big text-truncate" style="margin-top: 20px">
-                        Water Quantity
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-block nav-text-small text-truncate">
-                        Volume and Usage
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-block nav-text-small text-truncate">
-                        Pressure
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-block nav-text-small text-truncate">
-                        Flow Speed
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a href="#" class="nav-block nav-text-small text-truncate">
                         Chlorine
                     </a>
@@ -110,24 +164,27 @@
                         Lead
                     </a>
                 </li>
-                <div class="nav-block text-truncate"
-                     style="margin-bottom: 20px; margin-left: -8px; padding-right: -20px; bottom: 0; position: absolute;">
-                    <li class="nav-item">
-                        <a href="#" class="nav-block nav-text-small text-truncate" style="display: block">
-                            $USERNAME
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-block nav-text-small text-truncate" style="">
-                            $USERNAME
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-block nav-text-small text-truncate" style="">
-                            $USERNAME
-                        </a>
-                    </li>
-                </div>
+                <li class="nav-item">
+                    <a href="#" class="nav-block nav-text-big text-truncate" style="margin-top: 20px">
+                        Water Quantity
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-block nav-text-small text-truncate">
+                        Volume and Usage
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-block nav-text-small text-truncate">
+                        Pressure
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-block nav-text-small text-truncate">
+                        Flow Speed
+                    </a>
+                </li>
+
             </ul>
         </div>
     </div>
@@ -138,7 +195,7 @@
     <div class="row">
         <div class="col-sm-2 desk div-only-mobile">
             <div class="bg-dark">
-                <ul class="nav bg-dark nav-pills flex-column flex-sm-column flex-row text-truncate"
+                <ul class="bg-dark nav-pills text-truncate"
                     style="height: 100vh; overflow: auto">
                     <li class="nav-item">
                         <a href="#" class="nav-text-big nav-block text-truncate"
@@ -216,24 +273,7 @@
                             Lead
                         </a>
                     </li>
-                    <div class="nav-block text-truncate"
-                         style="margin-bottom: 20px; margin-left: -8px; padding-right: -20px; bottom: 0; position: absolute;">
-                        <li class="nav-item">
-                            <a href="#" class="nav-block nav-text-small text-truncate" style="display: block">
-                                $USERNAME
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-block nav-text-small text-truncate" style="">
-                                $USERNAME
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-block nav-text-small text-truncate" style="">
-                                $USERNAME
-                            </a>
-                        </li>
-                    </div>
+
                 </ul>
             </div>
         </div>
@@ -256,44 +296,57 @@
                     <div class="card-bg card justify-content-center text-center" style="">
                         <div class="card-body">
                             <p><h5 class="card-title">Real-Time Data Monitoring</h5></p>
-                            <p><h6 class="card-subtitle mb-2">Date: $CurrentDate</h6></p>
+                            <p><h6 id="date-data" class="card-subtitle mb-2"></h6></p>
                             <table id="real" style="width: 100%;">
                                 <tr>
-                                    <th>Parameter</th>
-                                    <th>Real Data</th>
                                     <th>Parameter</th>
                                     <th>Real Data</th>
                                 </tr>
                                 <tr>
                                     <td>Volume</td>
                                     <td id="volume-data"></td>
-                                    <td>pH</td>
-                                    <td id="pH-data"></td>
                                 </tr>
                                 <tr>
                                     <td>Pressure</td>
                                     <td id="pressure-data"></td>
-                                    <td>Ar</td>
-                                    <td id="ar-data"></td>
                                 </tr>
                                 <tr>
                                     <td>Speed</td>
                                     <td id="speed-data"></td>
+                                </tr>
+                                <tr>
+                                    <td>Oxygen</td>
+                                    <td id="oxy-data"></td>
+                                </tr>
+                                <tr>
+                                    <td>Ammonia</td>
+                                    <td id="amn-data"></td>
+                                </tr>
+                                <tr>
+                                    <td>PH</td>
+                                    <td id="PH-data"></td>
+                                </tr>
+                                <tr>
+                                    <td>Dissolved Oxy</td>
+                                    <td id="diss-data"></td>
+                                </tr>
+                                <tr>
+                                    <td>Ar</td>
+                                    <td id="ar-data"></td>
+                                </tr>
+                                <tr>
                                     <td>Pb</td>
                                     <td id="pb-data"></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
                                     <td>Cl</td>
                                     <td id="cl-data"></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
                                     <td>Cr</td>
                                     <td id="cr-data"></td>
                                 </tr>
+
                             </table>
                             <h6 class="card-subtitle mb-2" style="padding-top: 20px">Current Quality - <span
                                     id="quality-data">  </span></h6>

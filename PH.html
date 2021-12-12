@@ -18,41 +18,102 @@
 
 <style>
 
-    tbody {
-        display:block;
-        height:400px;
-        overflow:auto;
-    }
-    thead, tbody tr {
-        display:table;
-        width:100%;
-        table-layout:fixed;
-    }
-    thead {
-        width: calc( 100% - 1em )
-    }
-    table {
-        width:400px;
-    }
-
 </style>
 
 <body>
 
+<div class="topnav">
+    <a class="btn-dark" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a>
+    <a class="btn-dark" data-bs-toggle="modal" data-bs-target="#loginModal">Log In</a>
+    <a href="profile.html">Username</a>
+    <h1 style="padding-left: 12px; float: left; color: #eeeeee">CWT</h1>
+</div>
+
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Log In</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="login_form">
+                    <div class="form-group">
+                        <label for="Email1">Email address</label>
+                        <input type="email" class="form-control" id="Email1" aria-describedby="emailHelp" placeholder="Enter email">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="Password1">Password</label>
+                        <input type="password" class="form-control" id="Password1" placeholder="Password">
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-dark" onclick="login()">Submit</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#registerModal">No Account? Register</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="registerModalLabel">Register</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="Email1">Email address</label>
+                        <input type="email" class="form-control" id="Email2" aria-describedby="emailHelp" placeholder="Enter email">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="Password1">Password</label>
+                        <input type="password" class="form-control" id="Password2" placeholder="Password">
+                    </div>
+                    <br>
+                    <label for="Location">Location: </label>
+                    <select class="custom-select" id="Location">
+                        <option selected></option>
+                        <option value="1">Gulshan</option>
+                        <option value="2">Banani</option>
+                        <option value="3">Uttara</option>
+                    </select>
+                    <br>
+                    <br>
+                    <button type="submit" class="btn btn-dark">Submit</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#loginModal">Got an account? Login</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="offcanvas offcanvas-start" tabindex="1" id="offcanvasExample">
     <div class="col">
         <div class="bg-dark">
-            <ul class="nav bg-dark nav-pills flex-column flex-row text-truncate" style="height: 100vh; overflow: auto">
+            <ul class="bg-dark nav-pills flex-column flex-row text-truncate" style="height: 100vh; overflow: auto">
                 <li class="nav-item">
-                    <a class="btn btn-dark" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample" style="margin-top: 20px; margin-left: -10px">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-list" viewBox="1.5 1 13 13" style="padding-bottom: 5px">
-                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                    <a class="btn btn-dark" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+                       aria-controls="offcanvasExample" style="margin-top: 20px; margin-left: -10px">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-list"
+                             viewBox="1.5 1 13 13" style="padding-bottom: 5px">
+                            <path fill-rule="evenodd"
+                                  d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
                         </svg>
                         Close Menu
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="index.html" class="nav-text-big nav-block text-truncate" style="display: block; background-color: #2d334d; margin-top: 14px">
+                    <a href="#" class="nav-text-big nav-block text-truncate"
+                       style="display: block; background-color: #2d334d; margin-top: 14px">
                         Home & Summary
                     </a>
                 </li>
@@ -82,26 +143,6 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-block nav-text-big text-truncate" style="margin-top: 20px">
-                        Water Quantity
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-block nav-text-small text-truncate">
-                        Volume and Usage
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-block nav-text-small text-truncate">
-                        Pressure
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-block nav-text-small text-truncate">
-                        Flow Speed
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a href="#" class="nav-block nav-text-small text-truncate">
                         Chlorine
                     </a>
@@ -126,36 +167,42 @@
                         Lead
                     </a>
                 </li>
-                <div class="nav-block text-truncate" style="margin-bottom: 20px; margin-left: -8px; padding-right: -20px; bottom: 0; position: absolute;">
-                    <li class="nav-item">
-                        <a href="#" class="nav-block nav-text-small text-truncate" style="display: block">
-                            $USERNAME
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-block nav-text-small text-truncate" style="">
-                            $USERNAME
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-block nav-text-small text-truncate" style="">
-                            $USERNAME
-                        </a>
-                    </li>
-                </div>
+                <li class="nav-item">
+                    <a href="#" class="nav-block nav-text-big text-truncate" style="margin-top: 20px">
+                        Water Quantity
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-block nav-text-small text-truncate">
+                        Volume and Usage
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-block nav-text-small text-truncate">
+                        Pressure
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-block nav-text-small text-truncate">
+                        Flow Speed
+                    </a>
+                </li>
+
             </ul>
         </div>
     </div>
 </div>
 
 
-<div class="bg">
+<div class="bg" style="overflow: auto">
     <div class="row">
         <div class="col-sm-2 desk div-only-mobile">
             <div class="bg-dark">
-                <ul class="nav bg-dark nav-pills flex-sm-column flex-row text-truncate" style="height: 100vh; overflow: auto">
+                <ul class="bg-dark nav-pills text-truncate"
+                    style="height: 100vh; overflow: auto">
                     <li class="nav-item">
-                        <a href="index.html" class="nav-text-big nav-block text-truncate" style="display: block; background-color: #2d334d; margin-top: 14px">
+                        <a href="#" class="nav-text-big nav-block text-truncate"
+                           style="display: block; background-color: #2d334d; margin-top: 14px">
                             Home & Summary
                         </a>
                     </li>
@@ -229,24 +276,6 @@
                             Lead
                         </a>
                     </li>
-                    <div class="nav-block text-truncate" style="margin-bottom: 20px; margin-left: -8px; padding-right: -20px; bottom: 0; position: absolute;">
-                        <li class="nav-item">
-                            <a href="#" class="nav-block nav-text-small text-truncate" style="display: block">
-                                $USERNAME
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-block nav-text-small text-truncate" style="">
-                                $USERNAME
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-block nav-text-small text-truncate" style="">
-                                $USERNAME
-                            </a>
-                        </li>
-                    </div>
-
 
                 </ul>
             </div>
