@@ -26,7 +26,7 @@
 <div class="topnav">
     <a class="btn-dark" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a>
     <a class="btn-dark" data-bs-toggle="modal" data-bs-target="#loginModal">Log In</a>
-    <a href="profile.html">Username</a>
+    <a id="user" href="profile.html">Username</a>
     <h1 style="padding-left: 12px; float: left; color: #eeeeee">CWT</h1>
 </div>
 
@@ -39,17 +39,15 @@
             </div>
             <div class="modal-body">
                 <form id="login_form">
-                    <div class="form-group">
-                        <label for="Email1">Email address</label>
-                        <input type="email" class="form-control" id="Email1" aria-describedby="emailHelp" placeholder="Enter email">
-                    </div>
-                    <br>
-                    <div class="form-group">
-                        <label for="Password1">Password</label>
-                        <input type="password" class="form-control" id="Password1" placeholder="Password">
-                    </div>
-                    <br>
-                    <button type="submit" class="btn btn-dark" onclick="login()">Submit</button>
+
+                    <label for="usernamebox1">Email Address</label><br>
+                    <input type="text" id="usernamebox1" name="Username"><br/><br/>
+
+                    <label for="passwordbox1">Password</label> <br>
+                    <input type="password" id="passwordbox1" name="Password"><br/>
+                    <br/>
+                    <input type="button" name="submit" value="Log In" onclick="login()"/>
+
                 </form>
             </div>
             <div class="modal-footer">
@@ -67,27 +65,31 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label for="Email1">Email address</label>
-                        <input type="email" class="form-control" id="Email2" aria-describedby="emailHelp" placeholder="Enter email">
-                    </div>
-                    <br>
-                    <div class="form-group">
-                        <label for="Password1">Password</label>
-                        <input type="password" class="form-control" id="Password2" placeholder="Password">
-                    </div>
-                    <br>
-                    <label for="Location">Location: </label>
-                    <select class="custom-select" id="Location">
-                        <option selected></option>
-                        <option value="1">Gulshan</option>
-                        <option value="2">Banani</option>
-                        <option value="3">Uttara</option>
-                    </select>
-                    <br>
-                    <br>
-                    <button type="submit" class="btn btn-dark">Submit</button>
+
+                <form id="register_form">
+
+                    <label for="usernamebox2">Email Address</label><br>
+                    <input type="text" id="usernamebox2" name="Username"><br/><br/>
+
+                    <label for="passwordbox2">Password</label> <br>
+                    <input type="password" id="passwordbox2" name="Password"><br/>
+                    <br/>
+
+                    <label for="passwordbox2_re">Password</label> <br>
+                    <input type="password" id="passwordbox2_re" name="Password"><br/>
+                    <br/>
+
+                    <label for="locbox2">Location</label><br>
+                    <select name="loc2" id="locbox2">
+                        <option value="Select">Select Location</option>
+                        <option value="Gulshan">Gulshan</option>
+                        <option value="Banani">Banani</option>
+                        <option value="Mohakhali">Mohakhali</option>
+                        <option value="Uttara">Uttara</option>
+                    </select><br/><br/>
+
+                    <input type="button" name="submit" value="Register" onclick="register()"/>
+
                 </form>
             </div>
             <div class="modal-footer">
@@ -113,7 +115,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-text-big nav-block text-truncate"
+                    <a href="index.html" class="nav-text-big nav-block text-truncate"
                        style="display: block; background-color: #2d334d; margin-top: 14px">
                         Home & Summary
                     </a>
@@ -194,7 +196,6 @@
     </div>
 </div>
 
-
 <div class="bg" style="overflow: auto">
     <div class="row">
         <div class="col-sm-2 desk div-only-mobile">
@@ -202,7 +203,7 @@
                 <ul class="bg-dark nav-pills text-truncate"
                     style="height: 100vh; overflow: auto">
                     <li class="nav-item">
-                        <a href="#" class="nav-text-big nav-block text-truncate"
+                        <a href="index.html" class="nav-text-big nav-block text-truncate"
                            style="display: block; background-color: #2d334d; margin-top: 14px">
                             Home & Summary
                         </a>
@@ -282,6 +283,7 @@
             </div>
         </div>
 
+
         <div class="col-lg-8 mx-auto justify-content-center text-center" style="overflow: auto">
             <main>
                 <a class="btn btn-dark div-vis-mobile div-hide-desktop" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample" style="position: fixed; top: 20px; left: 20px;">
@@ -358,3 +360,5 @@
 </html>
 
 <script src="js/quality.js"></script>
+<script src="js/accounts.js"></script>
+

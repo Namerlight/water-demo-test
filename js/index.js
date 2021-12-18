@@ -161,21 +161,6 @@ getData().then(data => {
 
 });
 
-function login() {
-    login_url = "https://water-initial-test.herokuapp.com/api/post/login.php"
-
-
-    const form = document.getElementById('form');
-    const data = new URLSearchParams(new FormData(form).entries());
-
-    console.log(data);
-
-}
-
-function register() {
-
-}
-
 
 
 
