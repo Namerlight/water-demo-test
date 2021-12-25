@@ -48,11 +48,10 @@ function login() {
                 location.reload()
 
             })
-            //Then with the error genereted...
+            //Then with the error generated...
             .catch((error) => {
                 console.error('Error:', error);
             });
-
 
     }
 }
@@ -91,31 +90,30 @@ function register() {
 
         console.log(register_data)
 
-        fetch(register_url, {
-            credentials: "same-origin",
-            mode: "cors",
-            method: "post",
-            headers: { "Content-Type": "application/json" },
-            body: register_data
-        })
-            .then(resp => {
-                if (resp.status === 200) {
-                    console.log(resp)
-                    console.log(resp.json())
-                    return resp.json()
-                } else {
-                    console.log("Status: " + resp.status)
-                    return Promise.reject("server")
-                }
-            })
-            // .then(dataJson => {
-            //     dataReceived = JSON.parse(dataJson)
-            // })
-            .catch(err => {
-                if (err === "server") return
-                console.log(err)
-            })
+        axios.post(register_url, register_data)
+            .then((response) => {
+                console.log(response);
+        }, (error) => {
+            console.log(error);
+            alert("Registration Failed. Please Try Again.")
+        });
 
+        // fetch(register_url, {
+        //     credentials: "same-origin",
+        //     mode: "cors",
+        //     method: "post",
+        //     headers: { "Content-Type": "application/json" },
+        //     body: register_data
+        // })
+        //     .then((response) => response.json())
+        //     //Then with the data from the response in JSON...
+        //     .then((data) => {
+        //         console.log('Success:', data);
+        //     })
+        //     //Then with the error genereted...
+        //     .catch((error) => {
+        //         console.error('Error:', error);
+        //     });
     }
 
 }
@@ -123,6 +121,7 @@ function register() {
 function load_page() {
 
     document.getElementById("user").innerHTML = readCookie("Username")
+    document.getElementById("")
 
 }
 

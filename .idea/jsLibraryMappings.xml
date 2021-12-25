@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="PROJECT" libraries="{Chart.js, chart.js, chartjs-plugin-zoom, hammer.js, hammerjs}" />
+    <file url="PROJECT" libraries="{Chart.js, axios, chart.js, chartjs-plugin-zoom, hammer.js, hammerjs}" />
   </component>
 </project>
