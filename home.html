@@ -4,20 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
-    <script src="js/chartjs-plugin-zoom.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
-    <title>Title</title>
+    <title>Citizens' Water Tool</title>
 
 </head>
 
 <style>
+
 
 </style>
 
@@ -27,8 +24,9 @@
     <a class="btn-dark" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a>
     <a class="btn-dark" data-bs-toggle="modal" data-bs-target="#loginModal">Log In</a>
     <a id="user" href="profile.html">Username</a>
-    <h1 style="padding-left: 12px; float: left; color: #eeeeee">CWT</h1>
+    <h1 style="padding-left: 12px; float: left; color: #eeeeee" href="home.html">CWT</h1>
 </div>
+
 
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -284,62 +282,37 @@
             </div>
         </div>
 
-        <div class="col-lg-8 mx-auto justify-content-center text-center" style="overflow: auto; overflow-x: hidden">
-            <main>
-                <a class="btn btn-dark div-vis-mobile div-hide-desktop" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample" style="position: fixed; top: 20px; left: 20px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-list" viewBox="1.5 1 13 13">
-                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-                    </svg>
-                </a>
-                <p><h2>Water Quality Monitoring</h2></p>
-                <p><div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true">
-                        Location
-                    </button>
-                    <a type="button" class="btn btn-secondary" id="refresh">Load Data</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Dhaka</a>
-                        <a class="dropdown-item" href="#">Gulshan</a>
-                        <a class="dropdown-item" href="#">Banani</a>
-                        <a class="dropdown-item" href="#">Uttara</a>
-                    </div>
-                </div></p>
-                <div class="row g-5">
+        <div class="col-lg-10 mx-auto p-5 py-md-8 justify-content-center text-center">
+            <h2>Citizens' Water Tool Analytics</h2>
+            <br>
 
-                    <div class="col-md-12 justify-content-center text-center" style="background-color: #2d334d; padding: 20px;">
-                        <div>
-                            <canvas id="OxygenTable" style="padding-right: 40px"></canvas>
+            <a class="btn btn-dark div-vis-mobile div-hide-desktop" data-bs-toggle="offcanvas" href="#offcanvasExample"
+               role="button" aria-controls="offcanvasExample" style="position: fixed; top: 20px; left: 20px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-list"
+                     viewBox="1.5 1 13 13">
+                    <path fill-rule="evenodd"
+                          d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                </svg>
+            </a>
+
+            <div class="row g-5">
+                <div class="col-md-12 justify-content-center text-center" style="">
+                    <div class="card-bg card justify-content-center text-center" style="">
+                        <div class="card-body">
+                            <p><h5 class="card-title">How to Use:</h5></p>
+                            <p><h6 class="card-subtitle mb-2">Instructions</h6></p>
+                            <ul>
+                                <li><p>Step 1: Register an Account. Enter your email, set a password and choose a location.</li>
+                                <li><p>Step 2: There is no need to set an email confirmation (FOR NOW). Log In using your username and password</li>
+                                <li><p>Step 3: Use the menu on the left to select which quantity or quality of water to view.<br/> In the detailed information page, you can pan and drag the graph.</li>
+                            </ul>
                         </div>
-
-                        <div>
-                            <button type="button" class="btn btn-outline-light" id="resetzoom" style="padding-top: 0; padding-bottom: 0;">Reset Zoom</button>
-                        </div>
-                    </div>
-
-
-                </div>
-
-                <div class="row g-5">
-
-                    <div class="col-md-12 justify-content-center text-center" style="color: #eeeeee; background-color: #2d334d; padding: 20px; height: 500px">
-
-                            <table id="oxy-table" style="width: 100%;">
-                                <thead>
-                                    <tr>
-                                        <th>Timestamp</th>
-                                        <th>PH Data</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="oxy-body">
-
-                                </tbody>
-                            </table>
-
                     </div>
                 </div>
 
-            </main>
+
+            </div>
+
 
         </div>
     </div>
@@ -347,6 +320,5 @@
 </body>
 </html>
 
-<script src="js/PH.js"></script>
 <script src="js/accounts.js"></script>
 

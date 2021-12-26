@@ -6,7 +6,8 @@ var offcanvasList = offcanvasElementList.map(function (offcanvasEl) {
 })
 
 // const url = "http://192.168.0.193/REST_test/api/post/read_last_100.php";
-const url = "https://water-initial-test.herokuapp.com/api/post/read_last_100.php";
+const db_url = "https://water-initial-test.herokuapp.com/api/post/read_last_100.php";
+const pred_url = "http://localhost:5000/"
 
 let time_array = [];
 let oxygen_array = [];
@@ -14,10 +15,20 @@ let ammonia_array = [];
 let ph_array =[];
 let dissolved_array = [];
 
+let predTurb_array = [];
+let predPH_array = [];
+let predTDS_array = [];
+
 async function getData() {
-    let response = await fetch(url);
-    let data = await response.json()
-    return data
+    let response = await fetch(db_url);
+    let real_data = await response.json()
+    return real_data
+}
+
+async function getPred() {
+    let response = await axios.get(pred_url);
+    let pred_data = response
+    return pred_data;
 }
 
 function getBill(cost, volume) {
@@ -158,6 +169,40 @@ getData().then(data => {
     document.getElementById("water-bill").innerHTML = getBill(cost, water_volume).toString() + " BDT";
 
     console.log(getQuality());
+
+});
+
+getPred().then(data => {
+
+    output = data.data;
+    console.log(output)
+
+    let length = Object.keys(output).length;
+    console.log(length);
+
+    predPH_array.push(output.PH)
+    predTDS_array.push(output.TDS)
+    predTurb_array.push(output.Turb)
+
+    for (let i = 0; i < length; i++) {
+        console.log(predTurb_array[i], predTDS_array[i], predPH_array[i])
+    }
+
+    document.getElementById("date-data").innerHTML = ("Date: " + time_array[time_array.length - 1]);
+    document.getElementById("turb-pred").innerHTML = predTurb_array[predTurb_array.length-1]
+    document.getElementById("PH-pred").innerHTML = predPH_array[predPH_array.length - 1];
+    document.getElementById("TDS-pred").innerHTML = predTDS_array[predTDS_array.length - 1];
+    // document.getElementById("diss-data").innerHTML = dissolved_array[dissolved_array.length - 1];
+    // document.getElementById("amn-data").innerHTML = ammonia_array[ammonia_array.length - 1];
+    //
+    // document.getElementById("quality-data").innerHTML = getQuality()
+    // document.getElementById("quantity-data").innerHTML = "Lots"
+    //
+    // document.getElementById("water-cost").innerHTML = cost.toString() + " BDT per L";
+    // document.getElementById("water-usage").innerHTML = water_volume.toString() + " L";
+    // document.getElementById("water-bill").innerHTML = getBill(cost, water_volume).toString() + " BDT";
+    //
+    // console.log(getQuality());
 
 });
 
