@@ -7,7 +7,7 @@ var offcanvasList = offcanvasElementList.map(function (offcanvasEl) {
 
 // const url = "http://192.168.0.193/REST_test/api/post/read_last_100.php";
 const db_url = "https://water-initial-test.herokuapp.com/api/post/read_last_100.php";
-const pred_url = "http://localhost:5000/"
+const pred_url = "https://flask-ml-test.herokuapp.com/"
 
 let time_array = [];
 let oxygen_array = [];
