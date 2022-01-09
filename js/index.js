@@ -15,9 +15,10 @@ let ammonia_array = [];
 let ph_array =[];
 let dissolved_array = [];
 
-let predTurb_array = [];
+let predOxy_array = [];
+let predAmn_array = [];
 let predPH_array = [];
-let predTDS_array = [];
+let predDiss_array = [];
 
 async function getData() {
     let response = await fetch(db_url);
@@ -181,17 +182,20 @@ getPred().then(data => {
     console.log(length);
 
     predPH_array.push(output.PH)
-    predTDS_array.push(output.TDS)
-    predTurb_array.push(output.Turb)
+    predDiss_array.push(output.Dissolved)
+    predOxy_array.push(output.Oxygen)
+    predAmn_array.push(output.Ammonia)
 
     for (let i = 0; i < length; i++) {
-        console.log(predTurb_array[i], predTDS_array[i], predPH_array[i])
+        console.log(predOxy_array[i], predAmn_array[i], predPH_array[i], predDiss_array[i])
     }
 
     document.getElementById("date-data").innerHTML = ("Date: " + time_array[time_array.length - 1]);
-    document.getElementById("turb-pred").innerHTML = predTurb_array[predTurb_array.length-1]
+    document.getElementById("oxy-pred").innerHTML = predOxy_array[predOxy_array.length-1]
     document.getElementById("PH-pred").innerHTML = predPH_array[predPH_array.length - 1];
-    document.getElementById("TDS-pred").innerHTML = predTDS_array[predTDS_array.length - 1];
+    document.getElementById("amn-pred").innerHTML = predAmn_array[predAmn_array.length - 1];
+    document.getElementById("diss-pred").innerHTML = predDiss_array[predDiss_array.length - 1];
+
     // document.getElementById("diss-data").innerHTML = dissolved_array[dissolved_array.length - 1];
     // document.getElementById("amn-data").innerHTML = ammonia_array[ammonia_array.length - 1];
     //

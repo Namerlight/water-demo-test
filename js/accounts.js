@@ -1,5 +1,7 @@
 console.log("Accounts Running");
 
+console.log(location.pathname)
+
 function readCookie(name) {
     var nameEQ = name + "=";
     var ca = document.cookie.split(';');
@@ -45,7 +47,12 @@ function login() {
                 document.cookie = ("Username =" + data.message);
 
                 console.log(document.cookie);
-                location.reload()
+
+                if(location.pathname === "/water-demo-test/index.html") {
+                    window.location.replace("/data.html")
+                } else {
+                    location.reload()
+                }
 
             })
             //Then with the error generated...
@@ -58,8 +65,19 @@ function login() {
 
 function logout() {
 
-    document.cookie = "Username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    function deleteAllCookies() {
+        var cookies = document.cookie.split(";");
 
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i];
+            var eqPos = cookie.indexOf("=");
+            var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+            document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        }
+    }
+
+    console.log("Logging out")
+    deleteAllCookies()
     location.reload()
 
 }

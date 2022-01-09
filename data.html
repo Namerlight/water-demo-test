@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
-    <title>Citizens' Water Tool</title>
+    <title>Title</title>
 
 </head>
 
@@ -23,8 +23,9 @@
 <div class="topnav">
     <a class="btn-dark" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a>
     <a class="btn-dark" data-bs-toggle="modal" data-bs-target="#loginModal">Log In</a>
+    <a class="btn-dark" data-bs-toggle="modal" onclick="logout()">Logout</a>
     <a id="user" href="profile.html">Username</a>
-    <h1 style="padding-left: 12px; float: left; color: #eeeeee" href="home.html">CWT</h1>
+    <h1 style="padding-left: 12px; float: left; color: #eeeeee">CWT</h1>
 </div>
 
 
@@ -113,7 +114,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="index.html" class="nav-text-big nav-block text-truncate"
+                    <a href="data.html" class="nav-text-big nav-block text-truncate"
                        style="display: block; background-color: #2d334d; margin-top: 14px">
                         Home & Summary
                     </a>
@@ -202,7 +203,7 @@
                 <ul class="bg-dark nav-pills text-truncate"
                     style="height: 100vh; overflow: auto">
                     <li class="nav-item">
-                        <a href="index.html" class="nav-text-big nav-block text-truncate"
+                        <a href="data.html" class="nav-text-big nav-block text-truncate"
                            style="display: block; background-color: #2d334d; margin-top: 14px">
                             Home & Summary
                         </a>
@@ -277,7 +278,6 @@
                             Flow Speed
                         </a>
                     </li>
-
                 </ul>
             </div>
         </div>
@@ -295,22 +295,154 @@
                 </svg>
             </a>
 
-            <div class="row g-5">
-                <div class="col-md-12 justify-content-center text-center" style="">
-                    <div class="card-bg card justify-content-center text-center" style="">
+            <div class="row g-5 justify-content-center text-center" >
+                <div class="col-md-5 justify-content-center text-center" style="">
+                    <div class="card-bg card justify-content-center text-center" style="background-color: #308075;">
                         <div class="card-body">
-                            <p><h5 class="card-title">How to Use:</h5></p>
-                            <p><h6 class="card-subtitle mb-2">Instructions</h6></p>
-                            <ul>
-                                <li><p>Step 1: Register an Account. Enter your email, set a password and choose a location.</li>
-                                <li><p>Step 2: There is no need to set an email confirmation (FOR NOW). Log In using your username and password</li>
-                                <li><p>Step 3: Use the menu on the left to select which quantity or quality of water to view.<br/> In the detailed information page, you can pan and drag the graph.</li>
-                            </ul>
+                            <p><h4 class="card-title">Real-Time Data Monitoring</h4></p>
+                            <p><h6 id="date-data" class="card-subtitle mb-2"></h6></p>
+                            <h5 class="card-subtitle mb-2" style="padding-top: 20px">Current Quality - <span
+                                    id="quality-data">  </span></h5>
+                            <h5 class="card-subtitle mb-2">Current Quantity - <span id="quantity-data">  </span></h5></br>
+                            <table id="real" style="width: 100%;">
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Real Data</th>
+                                </tr>
+                                <tr>
+                                    <td>Volume</td>
+                                    <td id="volume-data"></td>
+                                </tr>
+                                <tr>
+                                    <td>Pressure</td>
+                                    <td id="pressure-data"></td>
+                                </tr>
+                                <tr>
+                                    <td>Speed</td>
+                                    <td id="speed-data"></td>
+                                </tr>
+                                <tr>
+                                    <td>Oxygen</td>
+                                    <td id="oxy-data"></td>
+                                </tr>
+                                <tr>
+                                    <td>Ammonia</td>
+                                    <td id="amn-data"></td>
+                                </tr>
+                                <tr>
+                                    <td>PH</td>
+                                    <td id="PH-data"></td>
+                                </tr>
+                                <tr>
+                                    <td>Dissolved Oxy</td>
+                                    <td id="diss-data"></td>
+                                </tr>
+                                <tr>
+                                    <td>Ar</td>
+                                    <td id="ar-data"></td>
+                                </tr>
+                                <tr>
+                                    <td>Pb</td>
+                                    <td id="pb-data"></td>
+                                </tr>
+                                <tr>
+                                    <td>Cl</td>
+                                    <td id="cl-data"></td>
+                                </tr>
+                                <tr>
+                                    <td>Cr</td>
+                                    <td id="cr-data"></td>
+                                </tr>
+                            </table>
+                            <br>
+                            <p><h4 class="card-title">Total Bill</h4></p>
+                            <p><h5 class="card-subtitle mb-2" style="text-align: left">Water Price: <span
+                                id="water-cost">  </span></h5></p>
+                            <p><h5 class="card-subtitle mb-2" style="text-align: left">Water Usage for Month: <span
+                                id="water-usage">  </span></h5></p>
+                            <p><h5 class="card-subtitle mb-2" style="text-align: left">Bill for Month: <span
+                                id="water-bill">  </span></h5></p>
+                            <br>
+                            <p><h5 class="card-subtitle mb-2" style="text-align: left">Water Usage for Next: <span
+                                id="pred-usage">  </span></h5></p>
+                            <p><h5 class="card-subtitle mb-2" style="text-align: left">Bill for Next: <span
+                                id="pred-bill">  </span></h5></p>
                         </div>
                     </div>
                 </div>
 
+                <div class="col-md-5 justify-content-center text-center" style="">
+                    <div class="card-bg card" style="background-color: #8e7f1d;">
+                        <div class="card-body">
+                            <p><h4 class="card-title">Predicted Data</h4></p>
+                            <p><h6 class="card-subtitle mb-2">Date: $FutureDate</h6></p>
+                            <h5 class="card-subtitle mb-2" style="padding-top: 20px">Current Quality - <span
+                                    id="quality-pred">  </span></h5>
+                            <h5 class="card-subtitle mb-2">Current Quantity - <span id="quantity-pred">  </span></h5><br/>
+                            <table id="pred" style="width: 100%;">
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Predicted Data</th>
+                                </tr>
+                                <tr>
+                                    <td>Oxygen</td>
+                                    <td id="oxy-pred"></td>
+                                </tr>
+                                <tr>
+                                    <td>Ammonia</td>
+                                    <td id="amn-pred"></td>
+                                </tr>
+                                <tr>
+                                    <td>PH</td>
+                                    <td id="PH-pred"></td>
+                                </tr>
+                                <tr>
+                                    <td>Dissolved Oxy</td>
+                                    <td id="diss-pred"></td>
+                                </tr>
+                                <tr>
+                                    <td>Turbidity</td>
+                                    <td id="turb-pred"></td>
+                                </tr>
+                                <tr>
+                                    <td>TDS</td>
+                                    <td id="TDS-pred"></td>
+                                </tr>
+                                <tr>
+                                    <td>Speed</td>
+                                    <td id="speed-pred"></td>
+                                </tr>
+                                <tr>
+                                    <td>Ar</td>
+                                    <td id="ar-pred"></td>
+                                </tr>
+                                <tr>
+                                    <td>Pb</td>
+                                    <td id="pb-pred"></td>
+                                </tr>
+                                <tr>
+                                    <td>Cl</td>
+                                    <td id="cl-pred"></td>
+                                </tr>
+                                <tr>
+                                    <td>Cr</td>
+                                    <td id="cr-pred"></td>
+                                </tr>
 
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/> <br/>
+        <div class="row g-5">
+                <div class="col-md-4 justify-content-center text-center">
+                    <div class="card-bg card" style="">
+                        <div class="card-body">
+
+                        </div>
+                    </div>
+                </div>
             </div>
 
 
@@ -320,5 +452,6 @@
 </body>
 </html>
 
+<script src="js/index.js"></script>
 <script src="js/accounts.js"></script>
 
