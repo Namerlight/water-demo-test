@@ -146,6 +146,7 @@ function load_page() {
         console.log("is logged in, can go")
     } else {
         console.log("Not logged, stay here.")
+        window.location.replace("/")
     }
 
 }
