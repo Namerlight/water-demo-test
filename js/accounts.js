@@ -46,13 +46,8 @@ function login() {
                 document.cookie = ("Username =" + data.message);
 
                 console.log(document.cookie);
-
-                if(location.pathname === "/water-demo-test/index.html") {
-                    console.log("Moving to Data")
-                    window.location.replace("/data.html")
-                } else {
-                    location.reload()
-                }
+                window.location.replace("/data.html")
+                
 
             })
             //Then with the error generated...
@@ -115,23 +110,6 @@ function register() {
             console.log(error);
             alert("Registration Failed. Please Try Again.")
         });
-
-        // fetch(register_url, {
-        //     credentials: "same-origin",
-        //     mode: "cors",
-        //     method: "post",
-        //     headers: { "Content-Type": "application/json" },
-        //     body: register_data
-        // })
-        //     .then((response) => response.json())
-        //     //Then with the data from the response in JSON...
-        //     .then((data) => {
-        //         console.log('Success:', data);
-        //     })
-        //     //Then with the error genereted...
-        //     .catch((error) => {
-        //         console.error('Error:', error);
-        //     });
     }
 
 }
@@ -141,7 +119,7 @@ function load_page() {
     console.log("loading", readCookie("Username"))
     document.getElementById("user").innerHTML = readCookie("Username")
     console.log(location.pathname)
- 
+
     if(readCookie("Username")!== null) {
         console.log("is logged in, can go, or already at home")
     } else {
