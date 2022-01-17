@@ -1,14 +1,12 @@
 console.log("Accounts Running");
 
-console.log(location.pathname)
-
 function readCookie(name) {
     var nameEQ = name + "=";
     var ca = document.cookie.split(';');
     for(var i=0;i < ca.length;i++) {
         var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1,c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        while (c.charAt(0) === ' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length,c.length);
     }
     return null;
 }
@@ -49,6 +47,7 @@ function login() {
                 console.log(document.cookie);
 
                 if(location.pathname === "/water-demo-test/index.html") {
+                    console.log("Moving to Data")
                     window.location.replace("/data.html")
                 } else {
                     location.reload()
@@ -138,8 +137,9 @@ function register() {
 
 function load_page() {
 
+    console.log("loading", readCookie("Username"))
     document.getElementById("user").innerHTML = readCookie("Username")
-    document.getElementById("")
+    console.log(location.pathname)
 
 }
 
