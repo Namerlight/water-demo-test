@@ -106,7 +106,10 @@ function register() {
         axios.post(register_url, register_data)
             .then((response) => {
                 console.log(response);
-        }, (error) => {
+
+                alert("Registered. Please close this window and Log In");
+
+            }, (error) => {
             console.log(error);
             alert("Registration Failed. Please Try Again.")
         });
