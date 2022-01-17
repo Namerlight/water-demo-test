@@ -141,12 +141,14 @@ function load_page() {
     console.log("loading", readCookie("Username"))
     document.getElementById("user").innerHTML = readCookie("Username")
     console.log(location.pathname)
-
-    if(readCookie("Username")!== null && location.pathname !== "/") {
+ 
+    if(readCookie("Username")!== null) {
         console.log("is logged in, can go, or already at home")
     } else {
         console.log("Not logged, stay here.")
-        window.location.replace("/")
+        if (location.pathname !== "/") {
+            window.location.replace("/")
+        }
     }
 
 }
