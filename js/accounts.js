@@ -1,5 +1,6 @@
 console.log("Accounts Running");
 
+
 function readCookie(name) {
     var nameEQ = name + "=";
     var ca = document.cookie.split(';');
@@ -140,6 +141,12 @@ function load_page() {
     console.log("loading", readCookie("Username"))
     document.getElementById("user").innerHTML = readCookie("Username")
     console.log(location.pathname)
+
+    if(readCookie("Username")!== null) {
+        console.log("is logged in, can go")
+    } else {
+        console.log("Not logged, stay here.")
+    }
 
 }
 
