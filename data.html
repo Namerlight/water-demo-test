@@ -301,9 +301,9 @@
                         <div class="card-body">
                             <p><h4 class="card-title">Real-Time Data Monitoring</h4></p>
                             <p><h6 id="date-data" class="card-subtitle mb-2"></h6></p>
-                            <h5 class="card-subtitle mb-2" style="padding-top: 20px">Current Quality - <span
-                                    id="quality-data">  </span></h5>
-                            <h5 class="card-subtitle mb-2">Current Quantity - <span id="quantity-data">  </span></h5></br>
+                            <h5 class="card-subtitle mb-2" style="padding-top: 20px"> <span
+                                    id="quality-data">  </span>&nbsp&nbsp&nbsp&nbsp&nbsp<span id="quantity-data"> </span> </h5>
+                            <br>
                             <table id="real" style="width: 100%;">
                                 <tr>
                                     <th>Parameter</th>
@@ -311,62 +311,56 @@
                                 </tr>
                                 <tr>
                                     <td>Volume</td>
-                                    <td id="volume-data"></td>
+                                    <td id="volume-data">15000</td>
                                 </tr>
                                 <tr>
                                     <td>Pressure</td>
-                                    <td id="pressure-data"></td>
+                                    <td id="pressure-data">1.5</td>
                                 </tr>
                                 <tr>
                                     <td>Speed</td>
-                                    <td id="speed-data"></td>
+                                    <td id="speed-data">20</td>
                                 </tr>
                                 <tr>
                                     <td>Oxygen</td>
-                                    <td id="oxy-data"></td>
+                                    <td id="oxy-data">0.00</td>
                                 </tr>
                                 <tr>
                                     <td>Ammonia</td>
-                                    <td id="amn-data"></td>
+                                    <td id="amn-data">0</td>
                                 </tr>
                                 <tr>
                                     <td>PH</td>
-                                    <td id="PH-data"></td>
+                                    <td id="PH-data">0</td>
                                 </tr>
                                 <tr>
                                     <td>Dissolved Oxy</td>
-                                    <td id="diss-data"></td>
+                                    <td id="diss-data">0</td>
                                 </tr>
                                 <tr>
                                     <td>Ar</td>
-                                    <td id="ar-data"></td>
+                                    <td id="ar-data">0.112</td>
                                 </tr>
                                 <tr>
                                     <td>Pb</td>
-                                    <td id="pb-data"></td>
+                                    <td id="pb-data">0.120</td>
                                 </tr>
                                 <tr>
                                     <td>Cl</td>
-                                    <td id="cl-data"></td>
+                                    <td id="cl-data">0.123</td>
                                 </tr>
                                 <tr>
                                     <td>Cr</td>
-                                    <td id="cr-data"></td>
+                                    <td id="cr-data">0.112</td>
                                 </tr>
                             </table>
                             <br>
                             <p><h4 class="card-title">Total Bill</h4></p>
-<!--                            <p><h5 class="card-subtitle mb-2" style="text-align: left">Water Price: <span-->
-<!--                                id="water-cost">  </span></h5></p>-->
                             <p><h5 class="card-subtitle mb-2" style="text-align: left">Water Usage for Month: <span
                                 id="water-usage">  </span></h5></p>
                             <p><h5 class="card-subtitle mb-2" style="text-align: left">Bill for Month: <span
                                 id="water-bill">  </span></h5></p>
                             <br>
-                            <p><h5 class="card-subtitle mb-2" style="text-align: left">Water Usage for Next: <span
-                                id="pred-usage">  </span></h5></p>
-                            <p><h5 class="card-subtitle mb-2" style="text-align: left">Bill for Next: <span
-                                id="pred-bill">  </span></h5></p>
                         </div>
                     </div>
                 </div>
@@ -376,9 +370,9 @@
                         <div class="card-body">
                             <p><h4 class="card-title">Predicted Data</h4></p>
                             <p><h6 class="card-subtitle mb-2">Date: $FutureDate</h6></p>
-                            <h5 class="card-subtitle mb-2" style="padding-top: 20px">Current Quality - <span
-                                    id="quality-pred">  </span></h5>
-                            <h5 class="card-subtitle mb-2">Current Quantity - <span id="quantity-pred">  </span></h5><br/>
+                            <h5 class="card-subtitle mb-2" style="padding-top: 20px"> <span
+                                    id="quality-data">  </span>&nbsp&nbsp&nbsp&nbsp&nbsp<span id="quantity-data"> </span> </h5>
+                            <br>
                             <table id="pred" style="width: 100%;">
                                 <tr>
                                     <th>Parameter</th>
@@ -386,15 +380,15 @@
                                 </tr>
                                 <tr>
                                     <td>Volume</td>
-                                    <td id="volume-pred"></td>
+                                    <td id="volume-pred">30000</td>
                                 </tr>
                                 <tr>
                                     <td>TDS</td>
-                                    <td id="pressure-pred"></td>
+                                    <td id="pressure-pred">1.20</td>
                                 </tr>
                                 <tr>
                                     <td>Speed</td>
-                                    <td id="speed-pred"></td>
+                                    <td id="speed-pred">40</td>
                                 </tr>
                                 <tr>
                                     <td>Oxygen</td>
@@ -414,35 +408,30 @@
                                 </tr>
                                 <tr>
                                     <td>Ar</td>
-                                    <td id="ar-pred"></td>
+                                    <td id="ar-pred">0.12</td>
                                 </tr>
                                 <tr>
                                     <td>Pb</td>
-                                    <td id="pb-pred"></td>
+                                    <td id="pb-pred">0.13</td>
                                 </tr>
                                 <tr>
                                     <td>Cl</td>
-                                    <td id="cl-pred"></td>
+                                    <td id="cl-pred">0.14</td>
                                 </tr>
                                 <tr>
                                     <td>Cr</td>
-                                    <td id="cr-pred"></td>
+                                    <td id="cr-pred">0.15</td>
                                 </tr>
 
                             </table>
                             <br>
-                            <p><h4 class="card-title">Total Bill</h4></p>
-                            <p><h5 class="card-subtitle mb-2" style="text-align: left">Water Price: <span
-                                id="water-cost-pred">  </span></h5></p>
-                            <p><h5 class="card-subtitle mb-2" style="text-align: left">Water Usage for Month: <span
+                            <p><h4 class="card-title">Total Bill - Next Month (Predicted)</h4></p>
+                            <p><h5 class="card-subtitle mb-2" style="text-align: left">Predicted Water Usage for Month: <span
                                 id="water-usage-pred">  </span></h5></p>
-                            <p><h5 class="card-subtitle mb-2" style="text-align: left">Bill for Month: <span
+                            <p><h5 class="card-subtitle mb-2" style="text-align: left">Predicted Bill for Month: <span
                                 id="water-bill-pred">  </span></h5></p>
                             <br>
-                            <p><h5 class="card-subtitle mb-2" style="text-align: left">Water Usage for Next: <span
-                                id="pred-usage-pred">  </span></h5></p>
-                            <p><h5 class="card-subtitle mb-2" style="text-align: left">Bill for Next: <span
-                                id="pred-bill-pred">  </span></h5></p>
+
                         </div>
                     </div>
                 </div>

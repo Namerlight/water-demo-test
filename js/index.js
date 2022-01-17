@@ -104,13 +104,13 @@ function getQuality() {
 
     switch(quality_flag) {
         case 0:
-            return "Safe"
+            return '\<img src=\"assets/safe.png\" width=\"160px\" height=\"125px\" \>'
         case 1:
-            return "Poor"
+            return '\<img src=\"assets/unsafe.png\" width=\"160px\" height=\"125px\"\>'
         case 2:
-            return "Unsafe"
+            return '\<img src=\"assets/unsafe.png\" width=\"160px\" height=\"125px\"\>'
         default:
-            return "Dangerous"
+            return '\<img src=\"assets/danger.png\" width=\"160px\" height=\"125px\"\>'
     }
 
 }
@@ -163,7 +163,7 @@ getData().then(data => {
     document.getElementById("amn-data").innerHTML = ammonia_array[ammonia_array.length - 1];
 
     document.getElementById("quality-data").innerHTML = getQuality()
-    document.getElementById("quantity-data").innerHTML = "Lots"
+    document.getElementById("quantity-data").innerHTML = '\<img src=\"assets/high.png\" width=\"160px\" height=\"125px\" \>'
 
     // document.getElementById("water-cost").innerHTML = cost.toString() + " BDT per L";
     document.getElementById("water-usage").innerHTML = water_volume.toString() + " L";
