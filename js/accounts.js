@@ -47,7 +47,7 @@ function login() {
 
                 console.log(document.cookie);
                 window.location.replace("/data.html")
-                
+
 
             })
             //Then with the error generated...

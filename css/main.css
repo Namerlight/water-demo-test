@@ -175,6 +175,7 @@ table {
 .topnav {
     background-color: #2d334d;
     overflow: hidden;
+    height: 55px;
 }
 
 /* Style the links inside the navigation bar */
