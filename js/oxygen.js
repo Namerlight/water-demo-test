@@ -14,14 +14,18 @@ Chart.defaults.color = "#ffffff";
 
 // const url = "http://192.168.0.193/REST_test/api/post/read_all_oxy.php";
 const url = "https://water-initial-test.herokuapp.com/api/post/read_all_oxy.php";
+let preds_url = "https://flask-ml-test.herokuapp.com/"
 
 let time_array = [];
 let oxygen_array = [];
+let oxy_preds = [];
 
 async function getData() {
-    let response = await fetch(url);
-    let data = await response.json()
-    return data
+    let response1 = await fetch(url);
+    let data = await response1.json()
+    let response2 = await fetch(preds_url);
+    let preds = await response2.json()
+    return [data, preds]
 }
 
 const data_oxy = {
@@ -31,6 +35,11 @@ const data_oxy = {
         backgroundColor: 'rgb(255, 99, 132)',
         borderColor: 'rgb(255, 99, 132)',
         data: oxygen_array,
+    }, {
+        label: 'Predicted Oxygen Value',
+        backgroundColor: 'rgb(255,187,0)',
+        borderColor: 'rgb(255,187,0)',
+        data: oxy_preds,
     }]
 };
 
@@ -92,7 +101,7 @@ var OxygenChart = new Chart(
 
 getData().then(data => {
 
-    output = data.data;
+    output = data[0].data;
     console.log(output)
 
     let length = Object.keys(output).length;
@@ -101,7 +110,22 @@ getData().then(data => {
     for (let i = 0; i < length; i++) {
         time_array.push(output[i].id)
         oxygen_array.push(output[i].oxygen)
+        if (i === length-1)
+            oxy_preds.push(output[i].oxygen)
+        else
+            oxy_preds.push(NaN)
+
     }
+
+    oxygen_array.push(NaN)
+    time_array.push("Next")
+    time_array.push("Next")
+    time_array.push("Next")
+    time_array.push("Next")
+    oxy_preds.push(data[1].Oxygen)
+    oxy_preds.push(data[1].Oxygen)
+    oxy_preds.push(data[1].Oxygen)
+    oxy_preds.push(data[1].Oxygen)
 
     for (let i = 0; i < length; i++) {
         console.log(time_array[i], oxygen_array[i])
@@ -124,18 +148,21 @@ function refresh() {
 
     time_array = [];
     oxygen_array = [];
+    oxy_preds = []
 
     OxygenChart.destroy();
 
     async function getData_Refresh() {
-        let response = await fetch(url);
-        let data = await response.json()
-        return data
+        let response1 = await fetch(url);
+        let data = await response1.json()
+        let response2 = await fetch(preds_url);
+        let preds = await response2.json()
+        return [data, preds]
     }
 
     getData_Refresh().then(data => {
 
-        output = data.data;
+        output = data[0].data;
         console.log(output)
 
         let length = Object.keys(output).length;
@@ -144,7 +171,22 @@ function refresh() {
         for (let i = 0; i < length; i++) {
             time_array.push(output[i].id)
             oxygen_array.push(output[i].oxygen)
+            if (i === length-1)
+                oxy_preds.push(output[i].oxygen)
+            else
+                oxy_preds.push(NaN)
         }
+
+        oxygen_array.push(NaN)
+        time_array.push("Next")
+        time_array.push("Next")
+        time_array.push("Next")
+        time_array.push("Next")
+        oxy_preds.push(data[1].Oxygen)
+        oxy_preds.push(data[1].Oxygen)
+        oxy_preds.push(data[1].Oxygen)
+        oxy_preds.push(data[1].Oxygen)
+
 
         for (let i = 0; i < length; i++) {
             console.log(time_array[i], oxygen_array[i])
@@ -157,6 +199,11 @@ function refresh() {
                 backgroundColor: 'rgb(255, 99, 132)',
                 borderColor: 'rgb(255, 99, 132)',
                 data: oxygen_array,
+            }, {
+                label: 'Oxygen',
+                backgroundColor: 'rgb(255,187,0)',
+                borderColor: 'rgb(255,187,0)',
+                data: oxy_preds,
             }]
         };
 

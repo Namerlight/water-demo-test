@@ -14,14 +14,18 @@ Chart.defaults.color = "#ffffff";
 
 // const url = "http://192.168.0.193/REST_test/api/post/read_all_amn.php";
 const url = "https://water-initial-test.herokuapp.com/api/post/read_all_amn.php";
+let preds_url = "https://flask-ml-test.herokuapp.com/"
 
 let time_array = [];
 let ammonia_array = [];
+let amn_preds = []
 
 async function getData() {
-    let response = await fetch(url);
-    let data = await response.json()
-    return data
+    let response1 = await fetch(url);
+    let data = await response1.json()
+    let response2 = await fetch(preds_url);
+    let preds = await response2.json()
+    return [data, preds]
 }
 
 const data_amn = {
@@ -31,6 +35,11 @@ const data_amn = {
         backgroundColor: 'rgb(0,116,175)',
         borderColor: 'rgb(0,116,175)',
         data: ammonia_array,
+    }, {
+        label: 'Predicted Ammonia Value',
+        backgroundColor: 'rgb(0,255,203)',
+        borderColor: 'rgb(0,255,203)',
+        data: amn_preds,
     }]
 };
 
@@ -92,7 +101,7 @@ var AmmoniaChart = new Chart(
 
 getData().then(data => {
 
-    output = data.data;
+    output = data[0].data;
     console.log(output)
 
     let length = Object.keys(output).length;
@@ -101,11 +110,22 @@ getData().then(data => {
     for (let i = 0; i < length; i++) {
         time_array.push(output[i].id)
         ammonia_array.push(output[i].ammonia)
+        if (i === length-1)
+            amn_preds.push(output[i].ammonia)
+        else
+            amn_preds.push(NaN)
+
     }
 
-    for (let i = 0; i < length; i++) {
-        console.log(time_array[i], ammonia_array[i])
-    }
+    ammonia_array.push(NaN)
+    time_array.push("Next")
+    time_array.push("Next")
+    time_array.push("Next")
+    time_array.push("Next")
+    amn_preds.push(data[1].Ammonia)
+    amn_preds.push(data[1].Ammonia)
+    amn_preds.push(data[1].Ammonia)
+    amn_preds.push(data[1].Ammonia)
 
     AmmoniaChart.update();
 
@@ -128,14 +148,16 @@ function refresh() {
     AmmoniaChart.destroy();
 
     async function getData_Refresh() {
-        let response = await fetch(url);
-        let data = await response.json()
-        return data
+        let response1 = await fetch(url);
+        let data = await response1.json()
+        let response2 = await fetch(preds_url);
+        let preds = await response2.json()
+        return [data, preds]
     }
 
     getData_Refresh().then(data => {
 
-        output = data.data;
+        output = data[0].data;
         console.log(output)
 
         let length = Object.keys(output).length;
@@ -143,22 +165,32 @@ function refresh() {
 
         for (let i = 0; i < length; i++) {
             time_array.push(output[i].id)
-            ammonia_array.push(output[i].oxygen)
+            ammonia_array.push(output[i].ammonia)
         }
 
         for (let i = 0; i < length; i++) {
             console.log(time_array[i], ammonia_array[i])
         }
 
-        const data_oxy = {
-            labels: time_array,
-            datasets: [{
-                label: 'Ammonia',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
-                data: ammonia_array,
-            }]
-        };
+        for (let i = 0; i < length; i++) {
+            time_array.push(output[i].id)
+            ammonia_array.push(output[i].ammonia)
+            if (i === length-1)
+                amn_preds.push(output[i].ammonia)
+            else
+                amn_preds.push(NaN)
+
+        }
+
+        ammonia_array.push(NaN)
+        time_array.push("Next")
+        time_array.push("Next")
+        time_array.push("Next")
+        time_array.push("Next")
+        amn_preds.push(data[1].Ammonia)
+        amn_preds.push(data[1].Ammonia)
+        amn_preds.push(data[1].Ammonia)
+        amn_preds.push(data[1].Ammonia)
 
         const config_amn = {
             type: 'line',

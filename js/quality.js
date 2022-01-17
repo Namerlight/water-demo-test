@@ -12,8 +12,8 @@ Chart.defaults.color = "#ffffff";
 })()
 
 
-// const url = "http://192.168.0.193/REST_test/api/post/read_last_100.php";
-const url = "https://water-initial-test.herokuapp.com/api/post/read_last_100.php";
+const url = "http://192.168.0.193/REST_test/api/post/read_last_100.php";
+// const url = "https://water-initial-test.herokuapp.com/api/post/read_last_100.php";
 
 let time_array = [];
 let oxygen_array = [];
@@ -196,7 +196,7 @@ function refresh() {
         }
 
         for (let i = 0; i < length; i++) {
-            console.log(time_array[i], oxygen_array[i], ammonia_array[i], ph_array[i], dissolved_array[i])
+            console.log(time_array[i], oxygen_array[i],  ammonia_array[i], ph_array[i], dissolved_array[i])
         }
 
         const data_oxy = {
