@@ -356,8 +356,8 @@
                             </table>
                             <br>
                             <p><h4 class="card-title">Total Bill</h4></p>
-                            <p><h5 class="card-subtitle mb-2" style="text-align: left">Water Price: <span
-                                id="water-cost">  </span></h5></p>
+<!--                            <p><h5 class="card-subtitle mb-2" style="text-align: left">Water Price: <span-->
+<!--                                id="water-cost">  </span></h5></p>-->
                             <p><h5 class="card-subtitle mb-2" style="text-align: left">Water Usage for Month: <span
                                 id="water-usage">  </span></h5></p>
                             <p><h5 class="card-subtitle mb-2" style="text-align: left">Bill for Month: <span
@@ -385,6 +385,18 @@
                                     <th>Predicted Data</th>
                                 </tr>
                                 <tr>
+                                    <td>Volume</td>
+                                    <td id="volume-pred"></td>
+                                </tr>
+                                <tr>
+                                    <td>TDS</td>
+                                    <td id="pressure-pred"></td>
+                                </tr>
+                                <tr>
+                                    <td>Speed</td>
+                                    <td id="speed-pred"></td>
+                                </tr>
+                                <tr>
                                     <td>Oxygen</td>
                                     <td id="oxy-pred"></td>
                                 </tr>
@@ -399,18 +411,6 @@
                                 <tr>
                                     <td>Dissolved Oxy</td>
                                     <td id="diss-pred"></td>
-                                </tr>
-                                <tr>
-                                    <td>Turbidity</td>
-                                    <td id="turb-pred"></td>
-                                </tr>
-                                <tr>
-                                    <td>TDS</td>
-                                    <td id="TDS-pred"></td>
-                                </tr>
-                                <tr>
-                                    <td>Speed</td>
-                                    <td id="speed-pred"></td>
                                 </tr>
                                 <tr>
                                     <td>Ar</td>
@@ -430,6 +430,19 @@
                                 </tr>
 
                             </table>
+                            <br>
+                            <p><h4 class="card-title">Total Bill</h4></p>
+                            <p><h5 class="card-subtitle mb-2" style="text-align: left">Water Price: <span
+                                id="water-cost-pred">  </span></h5></p>
+                            <p><h5 class="card-subtitle mb-2" style="text-align: left">Water Usage for Month: <span
+                                id="water-usage-pred">  </span></h5></p>
+                            <p><h5 class="card-subtitle mb-2" style="text-align: left">Bill for Month: <span
+                                id="water-bill-pred">  </span></h5></p>
+                            <br>
+                            <p><h5 class="card-subtitle mb-2" style="text-align: left">Water Usage for Next: <span
+                                id="pred-usage-pred">  </span></h5></p>
+                            <p><h5 class="card-subtitle mb-2" style="text-align: left">Bill for Next: <span
+                                id="pred-bill-pred">  </span></h5></p>
                         </div>
                     </div>
                 </div>

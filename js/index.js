@@ -165,7 +165,7 @@ getData().then(data => {
     document.getElementById("quality-data").innerHTML = getQuality()
     document.getElementById("quantity-data").innerHTML = "Lots"
 
-    document.getElementById("water-cost").innerHTML = cost.toString() + " BDT per L";
+    // document.getElementById("water-cost").innerHTML = cost.toString() + " BDT per L";
     document.getElementById("water-usage").innerHTML = water_volume.toString() + " L";
     document.getElementById("water-bill").innerHTML = getBill(cost, water_volume).toString() + " BDT";
 
