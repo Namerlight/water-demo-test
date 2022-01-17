@@ -77,7 +77,7 @@ const config_oxy = {
         },
         scales: {
             y: {
-                max: oxy_max*1.3,
+                max: oxy_max*1.25,
                 min: 0,
             }
         }
