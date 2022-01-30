@@ -135,6 +135,8 @@ table {
 #real td, #real th {
     border-collapse: collapse;
      margin: 25px 0;
+     padding-top: 4px;
+     padding-bottom: 4px;
      font-size: 0.9em;
      font-family: sans-serif;
      min-width: 400px;
@@ -146,10 +148,10 @@ table {
 #real tr:hover {background-color: rgba(221, 221, 221, 0.3);}
 
 #real th {
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: 6px;
+    padding-bottom: 6px;
     text-align: center;
-    background-color: #255279;
+    background-color: #207388;
     color: white;
 }
 
