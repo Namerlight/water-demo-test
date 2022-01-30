@@ -191,6 +191,8 @@ getPred().then(data => {
     }
 
     document.getElementById("date-data").innerHTML = ("Date: " + time_array[time_array.length - 1]);
+    document.getElementById("date-data").innerHTML = ("2022-01-30 21:00:00.0");
+    
     document.getElementById("oxy-pred").innerHTML = predOxy_array[predOxy_array.length-1]
     document.getElementById("PH-pred").innerHTML = predPH_array[predPH_array.length - 1];
     document.getElementById("amn-pred").innerHTML = predAmn_array[predAmn_array.length - 1];
