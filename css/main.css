@@ -166,10 +166,10 @@ table {
 #pred tr:hover {background-color: rgba(221, 221, 221, 0.3);}
 
 #pred th {
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: 6px;
+    padding-bottom: 6px;
     text-align: center;
-    background-color: #1f5669;
+    background-color: #1f695d;
     color: white;
 }
 
@@ -196,6 +196,8 @@ table {
 ul {
     list-style: none;
     padding-left: 0;
+    padding-top: 4px;
+    padding-bottom: 4px;
 }
 
  /* .styled-table {
