@@ -134,13 +134,13 @@ table {
 
 #real td, #real th {
     border-collapse: collapse;
-     margin: 25px 0;
-     padding-top: 4px;
-     padding-bottom: 4px;
-     font-size: 0.9em;
-     font-family: sans-serif;
-     min-width: 400px;
-     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin: 25px 0;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 #real tr:nth-child(even){background-color: rgba(242, 242, 242, 0.1);}
@@ -160,12 +160,19 @@ table {
 }
 
 #pred td, #pred th {
-    border: 1px solid #ddd;
+    border-collapse: collapse;
+    margin: 25px 0;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 #pred tr:nth-child(even){background-color: rgba(242, 242, 242, 0.1);}
 
-#pred tr:hover {background-color: rgba(221, 221, 221, 0.3);}
+#pred tr:hover {background-color: rgba(221, 221, 221, 0.493);}
 
 #pred th {
     padding-top: 6px;
