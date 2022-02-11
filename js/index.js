@@ -159,7 +159,7 @@ getData().then(data => {
     document.getElementById("volume-data").innerHTML = (water_volume + " L")
     document.getElementById("pressure-data").innerHTML = (water_volume + " kPa")
     document.getElementById("speed-data").innerHTML = (water_volume + " L/s")
-    document.getElementById("PH-data").innerHTML = parseInt(ph_array[ph_array.length - 1]).toFixed(2) + " ppm"
+    document.getElementById("PH-data").innerHTML = parseInt(ph_array[ph_array.length - 1]).toFixed(2)
     document.getElementById("oxy-data").innerHTML = parseInt(oxygen_array[oxygen_array.length - 1]).toFixed(2) + " ppm"
     document.getElementById("diss-data").innerHTML = parseInt(dissolved_array[dissolved_array.length - 1]).toFixed(2) + " ppm"
     document.getElementById("amn-data").innerHTML = parseInt(ammonia_array[ammonia_array.length - 1]).toFixed(2) + " ppm"
@@ -176,6 +176,31 @@ getData().then(data => {
     document.getElementById("water-bill").innerHTML = getBill(cost, water_volume).toString() + " BDT";
 
     console.log(getQuality());
+
+    output = data.data;
+    console.log(output)
+
+    let length2 = Object.keys(output).length;
+    console.log(length2);
+
+    predPH_array.push(output.PH)
+    predDiss_array.push(output.Dissolved)
+    predOxy_array.push(output.Oxygen)
+    predAmn_array.push(output.Ammonia)
+
+    for (let i = 0; i < length2; i++) {
+        console.log(predOxy_array[i], predAmn_array[i], predPH_array[i], predDiss_array[i])
+    }
+    document.getElementById("quality-data-pd").innerHTML = '\<img src="../assets/safe.png" width=\"160px\" height=\"125px\" \>'
+    document.getElementById("quantity-data-pd").innerHTML = '\<img src="../assets/high.png" width=\"160px\" height=\"125px\" \>'
+
+    document.getElementById("date-data").innerHTML = ("Date: " + time_array[time_array.length - 1]);
+    document.getElementById("date-data").innerHTML = ("2022-01-30 21:00:00.0");
+    document.getElementById("oxy-pred").innerHTML = parseInt(predOxy_array[predOxy_array.length-1]).toFixed(2)
+    document.getElementById("PH-pred").innerHTML = parseInt(predPH_array[predPH_array.length - 1]).toFixed(2);
+    document.getElementById("amn-pred").innerHTML = (predAmn_array[predAmn_array.length - 1]).toFixed(2);
+    document.getElementById("diss-pred").innerHTML = parseInt(predDiss_array[predDiss_array.length - 1]).toFixed(2);
+
 
 });
 
