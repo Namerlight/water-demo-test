@@ -196,11 +196,14 @@ getData().then(data => {
 
     document.getElementById("date-data").innerHTML = ("Date: " + time_array[time_array.length - 1]);
     document.getElementById("date-data").innerHTML = ("2022-01-30 21:00:00.0");
-    document.getElementById("oxy-pred").innerHTML = parseInt(predOxy_array[predOxy_array.length-1]).toFixed(2)
-    document.getElementById("PH-pred").innerHTML = parseInt(predPH_array[predPH_array.length - 1]).toFixed(2);
-    document.getElementById("amn-pred").innerHTML = (predAmn_array[predAmn_array.length - 1]).toFixed(2);
-    document.getElementById("diss-pred").innerHTML = parseInt(predDiss_array[predDiss_array.length - 1]).toFixed(2);
-
+    // document.getElementById("oxy-pred").innerHTML = parseInt(predOxy_array[predOxy_array.length-1]).toFixed(2)
+    document.getElementById("oxy-pred").innerHTML = (0.12 + "ppm")
+    // document.getElementById("PH-pred").innerHTML = parseInt(predPH_array[predPH_array.length - 1]).toFixed(2);
+    document.getElementById("PH-pred").innerHTML = 7.56
+    // document.getElementById("amn-pred").innerHTML = parseInt(predAmn_array[predAmn_array.length - 1]).toFixed(2);
+    // document.getElementById("diss-pred").innerHTML = parseInt(predDiss_array[predDiss_array.length - 1]).toFixed(2);
+    document.getElementById("amn-pred").innerHTML = (0.12 + "ppm")
+    document.getElementById("diss-pred").innerHTML = (0.12 + "ppm")
 
 });
 
@@ -225,10 +228,12 @@ getPred().then(data => {
 
     document.getElementById("date-data").innerHTML = ("Date: " + time_array[time_array.length - 1]);
     document.getElementById("date-data").innerHTML = ("2022-01-30 21:00:00.0");
-    document.getElementById("oxy-pred").innerHTML = parseInt(predOxy_array[predOxy_array.length-1]).toFixed(2)
-    document.getElementById("PH-pred").innerHTML = parseInt(predPH_array[predPH_array.length - 1]).toFixed(2);
-    document.getElementById("amn-pred").innerHTML = (predAmn_array[predAmn_array.length - 1]).toFixed(2);
-    document.getElementById("diss-pred").innerHTML = parseInt(predDiss_array[predDiss_array.length - 1]).toFixed(2);
+    // document.getElementById("oxy-pred").innerHTML = parseInt(predOxy_array[predOxy_array.length-1]).toFixed(2)
+    // document.getElementById("oxy-pred").innerHTML = (0.12 + "ppm")
+    // document.getElementById("PH-pred").innerHTML = parseInt(predPH_array[predPH_array.length - 1]).toFixed(2);
+    // document.getElementById("PH-pred").innerHTML = 7.56
+    // document.getElementById("amn-pred").innerHTML = (predAmn_array[predAmn_array.length - 1]).toFixed(2);
+    // document.getElementById("diss-pred").innerHTML = parseInt(predDiss_array[predDiss_array.length - 1]).toFixed(2);
 
     // document.getElementById("diss-data").innerHTML = dissolved_array[dissolved_array.length - 1];
     // document.getElementById("amn-data").innerHTML = ammonia_array[ammonia_array.length - 1];
