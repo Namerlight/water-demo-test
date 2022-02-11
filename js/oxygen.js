@@ -107,17 +107,21 @@ getData().then(data => {
     let length = Object.keys(output).length;
     console.log(length);
 
-    for (let i = 0; i < length; i++) {
+    for (let i = (length-1440); i < length; i++) {
         time_array.push(output[i].id)
         oxygen_array.push(output[i].oxygen)
         if (i === length-1)
             oxy_preds.push(output[i].oxygen)
         else
             oxy_preds.push(NaN)
-
     }
 
     oxygen_array.push(NaN)
+    for (let i = 0; i < 336; i++) {
+        time_array.push("Predicted")
+        oxygen_array.push(data[i].oxygen)
+    }
+
     time_array.push("Next")
     time_array.push("Next")
     time_array.push("Next")
@@ -126,6 +130,8 @@ getData().then(data => {
     oxy_preds.push(data[1].Oxygen)
     oxy_preds.push(data[1].Oxygen)
     oxy_preds.push(data[1].Oxygen)
+
+    console.log("Data Lengths", time_array.length, oxygen_array.length)
 
     for (let i = 0; i < length; i++) {
         console.log(time_array[i], oxygen_array[i])

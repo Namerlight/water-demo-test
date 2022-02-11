@@ -25,8 +25,9 @@
     <a id="login" class="btn-dark" data-bs-toggle="modal" data-bs-target="#loginModal">Log In</a>
     <a id ="logout" class="btn-dark" data-bs-toggle="modal" onclick="logout()">Logout</a>
     <a id="user" href="profile.html">Username</a>
-    <h1 style="padding-left: 12px; float: left; color: #eeeeee">DWT</h1>
-</div>
+    <img src="assets/ict-division-seeklogo.com.png" style="width: 90px; height:50px; padding-left: 12px; padding-top: 10px; float: left;">
+    <img src="assets/pinpng.com-academic-png-4230767.png" style="width: 50px; height:47px; padding-left: 12px; padding-top: 10px; float: left;">
+    <h1 style="padding-left: 12px; float: left; color: #eeeeee">DWT</h1></div>
 
 
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -283,8 +284,11 @@
         </div>
 
         <div class="col-lg-10 mx-auto p-5 py-md-8 justify-content-center text-center">
-            <h2>Domestic Water Tool Analytics</h2>
-            <br>
+
+            <div class="row g-5 justify-content-center text-center">
+                <div class="card-bg col-md-6" style="padding-top: 10px; padding-bottom: 10px;"><h2>Domestic Water Tool Analytics (DWT)</h2></div>
+            </div>
+            <br><br>
 
             <a class="btn btn-dark div-vis-mobile div-hide-desktop" data-bs-toggle="offcanvas" href="#offcanvasExample"
                role="button" aria-controls="offcanvasExample" style="position: fixed; top: 20px; left: 20px;">
@@ -295,7 +299,7 @@
                 </svg>
             </a>
 
-            <div class="row g-5 justify-content-center text-center" >
+            <div class="row g-5 justify-content-center text-center">
                 <div class="col-md-5 justify-content-center text-center" style="">
                     <div class="card-bg card justify-content-center text-center" style="background-color: #308075;">
                         <div class="card-body">
@@ -310,18 +314,6 @@
                                     <th>Real Data</th>
                                 </tr>
                                 <tr>
-                                    <td>Volume</td>
-                                    <td id="volume-data">15000</td>
-                                </tr>
-                                <tr>
-                                    <td>Pressure</td>
-                                    <td id="pressure-data">1.5</td>
-                                </tr>
-                                <tr>
-                                    <td>Speed</td>
-                                    <td id="speed-data">20</td>
-                                </tr>
-                                <tr>
                                     <td>Oxygen</td>
                                     <td id="oxy-data">0.00</td>
                                 </tr>
@@ -334,7 +326,7 @@
                                     <td id="PH-data">0</td>
                                 </tr>
                                 <tr>
-                                    <td>Dissolved Oxy</td>
+                                    <td>Dissolved Oxygen</td>
                                     <td id="diss-data">0</td>
                                 </tr>
                                 <tr>
@@ -352,6 +344,18 @@
                                 <tr>
                                     <td>Cr</td>
                                     <td id="cr-data">0.112</td>
+                                </tr>
+                                <tr>
+                                    <td>Volume</td>
+                                    <td id="volume-data">15000</td>
+                                </tr>
+                                <tr>
+                                    <td>Pressure</td>
+                                    <td id="pressure-data">1.5</td>
+                                </tr>
+                                <tr>
+                                    <td>Flow Speed</td>
+                                    <td id="speed-data">20</td>
                                 </tr>
                             </table>
                             <br>
@@ -377,18 +381,6 @@
                                 <tr>
                                     <th>Parameter</th>
                                     <th>Predicted Data</th>
-                                </tr>
-                                <tr>
-                                    <td>Volume</td>
-                                    <td id="volume-pred">30000</td>
-                                </tr>
-                                <tr>
-                                    <td>TDS</td>
-                                    <td id="pressure-pred">1.20</td>
-                                </tr>
-                                <tr>
-                                    <td>Speed</td>
-                                    <td id="speed-pred">40</td>
                                 </tr>
                                 <tr>
                                     <td>Oxygen</td>
@@ -422,7 +414,18 @@
                                     <td>Cr</td>
                                     <td id="cr-pred">0.15</td>
                                 </tr>
-
+                                <tr>
+                                    <td>Volume</td>
+                                    <td id="volume-pred">30000</td>
+                                </tr>
+                                <tr>
+                                    <td>Pressure</td>
+                                    <td id="pressure-pred">1.20</td>
+                                </tr>
+                                <tr>
+                                    <td>Speed</td>
+                                    <td id="speed-pred">40</td>
+                                </tr>
                             </table>
                             <br>
                             <p><h4 class="card-title">Total Bill - Next Month (Predicted)</h4></p>

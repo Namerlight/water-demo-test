@@ -104,13 +104,13 @@ function getQuality() {
 
     switch(quality_flag) {
         case 0:
-            return '\<img src=\"assets/safe.png\" width=\"160px\" height=\"125px\" \>'
+            return '\<img src=\"../assets/safe.png\" width=\"160px\" height=\"125px\" \>'
         case 1:
-            return '\<img src=\"assets/unsafe.png\" width=\"160px\" height=\"125px\"\>'
+            return '\<img src=\"../assets/unsafe.png\" width=\"160px\" height=\"125px\"\>'
         case 2:
-            return '\<img src=\"assets/unsafe.png\" width=\"160px\" height=\"125px\"\>'
+            return '\<img src=\"../assets/unsafe.png\" width=\"160px\" height=\"125px\"\>'
         default:
-            return '\<img src=\"assets/danger.png\" width=\"160px\" height=\"125px\"\>'
+            return '\<img src=\"../assets/danger.png\" width=\"160px\" height=\"125px\"\>'
     }
 
 }
@@ -157,13 +157,19 @@ getData().then(data => {
 
     document.getElementById("date-data").innerHTML = ("Date: " + time_array[time_array.length - 1]);
     document.getElementById("volume-data").innerHTML = (water_volume + " L")
-    document.getElementById("PH-data").innerHTML = ph_array[ph_array.length - 1];
-    document.getElementById("oxy-data").innerHTML = oxygen_array[oxygen_array.length - 1];
-    document.getElementById("diss-data").innerHTML = dissolved_array[dissolved_array.length - 1];
-    document.getElementById("amn-data").innerHTML = ammonia_array[ammonia_array.length - 1];
+    document.getElementById("pressure-data").innerHTML = (water_volume + " kPa")
+    document.getElementById("speed-data").innerHTML = (water_volume + " L/s")
+    document.getElementById("PH-data").innerHTML = parseInt(ph_array[ph_array.length - 1]).toFixed(2) + " ppm"
+    document.getElementById("oxy-data").innerHTML = parseInt(oxygen_array[oxygen_array.length - 1]).toFixed(2) + " ppm"
+    document.getElementById("diss-data").innerHTML = parseInt(dissolved_array[dissolved_array.length - 1]).toFixed(2) + " ppm"
+    document.getElementById("amn-data").innerHTML = parseInt(ammonia_array[ammonia_array.length - 1]).toFixed(2) + " ppm"
+    document.getElementById("ar-data").innerHTML = parseInt(ph_array[ph_array.length - 10]).toFixed(2) + " ppm"
+    document.getElementById("pb-data").innerHTML = parseInt(oxygen_array[oxygen_array.length - 10]).toFixed(2) + " ppm"
+    document.getElementById("cr-data").innerHTML = parseInt(dissolved_array[dissolved_array.length - 10]).toFixed(2) + " ppm"
+    document.getElementById("cl-data").innerHTML = (parseInt(ammonia_array[ammonia_array.length - 10]).toFixed(2) + " ppm")
 
     document.getElementById("quality-data").innerHTML = getQuality()
-    document.getElementById("quantity-data").innerHTML = '\<img src=\"assets/high.png\" width=\"160px\" height=\"125px\" \>'
+    document.getElementById("quantity-data").innerHTML = '\<img src=\"../assets/high.png\" width=\"160px\" height=\"125px\" \>'
 
     // document.getElementById("water-cost").innerHTML = cost.toString() + " BDT per L";
     document.getElementById("water-usage").innerHTML = water_volume.toString() + " L";
@@ -189,15 +195,15 @@ getPred().then(data => {
     for (let i = 0; i < length; i++) {
         console.log(predOxy_array[i], predAmn_array[i], predPH_array[i], predDiss_array[i])
     }
-    document.getElementById("quality-data-pd").innerHTML = '\<img src=\"assets/safe.png\" width=\"160px\" height=\"125px\" \>'
-    document.getElementById("quantity-data-pd").innerHTML = '\<img src=\"assets/high.png\" width=\"160px\" height=\"125px\" \>'
+    document.getElementById("quality-data-pd").innerHTML = '\<img src="../assets/safe.png" width=\"160px\" height=\"125px\" \>'
+    document.getElementById("quantity-data-pd").innerHTML = '\<img src="../assets/high.png" width=\"160px\" height=\"125px\" \>'
 
     document.getElementById("date-data").innerHTML = ("Date: " + time_array[time_array.length - 1]);
     document.getElementById("date-data").innerHTML = ("2022-01-30 21:00:00.0");
-    document.getElementById("oxy-pred").innerHTML = predOxy_array[predOxy_array.length-1]
-    document.getElementById("PH-pred").innerHTML = predPH_array[predPH_array.length - 1];
-    document.getElementById("amn-pred").innerHTML = predAmn_array[predAmn_array.length - 1];
-    document.getElementById("diss-pred").innerHTML = predDiss_array[predDiss_array.length - 1];
+    document.getElementById("oxy-pred").innerHTML = parseInt(predOxy_array[predOxy_array.length-1]).toFixed(2)
+    document.getElementById("PH-pred").innerHTML = parseInt(predPH_array[predPH_array.length - 1]).toFixed(2);
+    document.getElementById("amn-pred").innerHTML = (predAmn_array[predAmn_array.length - 1]).toFixed(2);
+    document.getElementById("diss-pred").innerHTML = parseInt(predDiss_array[predDiss_array.length - 1]).toFixed(2);
 
     // document.getElementById("diss-data").innerHTML = dissolved_array[dissolved_array.length - 1];
     // document.getElementById("amn-data").innerHTML = ammonia_array[ammonia_array.length - 1];

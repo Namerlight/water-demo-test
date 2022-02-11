@@ -135,9 +135,9 @@ function load_page() {
         document.getElementById("logout").innerHTML = ""
         document.getElementById("login").innerHTML = "Login"
         document.getElementById("reg").innerHTML = "Register"
-        if (location.pathname !== "/") {
-            window.location.replace("/")
-        }
+        // if (location.pathname !== "/") {
+        //     window.location.replace("/")
+        // }
     }
 
 }
