@@ -117,7 +117,7 @@ getData().then(data => {
     }
 
     oxygen_array.push(NaN)
-    for (let i = 0; i < 336; i++) {
+    for (let i = 0; i < length; i++) {
         time_array.push("Predicted")
         oxygen_array.push(data[i].oxygen)
     }
