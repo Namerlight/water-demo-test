@@ -31,12 +31,12 @@ async function getData() {
 const data_oxy = {
     labels: time_array,
     datasets: [{
-        label: 'Turbidity',
+        label: 'Oxygen',
         backgroundColor: 'rgb(255, 99, 132)',
         borderColor: 'rgb(255, 99, 132)',
         data: oxygen_array,
     }, {
-        label: 'Predicted Turbidity Value',
+        label: 'Predicted Oxygen Value',
         backgroundColor: 'rgb(255,187,0)',
         borderColor: 'rgb(255,187,0)',
         data: oxy_preds,
