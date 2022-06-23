@@ -126,17 +126,17 @@ function load_page() {
     if(readCookie("Username")!== null) {
         console.log("is logged in, can go, or already at home")
         document.getElementById("user").innerHTML = readCookie("Username")
-        document.getElementById("login").innerHTML = ""
-        document.getElementById("reg").innerHTML = ""
+        document.getElementById("login").style.display = "None"
+        document.getElementById("reg").style.display = "None"
         document.getElementById("logout").innerHTML = "Logout"
 
     } else {
         console.log("Not logged, stay here.")
-        document.getElementById("logout").innerHTML = ""
+        document.getElementById("logout").style.display = "None"
         document.getElementById("login").innerHTML = "Login"
         document.getElementById("reg").innerHTML = "Register"
         if (location.pathname !== "/") {
-            window.location.replace("/")
+            // window.location.replace("/")
         }
     }
 

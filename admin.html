@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <title>Industry Water Tool</title>
+
+</head>
+
+<style>
+</style>
+
+
+<body>
+
+<div class="topnav">
+    <a id="reg" class="btn-dark" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a>
+    <a id="login" class="btn-dark" data-bs-toggle="modal" data-bs-target="#loginModal">Log In</a>
+    <a id ="logout" class="btn-dark" data-bs-toggle="modal" onclick="logout()">Logout</a>
+    <a id="user" href="profile.html">Username</a>
+    <img src="assets/ict-division-seeklogo.com.png" style="width: 90px; height:50px; padding-left: 12px; padding-top: 10px; float: left;">
+    <img src="assets/pinpng.com-academic-png-4230767.png" style="width: 50px; height:47px; padding-left: 12px; padding-top: 10px; float: left;">
+    <h1 style="padding-left: 12px; float: left; color: #eeeeee" href="home.html">DWT</h1>
+</div>
+
+
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Log In</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="login_form">
+
+                    <label for="usernamebox1">Email Address</label><br>
+                    <input type="text" id="usernamebox1" name="Username"><br/><br/>
+
+                    <label for="passwordbox1">Password</label> <br>
+                    <input type="password" id="passwordbox1" name="Password"><br/>
+                    <br/>
+                    <input type="button" name="submit" value="Log In" onclick="login()"/>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#registerModal">No Account? Register</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Register</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <form id="register_form">
+
+                        <label for="usernamebox2">Email Address</label><br>
+                        <input type="text" id="usernamebox2" name="Username"><br/><br/>
+
+                        <label for="passwordbox2">Password</label> <br>
+                        <input type="password" id="passwordbox2" name="Password"><br/>
+                        <br/>
+
+                        <label for="passwordbox2_re">Password</label> <br>
+                        <input type="password" id="passwordbox2_re" name="Password"><br/>
+                        <br/>
+
+                        <label for="locbox2">Location</label><br>
+                        <select name="loc2" id="locbox2">
+                            <option value="Select">Select Location</option>
+                            <option value="Gulshan">Gulshan</option>
+                            <option value="Banani">Banani</option>
+                            <option value="Mohakhali">Mohakhali</option>
+                            <option value="Uttara">Uttara</option>
+                        </select><br/><br/>
+
+                        <input type="button" name="submit" value="Register" onclick="register()"/>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#loginModal">Got an account? Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg">
+
+        <div class="col-lg-10 mx-auto p-5 py-md-8 justify-content-center text-center" style="height: 100vh">
+            <div class="row g-5 justify-content-center text-center">
+                <div class="col-md-9" style="background-color: #2d334d; padding-top: 10px; padding-bottom: 10px;"><h2>Domestic Water Tool Analytics (DWT)</h2></div>
+            </div>
+            <br>
+            <div class="row g-5">
+                <div class="col-md-12 justify-content-center text-center" style="">
+                    <div class="card-bg card justify-content-center text-center">
+                        <div class="card-body" style="">
+                            <p><h5 class="card-title">Admin Panel</h5></p>
+                            <p><h6 class="card-subtitle mb-2">Currently Registered Users</h6></p>
+                            <div class="col-md-12 justify-content-center text-center" style="color: #eeeeee; background-color: #2d334d; overflow: auto; padding: 20px; height: 500px">
+
+                                <table id="users-table" style="width: 100%;">
+                                    <thead>
+                                    <tr>
+                                        <th>Email</th>
+                                        <th>Location</th>
+                                        <th>View Data</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="users-body">
+
+                                    </tbody>
+                                </table>
+                                <a id="summ" class="btn-dark" href="index.html">Go To Index Page</a>
+                            </div>
+
+                            <p id="admin_panel"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script src="js/accounts.js"></script>
+<script src="js/admin.js"></script>
+
+

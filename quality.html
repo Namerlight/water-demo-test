@@ -20,6 +20,13 @@
         width: 0;
     }
 
+    #map {
+        height: 30vh;
+        /* The height is 400 pixels */
+        width: 50vw;
+        /* The width is the width of the web page */
+    }
+
 </style>
 
 <body>
@@ -313,7 +320,29 @@
                         <a class="dropdown-item" href="#">Uttara</a>
                     </div>
                 </div></p>
+
                 <div class="row g-5">
+
+                    <div class="col-md-9 justify-content-center text-center" style="background-color: #2d334d; padding: 20px">
+                        <div style="padding: 20px">
+                            <div id="map" >
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-3 justify-content-center text-center" style="background-color: #2d334d; padding: 20px">
+
+                        <div style="padding: 20px">
+                            <button class="btn btn-light btn-sm" id="directions1" style="top: 20px; width: 100%; margin-bottom: 11px">GU001</button><br>
+                            <button class="btn btn-light btn-sm" id="directions2" style="top: 20px; width: 100%; margin-bottom: 11px">MO001</button><br>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="row g-5">
+
 
                     <div class="col-md-6 justify-content-center text-center" style="background-color: #2d334d; padding: 20px">
                         <div>
@@ -366,6 +395,47 @@
 </div>
 </body>
 </html>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCMQlB41vn2nIVOAHuTnt6nrk8QxpEf5o&callback=initMap&v=weekly"></script>
+<script>
+    function initMap() {
+        const directionsRenderer = new google.maps.DirectionsRenderer();
+
+        const dhaka = { lat: 23.780067, lng: 90.407311};
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 18,
+            center: dhaka,
+        });
+
+        new google.maps.Marker({
+            position: { lat: 23.789067, lng: 90.409911},
+            map,
+            title: "GU001!",
+        });
+
+        new google.maps.Marker({
+            position: { lat: 23.779985274999273, lng: 90.40728374683908},
+            map,
+            title: "MO001!",
+        });
+
+        directionsRenderer.setMap(map);
+
+        const onChangeHandler1 = function () {
+            console.log("GU001")
+            map.panTo({ lat: 23.789067, lng: 90.409911 });
+        };
+
+        const onChangeHandler2 = function () {
+            console.log("MO001")
+            map.panTo({ lat: 23.779985274999273, lng: 90.40728374683908});
+        };
+
+        document.getElementById("directions1").addEventListener("click", onChangeHandler1);
+        document.getElementById("directions2").addEventListener("click", onChangeHandler2);
+
+    }
+</script>
 
 <script src="js/quality.js"></script>
 <script src="js/accounts.js"></script>
