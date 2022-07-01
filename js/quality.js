@@ -313,6 +313,16 @@ document.getElementById("directions2").onclick = function() {
     refresh()
 }
 
+lis_of_buttons = document.getElementsByClassName("device_element")
+console.log("List", lis_of_buttons)
+
+document.getElementsByClassName("device_element").onclick = function() {
+    console.log(this.innerText)
+    url = "https://water-initial-test.herokuapp.com/api/post/read_all_sensor.php?device=" + this.innerText
+    console.log(url)
+    refresh()
+}
+
 
 
 

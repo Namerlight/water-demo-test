@@ -396,6 +396,10 @@
 </body>
 </html>
 
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCMQlB41vn2nIVOAHuTnt6nrk8QxpEf5o&callback=initMap&v=weekly"></script>
+<script src="js/quality.js"></script>
+<script src="js/accounts.js"></script>
+
 <script>
     function initMap() {
         const directionsRenderer = new google.maps.DirectionsRenderer();
@@ -428,47 +432,43 @@
             map.panTo({ lat: 23.779985274999273, lng: 90.40728374683908});
         };
 
-        document.getElementById("directions1").addEventListener("click", onChangeHandler1);
-        document.getElementById("directions2").addEventListener("click", onChangeHandler2);
-    }
+        let url_users = "https://water-initial-test.herokuapp.com/api/post/read_all_devices.php";
 
-    let url_users = "https://water-initial-test.herokuapp.com/api/post/read_all_devices.php";
+        async function getData() {
+            let response = await fetch(url_users);
+            return await response.json()
+        }
 
-    async function getData() {
-        let response = await fetch(url_users);
-        return await response.json()
-    }
+        sensors_list = []
 
-    sensors_list = []
+        getData().then(data => {
+            let output = data.data;
+            console.log(output)
 
-    getData().then(data => {
-        let output = data.data;
-        console.log(output)
+            let current_user = readCookie("Username")
 
-        let current_user = readCookie("Username")
+            console.log("Cookie", current_user)
 
-        console.log("Cookie", current_user)
-
-        for (let i = 0; i < (output.length); i++) {
-            if (output[i]["user"] === current_user) {
-                sensors_list.push(output[i]["device_id"])
+            for (let i = 0; i < (output.length); i++) {
+                if (output[i]["user"] === current_user) {
+                    sensors_list.push(output[i]["device_id"])
+                }
             }
-        }
-        console.log(sensors_list)
+            console.log(sensors_list)
 
-        let b_area = document.getElementById("buttons_area")
+            let b_area = document.getElementById("buttons_area")
 
-        for (let j = 0; j < (sensors_list.length); j++) {
-            console.log(sensors_list[j])
-            b_area.insertAdjacentHTML('beforeend', '<button class=\"btn btn-light btn-sm\" id=\"directions1\" value=\"GU001\" style=\"top: 20px; width: 100%; margin-bottom: 11px\">' + sensors_list[j] + '</button><br>\n')
-        }
+            for (let j = 0; j < (sensors_list.length); j++) {
+                console.log(sensors_list[j])
+                b_area.insertAdjacentHTML('beforeend', '<button class=\"btn btn-light btn-sm device_element\ onclick=\"onChangeHandler1()\" id=\"directions' + j+1 + '\" style=\"top: 20px; width: 100%; margin-bottom: 11px\">' + sensors_list[j] + '</button><br>\n')
+            }
 
+            document.getElementById("directions1").addEventListener("click", onChangeHandler1);
+            document.getElementById("directions2").addEventListener("click", onChangeHandler2);
 
-    });
+        });
+
+    }
 
 </script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCMQlB41vn2nIVOAHuTnt6nrk8QxpEf5o&callback=initMap&v=weekly"></script>
-
-<script src="js/quality.js"></script>
-<script src="js/accounts.js"></script>
 
