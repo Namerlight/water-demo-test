@@ -13,7 +13,8 @@ Chart.defaults.color = "#ffffff";
 
 
 // const url = "http://192.168.0.193/REST_test/api/post/read_last_100.php";
-const url = "https://water-initial-test.herokuapp.com/api/post/read_last_100.php";
+let url = "https://water-initial-test.herokuapp.com/api/post/read_last_100.php";
+const device_url = "https://water-initial-test.herokuapp.com/api/post/read_all_sensor.php?device="
 
 let time_array = [];
 let oxygen_array = [];
@@ -173,6 +174,7 @@ function refresh() {
     PHChart.destroy();
     DissolvedChart.destroy();
 
+    console.log(url)
     async function getData_Refresh() {
         let response = await fetch(url);
         let data = await response.json()
@@ -297,6 +299,19 @@ document.getElementById("refresh").onclick = function() {
 
 setInterval(refresh, 600000);
 
+document.getElementById("directions1").onclick = function() {
+    console.log(this.innerText)
+    url = "https://water-initial-test.herokuapp.com/api/post/read_all_sensor.php?device=" + this.innerText
+    console.log(url)
+    refresh()
+}
+
+document.getElementById("directions2").onclick = function() {
+    console.log(this.innerText)
+    url = "https://water-initial-test.herokuapp.com/api/post/read_all_sensor.php?device=" + this.innerText
+    console.log(url)
+    refresh()
+}
 
 
 
