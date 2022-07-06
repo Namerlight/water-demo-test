@@ -1,5 +1,11 @@
 console.log("Running");
 
+
+var imported = document.createElement('script');
+imported.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCCMQlB41vn2nIVOAHuTnt6nrk8QxpEf5o&callback=initMap&v=weekly';
+document.head.appendChild(imported);
+
+
 Chart.defaults.beginAtZero = true;
 Chart.defaults.color = "#ffffff";
 
@@ -157,7 +163,7 @@ getData().then(data => {
     PHChart.update();
     DissolvedChart.update();
 
-    document.getElementById("refresh").innerHTML = "Refresh Data"
+    // document.getElementById("refresh").innerHTML = "Refresh Data"
 });
 
 function refresh() {
@@ -293,9 +299,9 @@ function refresh() {
     });
 }
 
-document.getElementById("refresh").onclick = function() {
-    refresh();
-}
+// document.getElementById("refresh").onclick = function() {
+//     refresh();
+// }
 
 setInterval(refresh, 600000);
 
@@ -313,15 +319,156 @@ document.getElementById("directions2").onclick = function() {
     refresh()
 }
 
-lis_of_buttons = document.getElementsByClassName("device_element")
-console.log("List", lis_of_buttons)
-
-document.getElementsByClassName("device_element").onclick = function() {
-    console.log(this.innerText)
-    url = "https://water-initial-test.herokuapp.com/api/post/read_all_sensor.php?device=" + this.innerText
-    console.log(url)
-    refresh()
+async function getListofButtons() {
+    let list_of_buttons = document.getElementsByClassName("device_element")
+    console.log("List", list_of_buttons)
 }
+
+function initMap() {
+    const directionsRenderer = new google.maps.DirectionsRenderer();
+
+    const dhaka = { lat: 23.780067, lng: 90.407311};
+    const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 18,
+        center: dhaka,
+    });
+
+    new google.maps.Marker({
+        position: { lat: 23.789067, lng: 90.409911},
+        map,
+        title: "GU001!",
+    });
+
+    new google.maps.Marker({
+        position: { lat: 23.779985274999273, lng: 90.40728374683908},
+        map,
+        title: "MO001!",
+    });
+
+    directionsRenderer.setMap(map);
+
+    const mapGU001 = function () {
+        console.log("GU001 clicked")
+        map.panTo({ lat: 23.789067, lng: 90.409911 });
+        url = "https://water-initial-test.herokuapp.com/api/post/read_all_sensor.php?device=" + "GU001"
+        console.log("New URL", url)
+        refresh()
+    };
+
+    const mapGU002 = function () {
+        console.log("GU002 clicked")
+        map.panTo({ lat: 23.789167, lng: 90.410911 });
+        url = "https://water-initial-test.herokuapp.com/api/post/read_all_sensor.php?device=" + "GU002"
+        console.log("New URL", url)
+        refresh()
+    };
+
+    const mapGU003 = function () {
+        console.log("GU003 clicked")
+        map.panTo({ lat: 23.778967, lng: 90.408911 });
+        url = "https://water-initial-test.herokuapp.com/api/post/read_all_sensor.php?device=" + "GU003"
+        console.log("New URL", url)
+        refresh()
+    };
+
+    const mapMO001 = function () {
+        console.log("MO001 clicked")
+        map.panTo({ lat: 23.789067, lng: 90.409911 });
+        url = "https://water-initial-test.herokuapp.com/api/post/read_all_sensor.php?device=" + "MO001"
+        console.log("New URL", url)
+        refresh()
+    };
+
+    const mapMO002 = function () {
+        console.log("MO002 clicked")
+        map.panTo({ lat: 23.790067, lng: 90.406911 });
+        url = "https://water-initial-test.herokuapp.com/api/post/read_all_sensor.php?device=" + "MO002"
+        console.log("New URL", url)
+        refresh()
+    };
+
+    const mapUT001 = function () {
+        console.log("UT001 clicked")
+        map.panTo({ lat: 23.779985274999273, lng: 90.40728374683908});
+        url = "https://water-initial-test.herokuapp.com/api/post/read_all_sensor.php?device=" + "UT001"
+        console.log("New URL", url)
+        refresh()
+    };
+
+    let url_users = "https://water-initial-test.herokuapp.com/api/post/read_all_devices.php";
+
+    async function getData() {
+        let response = await fetch(url_users);
+        return await response.json()
+    }
+
+    sensors_list = []
+
+    getData().then(async data => {
+        let output = data.data;
+        console.log(output)
+
+        let current_user = readCookie("Username")
+
+        console.log("Cookie", current_user)
+
+        for (let i = 0; i < (output.length); i++) {
+            if (output[i]["user"] === current_user || current_user === "admin") {
+                sensors_list.push(output[i]["device_id"])
+            }
+        }
+        console.log(sensors_list)
+
+        let b_area = document.getElementById("buttons_area")
+
+        for (let j = 0; j < (sensors_list.length); j++) {
+            console.log(sensors_list[j])
+
+            let btn = document.createElement("button");
+            btn.innerHTML = sensors_list[j]
+
+            if (sensors_list[j] === "GU001") {
+                btn.onclick = mapGU001
+            } else if (sensors_list[j] === "GU002") {
+                btn.onclick = mapGU002
+            } else if (sensors_list[j] === "GU003") {
+                btn.onclick = mapGU003
+            } else if (sensors_list[j] === "MO001") {
+                btn.onclick = mapMO001
+            } else if (sensors_list[j] === "MO002") {
+                btn.onclick = mapMO002
+            } else if (sensors_list[j] === "UT001") {
+                btn.onclick = mapUT001
+            }
+            btn.id = "directions" + j
+            btn.class = "btn btn-light btn-sm device_element"
+            btn.style = "top: 20px; width: 100%; margin-bottom: 11px"
+
+            b_area.appendChild(btn)
+
+        }
+
+        // document.getElementById("directions1").addEventListener("click", onChangeHandler1);
+        // document.getElementById("directions2").addEventListener("click", onChangeHandler2);
+
+    });
+
+}
+
+
+
+
+// document.getElementsByClassName("device_element")
+
+
+
+
+//     .onclick = function() {
+//     console.log("In Quality", this.innerText)
+//     url = "https://water-initial-test.herokuapp.com/api/post/read_all_sensor.php?device=" + this.innerText
+//     console.log(url)
+//     refresh()
+// }
 
 
 
