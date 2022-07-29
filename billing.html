@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <title>Domestic Water Tool</title>
@@ -15,65 +15,6 @@
 
 <style>
 
-    /* Designing for scroll-bar */
-    ::-webkit-scrollbar {
-        width: 0;
-    }
-
-    #map {
-        height: 30vh;
-        /* The height is 400 pixels */
-        width: 50vw;
-        /* The width is the width of the web page */
-    }
-
-    .dropbtn {
-        background-color: #3498DB;
-        color: white;
-        padding: 16px;
-        font-size: 16px;
-        border: none;
-        cursor: pointer;
-    }
-
-    /* Dropdown button on hover & focus */
-    .dropbtn:hover, .dropbtn:focus {
-        background-color: #2980B9;
-    }
-
-    /* The container <div> - needed to position the dropdown content */
-    .dropdown {
-        position: relative;
-        display: inline-block;
-    }
-
-    /* Dropdown Content (Hidden by Default) */
-    .dropdown-content {
-        display: none;
-        /*position: absolute;*/
-        background-color: #f1f1f1;
-        /*min-width: 160px;*/
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-    }
-
-    /* Links inside the dropdown */
-    .dropdown-content button {
-        background-color: #c3d9ed;
-        font-size: 12px;
-        border: none;
-        cursor: pointer;
-        color: black;
-        width: 175px;
-        text-decoration: none;
-        display: block;
-    }
-
-    /* Change color of dropdown links on hover */
-    .dropdown-content button:hover {background-color: #ddd}
-
-    /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-    .show {display:block;}
 
 </style>
 
@@ -87,6 +28,7 @@
     <img src="assets/ict-division-seeklogo.com.png" style="width: 90px; height:50px; padding-left: 12px; padding-top: 10px; float: left;">
     <img src="assets/pinpng.com-academic-png-4230767.png" style="width: 50px; height:47px; padding-left: 12px; padding-top: 10px; float: left;">
     <h1 style="padding-left: 12px; float: left; color: #eeeeee">DWT</h1></div>
+
 
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -264,6 +206,7 @@
     </div>
 </div>
 
+
 <div class="bg" style="overflow: auto">
     <div class="row">
         <div class="col-sm-2 desk div-only-mobile">
@@ -356,101 +299,167 @@
                             Billing
                         </a>
                     </li>
-
                 </ul>
             </div>
         </div>
 
+        <div class="col-lg-10 mx-auto p-5 py-md-8 justify-content-center text-center">
 
-        <div class="col-lg-8 mx-auto justify-content-center text-center" style="overflow: auto">
-            <main>
-                <a class="btn btn-dark div-vis-mobile div-hide-desktop" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample" style="position: fixed; top: 20px; left: 20px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-list" viewBox="1.5 1 13 13">
-                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-                    </svg>
-                </a>
+            <div class="row g-5 justify-content-center text-center">
+                <div class="card-bg col-md-8" style="padding-top: 10px; padding-bottom: 10px;"><h2>Domestic Water Tool Analytics (DWT)</h2></div>
+            </div>
+            <br><br>
 
-                <br>
-                <div class="row g-5 justify-content-center text-center">
-                    <div class="col-md-9" style="background-color: #2d334d; padding-top: 10px; padding-bottom: 10px;"><h2>Domestic Water Tool Analytics (DWT)</h2></div>
-                </div>
-                <p></p>
+            <a class="btn btn-dark div-vis-mobile div-hide-desktop" data-bs-toggle="offcanvas" href="#offcanvasExample"
+               role="button" aria-controls="offcanvasExample" style="position: fixed; top: 20px; left: 20px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-list"
+                     viewBox="1.5 1 13 13">
+                    <path fill-rule="evenodd"
+                          d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                </svg>
+            </a>
 
-                <div class="row g-5">
-
-                    <div class="col-md-9 justify-content-center text-center" style="background-color: #2d334d; padding: 20px">
-                        <div style="padding: 20px">
-                            <div id="map" >
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="col-md-3 justify-content-center text-center" style="background-color: #2d334d; padding: 20px">
-                        <div class="dropdown" id="container">
-                            <button onclick="myFunction()" class="dropbtn">List of Users</button>
-                            <div id="myDropdown" class="dropdown-content">
-                                <ul>
-                                    <button class="name-button">User 1</button>
-                                    <button class="name-button">User 2</button>
-                                    <button class="name-button">User 3</button>
-                                </ul>
-                            </div>
-                        </div>
-                        <div id="buttons_area" style="padding: 20px">
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="row g-5">
-
-
-                    <div class="col-md-6 justify-content-center text-center" style="background-color: #2d334d; padding: 20px">
-                        <div>
-                            <canvas id="OxygenTable"></canvas>
-                        </div>
-
-                        <div>
-                            <a type="button" class="btn btn-outline-danger" href="oxygen.html">View Detailed Oxygen Data</a>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 justify-content-center text-center" style="background-color: #2d334d; padding: 20px">
-                        <div>
-                            <canvas id="AmmoniaTable"></canvas>
-                        </div>
-                        <div>
-                            <a type="button" class="btn btn-outline-primary" href="ammonia.html">View Detailed Ammonia & Nitrogen
-                                Data
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row g-5">
-
-                    <div class="col-md-6 justify-content-center text-center row-separator" style="background-color: #2d334d; padding: 20px">
-                        <div>
-                            <canvas id="PHTable"></canvas>
-                        </div>
-                        <div>
-                            <a type="button" class="btn btn-outline-light" href="PH.html">View Detailed pH Data</a>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 justify-content-center text-center" style="background-color: #2d334d; padding: 20px">
-                        <div>
-                            <canvas id="DissolvedTable"></canvas>
-                        </div>
-                        <div>
-                            <a type="button" class="btn btn-outline-success" href="Dissolved.html">View Detailed Dissolved Oxygen Data
-                            </a>
+            <div class="row g-5 justify-content-center text-center">
+                <div class="col-md-5 justify-content-center text-center" style="">
+                    <div class="card-bg card justify-content-center text-center" style="background-color: #308075;">
+                        <div class="card-body">
+                            <p><h4 class="card-title" style="text-shadow: 2px 2px black">Real-Time Data Monitoring</h4></p>
+                            <p><h6 id="date-data" class="card-subtitle mb-2"></h6></p>
+                            <h5 class="card-subtitle mb-2" style="padding-top: 20px"> <span
+                                    id="quality-data">  </span>&nbsp&nbsp&nbsp&nbsp&nbsp<span id="quantity-data"> </span> </h5>
+                            <br>
+                            <table class="styled-table" id="real" style="width: 100%;">
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Real Data</th>
+                                </tr>
+                                <tr>
+                                    <td>Oxygen</td>
+                                    <td id="oxy-data">0.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Ammonia</td>
+                                    <td id="amn-data">0</td>
+                                </tr>
+                                <tr>
+                                    <td>PH</td>
+                                    <td id="PH-data">0</td>
+                                </tr>
+                                <tr>
+                                    <td>Dissolved Oxygen</td>
+                                    <td id="diss-data">0</td>
+                                </tr>
+                                <tr>
+                                    <td>Ar</td>
+                                    <td id="ar-data">0.112</td>
+                                </tr>
+                                <tr>
+                                    <td>Pb</td>
+                                    <td id="pb-data">0.120</td>
+                                </tr>
+                                <tr>
+                                    <td>Cl</td>
+                                    <td id="cl-data">0.123</td>
+                                </tr>
+                                <tr>
+                                    <td>Cr</td>
+                                    <td id="cr-data">0.112</td>
+                                </tr>
+                                <tr>
+                                    <td>Volume</td>
+                                    <td id="volume-data">15000</td>
+                                </tr>
+                                <tr>
+                                    <td>Pressure</td>
+                                    <td id="pressure-data">1.5</td>
+                                </tr>
+                                <tr>
+                                    <td>Flow Speed</td>
+                                    <td id="speed-data">20</td>
+                                </tr>
+                            </table>
+                            <br>
+                            <p><h4 class="card-title" style="color: #ffffff; text-shadow: 2px 2px black;"><b>Total Bill (Current Month)</b></h4></p>
+                            <p><h5 class="card-subtitle mb-2" style="text-align: left">Water Usage for Current Month: <span
+                                id="water-usage">  </span></h5></p>
+                            <p><h5 class="card-subtitle mb-2" style="text-align: left">Bill for Current Month: <span
+                                id="water-bill">  </span></h5></p>
+                            <br>
                         </div>
                     </div>
                 </div>
 
-            </main>
+                <div class="col-md-5 justify-content-center text-center" style="">
+                    <div class="card-bg card" style="background-color: #8e7f1d;">
+                        <div class="card-body">
+                            <p><h4 class="card-title" style="text-shadow: 2px 2px black">Predicted Data Monitoring</h4></p>
+                            <p><h6 class="card-subtitle mb-2">Date: 2022-01-31 21:00:00.0</h6></p>
+                            <h5 class="card-subtitle mb-2" style="padding-top: 20px"> <span
+                                    id="quality-data-pd">  </span>&nbsp&nbsp&nbsp&nbsp&nbsp<span id="quantity-data-pd"> </span> </h5>
+                            <br>
+                            <table id="pred" style="width: 100%;">
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Predicted Data</th>
+                                </tr>
+                                <tr>
+                                    <td>Oxygen</td>
+                                    <td id="oxy-pred">7.01</td>
+                                </tr>
+                                <tr>
+                                    <td>Ammonia</td>
+                                    <td id="amn-pred">0.22</td>
+                                </tr>
+                                <tr>
+                                    <td>PH</td>
+                                    <td id="PH-pred">7.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Dissolved Oxy</td>
+                                    <td id="diss-pred">0.11 ppm</td>
+                                </tr>
+                                <tr>
+                                    <td>Ar</td>
+                                    <td id="ar-pred">0.12 ppm</td>
+                                </tr>
+                                <tr>
+                                    <td>Pb</td>
+                                    <td id="pb-pred">0.13 ppm</td>
+                                </tr>
+                                <tr>
+                                    <td>Cl</td>
+                                    <td id="cl-pred">0.14 ppm</td>
+                                </tr>
+                                <tr>
+                                    <td>Cr</td>
+                                    <td id="cr-pred">0.15 ppm</td>
+                                </tr>
+                                <tr>
+                                    <td>Volume</td>
+                                    <td id="volume-pred">30000 L</td>
+                                </tr>
+                                <tr>
+                                    <td>Pressure</td>
+                                    <td id="pressure-pred">1.20 kPa</td>
+                                </tr>
+                                <tr>
+                                    <td>Flow Speed</td>
+                                    <td id="speed-pred">40 L/s</td>
+                                </tr>
+                            </table>
+                            <br>
+                            <p><h4 class="card-title" style="color: #ffffff; text-shadow: 2px 2px black"><b>Total Bill - Next Month (Predicted)</b></h4></p>
+                            <p><h5 class="card-subtitle mb-2" style="text-align: left">Water Usage for Next Month: <span
+                                id="water-usage-pred">9500 L</span></h5></p>
+                            <p><h5 class="card-subtitle mb-2" style="text-align: left">Predicted Bill for Next Month: <span
+                                id="water-bill-pred"> BDT 132.50 </span></h5></p>
+                            <br>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/> <br/>
 
         </div>
     </div>
@@ -458,15 +467,6 @@
 </body>
 </html>
 
-<!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCMQlB41vn2nIVOAHuTnt6nrk8QxpEf5o&callback=initMap&v=weekly"></script>-->
+<script src="js/index.js"></script>
 <script src="js/accounts.js"></script>
-<script src="js/quality.js"></script>
-
-
-<script>
-    function myFunction() {
-        document.getElementById("show-real-data").classList.toggle("show");
-    }
-</script>
-
 

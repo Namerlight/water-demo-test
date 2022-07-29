@@ -45,8 +45,6 @@ getData().then(data => {
             }
         }
 
-
-
         if (email_array[i] === "admin") {
             continue
         }

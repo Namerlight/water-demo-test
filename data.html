@@ -15,6 +15,18 @@
 
 <style>
 
+    .dropdown-content {
+        display: none;
+    }
+
+    .dropdown-content2 {
+        display: none;
+    }
+
+    .show {
+        display:block;
+    }
+
 
 </style>
 
@@ -186,8 +198,18 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-block nav-text-small text-truncate">
+                    <a href="#" class="nav-block nav-text-small text-truncate" style="margin-bottom: 20px">
                         Flow Speed
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="purif.html" class="nav-block nav-text-big text-truncate" style="margin-top: 20px">
+                        Purification Status
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="billing.html" class="nav-block nav-text-big text-truncate" style="margin-top: 20px">
+                        Billing
                     </a>
                 </li>
 
@@ -275,8 +297,18 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-block nav-text-small text-truncate">
+                        <a href="#" class="nav-block nav-text-small text-truncate" style="margin-bottom: 20px">
                             Flow Speed
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="purif.html" class="nav-block nav-text-big text-truncate" style="margin-top: 20px">
+                            Purification Status
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="billing.html" class="nav-block nav-text-big text-truncate" style="margin-top: 20px">
+                            Billing
                         </a>
                     </li>
                 </ul>
@@ -308,62 +340,61 @@
                             <h5 class="card-subtitle mb-2" style="padding-top: 20px"> <span
                                     id="quality-data">  </span>&nbsp&nbsp&nbsp&nbsp&nbsp<span id="quantity-data"> </span> </h5>
                             <br>
-                            <table class="styled-table" id="real" style="width: 100%;">
-                                <tr>
-                                    <th>Parameter</th>
-                                    <th>Real Data</th>
-                                </tr>
-                                <tr>
-                                    <td>Oxygen</td>
-                                    <td id="oxy-data">0.00</td>
-                                </tr>
-                                <tr>
-                                    <td>Ammonia</td>
-                                    <td id="amn-data">0</td>
-                                </tr>
-                                <tr>
-                                    <td>PH</td>
-                                    <td id="PH-data">0</td>
-                                </tr>
-                                <tr>
-                                    <td>Dissolved Oxygen</td>
-                                    <td id="diss-data">0</td>
-                                </tr>
-                                <tr>
-                                    <td>Ar</td>
-                                    <td id="ar-data">0.112</td>
-                                </tr>
-                                <tr>
-                                    <td>Pb</td>
-                                    <td id="pb-data">0.120</td>
-                                </tr>
-                                <tr>
-                                    <td>Cl</td>
-                                    <td id="cl-data">0.123</td>
-                                </tr>
-                                <tr>
-                                    <td>Cr</td>
-                                    <td id="cr-data">0.112</td>
-                                </tr>
-                                <tr>
-                                    <td>Volume</td>
-                                    <td id="volume-data">15000</td>
-                                </tr>
-                                <tr>
-                                    <td>Pressure</td>
-                                    <td id="pressure-data">1.5</td>
-                                </tr>
-                                <tr>
-                                    <td>Flow Speed</td>
-                                    <td id="speed-data">20</td>
-                                </tr>
-                            </table>
+                            <button class="show-real-data" id="show-real-data" onclick=show_real()>Show Detailed Data</button>
+                            <div id="myDropdown1" class="dropdown-content">
+                                <table class="styled-table" id="real" style="width: 100%;">
+                                    <tr>
+                                        <th>Parameter</th>
+                                        <th>Real Data</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Oxygen</td>
+                                        <td id="oxy-data">0.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ammonia</td>
+                                        <td id="amn-data">0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PH</td>
+                                        <td id="PH-data">0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dissolved Oxygen</td>
+                                        <td id="diss-data">0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ar</td>
+                                        <td id="ar-data">0.112</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pb</td>
+                                        <td id="pb-data">0.120</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cl</td>
+                                        <td id="cl-data">0.123</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cr</td>
+                                        <td id="cr-data">0.112</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Volume</td>
+                                        <td id="volume-data">15000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pressure</td>
+                                        <td id="pressure-data">1.5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Flow Speed</td>
+                                        <td id="speed-data">20</td>
+                                    </tr>
+                                </table>
+                            </div>
                             <br>
-                            <p><h4 class="card-title" style="color: #ffffff; text-shadow: 2px 2px black;"><b>Total Bill (Current Month)</b></h4></p>
-                            <p><h5 class="card-subtitle mb-2" style="text-align: left">Water Usage for Current Month: <span
-                                id="water-usage">  </span></h5></p>
-                            <p><h5 class="card-subtitle mb-2" style="text-align: left">Bill for Current Month: <span
-                                id="water-bill">  </span></h5></p>
+
                             <br>
                         </div>
                     </div>
@@ -377,68 +408,103 @@
                             <h5 class="card-subtitle mb-2" style="padding-top: 20px"> <span
                                     id="quality-data-pd">  </span>&nbsp&nbsp&nbsp&nbsp&nbsp<span id="quantity-data-pd"> </span> </h5>
                             <br>
-                            <table id="pred" style="width: 100%;">
-                                <tr>
-                                    <th>Parameter</th>
-                                    <th>Predicted Data</th>
-                                </tr>
-                                <tr>
-                                    <td>Oxygen</td>
-                                    <td id="oxy-pred">7.01</td>
-                                </tr>
-                                <tr>
-                                    <td>Ammonia</td>
-                                    <td id="amn-pred">0.22</td>
-                                </tr>
-                                <tr>
-                                    <td>PH</td>
-                                    <td id="PH-pred">7.00</td>
-                                </tr>
-                                <tr>
-                                    <td>Dissolved Oxy</td>
-                                    <td id="diss-pred">0.11 ppm</td>
-                                </tr>
-                                <tr>
-                                    <td>Ar</td>
-                                    <td id="ar-pred">0.12 ppm</td>
-                                </tr>
-                                <tr>
-                                    <td>Pb</td>
-                                    <td id="pb-pred">0.13 ppm</td>
-                                </tr>
-                                <tr>
-                                    <td>Cl</td>
-                                    <td id="cl-pred">0.14 ppm</td>
-                                </tr>
-                                <tr>
-                                    <td>Cr</td>
-                                    <td id="cr-pred">0.15 ppm</td>
-                                </tr>
-                                <tr>
-                                    <td>Volume</td>
-                                    <td id="volume-pred">30000 L</td>
-                                </tr>
-                                <tr>
-                                    <td>Pressure</td>
-                                    <td id="pressure-pred">1.20 kPa</td>
-                                </tr>
-                                <tr>
-                                    <td>Flow Speed</td>
-                                    <td id="speed-pred">40 L/s</td>
-                                </tr>
-                            </table>
-                            <br>
-                            <p><h4 class="card-title" style="color: #ffffff; text-shadow: 2px 2px black"><b>Total Bill - Next Month (Predicted)</b></h4></p>
-                            <p><h5 class="card-subtitle mb-2" style="text-align: left">Water Usage for Next Month: <span
-                                id="water-usage-pred">9500 L</span></h5></p>
-                            <p><h5 class="card-subtitle mb-2" style="text-align: left">Predicted Bill for Next Month: <span
-                                id="water-bill-pred"> BDT 132.50 </span></h5></p>
+                            <button class="show-real-data" onclick=show_pred()>Show Detailed Data</button>
+                            <div id="myDropdown2" class="dropdown-content">
+                                <table id="pred" style="width: 100%;">
+                                    <tr>
+                                        <th>Parameter</th>
+                                        <th>Predicted Data</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Oxygen</td>
+                                        <td id="oxy-pred">7.01</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ammonia</td>
+                                        <td id="amn-pred">0.22</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PH</td>
+                                        <td id="PH-pred">7.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dissolved Oxy</td>
+                                        <td id="diss-pred">0.11 ppm</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ar</td>
+                                        <td id="ar-pred">0.12 ppm</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pb</td>
+                                        <td id="pb-pred">0.13 ppm</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cl</td>
+                                        <td id="cl-pred">0.14 ppm</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cr</td>
+                                        <td id="cr-pred">0.15 ppm</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Volume</td>
+                                        <td id="volume-pred">30000 L</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pressure</td>
+                                        <td id="pressure-pred">1.20 kPa</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Flow Speed</td>
+                                        <td id="speed-pred">40 L/s</td>
+                                    </tr>
+                                </table>
+                            </div>
                             <br>
 
+                            <br>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <br>
+
+            <div class="row g-5 justify-content-center text-center">
+                <div class="col-md-5 justify-content-center text-center" style="">
+                    <div class="card-bg card justify-content-center text-center" style="background-color: #2f77aa;">
+                        <div class="card-body">
+                            <p><h4 class="card-title" style="text-shadow: 2px 2px black">Purification Status</h4></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-5 justify-content-center text-center">
+                    <div class="card-bg card justify-content-center text-center" style="background-color: #aa582f;">
+                        <div class="card-body">
+                            <p><h4 class="card-title" style="text-shadow: 2px 2px black">Billing</h4></p>
+                            <div class="row justify-content-center text-center">
+                                <div class="col-md-6 justify-content-center text-center">
+                                    <p><h5 class="card-title" style="color: #ffffff; text-shadow: 1px 1px black;"><b>Current Month</b></h5></p>
+                                    <p><h6 class="card-subtitle mb-2" style="text-align: left">Water Usage for Current Month: <span
+                                        id="water-usage">  </span></h6></p>
+                                    <p><h6 class="card-subtitle mb-2" style="text-align: left">Bill for Current Month: <span
+                                        id="water-bill">  </span></h6></p>
+                                </div>
+                                <div class="col-md-6 justify-content-center text-center">
+                                    <p><h5 class="card-title" style="color: #ffffff; text-shadow: 1px 1px black"><b>Next Month (Predicted)</b></h5></p>
+                                    <p><h6 class="card-subtitle mb-2" style="text-align: left">Water Usage for Next Month: <span
+                                        id="water-usage-pred">9500 L</span></h6></p>
+                                    <p><h6 class="card-subtitle mb-2" style="text-align: left">Predicted Bill for Next Month: <span
+                                        id="water-bill-pred"> BDT 132.50 </span></h6></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <br/> <br/>
 
         </div>
@@ -449,4 +515,17 @@
 
 <script src="js/index.js"></script>
 <script src="js/accounts.js"></script>
+
+<script>
+
+    function show_real() {
+        console.log("Clicked")
+        document.getElementById("myDropdown1").classList.toggle("show");
+    }
+
+    function show_pred() {
+        document.getElementById("myDropdown2").classList.toggle("show");
+    }
+
+</script>
 

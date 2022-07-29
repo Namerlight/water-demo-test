@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <title>Domestic Water Tool</title>
@@ -15,65 +15,6 @@
 
 <style>
 
-    /* Designing for scroll-bar */
-    ::-webkit-scrollbar {
-        width: 0;
-    }
-
-    #map {
-        height: 30vh;
-        /* The height is 400 pixels */
-        width: 50vw;
-        /* The width is the width of the web page */
-    }
-
-    .dropbtn {
-        background-color: #3498DB;
-        color: white;
-        padding: 16px;
-        font-size: 16px;
-        border: none;
-        cursor: pointer;
-    }
-
-    /* Dropdown button on hover & focus */
-    .dropbtn:hover, .dropbtn:focus {
-        background-color: #2980B9;
-    }
-
-    /* The container <div> - needed to position the dropdown content */
-    .dropdown {
-        position: relative;
-        display: inline-block;
-    }
-
-    /* Dropdown Content (Hidden by Default) */
-    .dropdown-content {
-        display: none;
-        /*position: absolute;*/
-        background-color: #f1f1f1;
-        /*min-width: 160px;*/
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-    }
-
-    /* Links inside the dropdown */
-    .dropdown-content button {
-        background-color: #c3d9ed;
-        font-size: 12px;
-        border: none;
-        cursor: pointer;
-        color: black;
-        width: 175px;
-        text-decoration: none;
-        display: block;
-    }
-
-    /* Change color of dropdown links on hover */
-    .dropdown-content button:hover {background-color: #ddd}
-
-    /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-    .show {display:block;}
 
 </style>
 
@@ -87,6 +28,7 @@
     <img src="assets/ict-division-seeklogo.com.png" style="width: 90px; height:50px; padding-left: 12px; padding-top: 10px; float: left;">
     <img src="assets/pinpng.com-academic-png-4230767.png" style="width: 50px; height:47px; padding-left: 12px; padding-top: 10px; float: left;">
     <h1 style="padding-left: 12px; float: left; color: #eeeeee">DWT</h1></div>
+
 
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -264,6 +206,7 @@
     </div>
 </div>
 
+
 <div class="bg" style="overflow: auto">
     <div class="row">
         <div class="col-sm-2 desk div-only-mobile">
@@ -356,117 +299,214 @@
                             Billing
                         </a>
                     </li>
-
                 </ul>
             </div>
         </div>
 
+        <div class="col-lg-10 mx-auto p-5 py-md-8 justify-content-center text-center">
 
-        <div class="col-lg-8 mx-auto justify-content-center text-center" style="overflow: auto">
-            <main>
-                <a class="btn btn-dark div-vis-mobile div-hide-desktop" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample" style="position: fixed; top: 20px; left: 20px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-list" viewBox="1.5 1 13 13">
-                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-                    </svg>
-                </a>
+            <div class="row g-5 v">
+                <div class="card-bg col-md-8" style="padding-top: 10px; padding-bottom: 10px;"><h2>Water Purification Status</h2></div>
+            </div>
+            <br><br>
 
-                <br>
-                <div class="row g-5 justify-content-center text-center">
-                    <div class="col-md-9" style="background-color: #2d334d; padding-top: 10px; padding-bottom: 10px;"><h2>Domestic Water Tool Analytics (DWT)</h2></div>
-                </div>
-                <p></p>
+            <a class="btn btn-dark div-vis-mobile div-hide-desktop" data-bs-toggle="offcanvas" href="#offcanvasExample"
+               role="button" aria-controls="offcanvasExample" style="position: fixed; top: 20px; left: 20px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-list"
+                     viewBox="1.5 1 13 13">
+                    <path fill-rule="evenodd"
+                          d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                </svg>
+            </a>
 
-                <div class="row g-5">
-
-                    <div class="col-md-9 justify-content-center text-center" style="background-color: #2d334d; padding: 20px">
-                        <div style="padding: 20px">
-                            <div id="map" >
+            <div class="row g-5">
+                <div class="col-md-12" style="">
+                    <div class="card-bg card" style="background-color: #324f78">
+                        <div class="card-body">
+                            <div class="row g-5 justify-content-center text-center">
+                                <div class="col-md-3 justify-content-center text-center" style="">
+                                    <p><h5 class="card-title" style="text-shadow: 2px 2px black">Device Type</h5>
+                                    <h3>Drinking Water Purifier</h3>
+                                    <br>
+                                    <p><h5 class="card-title" style="text-shadow: 2px 2px black">Device ID</h5></p>
+                                    <h3>GU001</h3>
+                                </div>
+                                <div class="col-md-5 justify-content-center text-center">
+                                    <p><h5 class="card-title" style="text-shadow: 2px 2px black">Current Water Quality</h5>
+                                    <p>Please wait for it to update after running manual purification</p>
+                                    <table class="styled-table" id="real" style="width: 100%;">
+                                        <tr>
+                                            <th>Parameter</th>
+                                            <th>Data</th>
+                                            <th>Parameter</th>
+                                            <th>Concentration</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Oxygen</td>
+                                            <td id="oxy-data">0.00</td>
+                                            <td>Argon</td>
+                                            <td id="ar-data">0.112</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ammonia</td>
+                                            <td id="amn-data">0</td>
+                                            <td>Lead</td>
+                                            <td id="pb-data">0.120</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PH</td>
+                                            <td id="PH-data">0</td>
+                                            <td>Chlorine</td>
+                                            <td id="cl-data">0.123</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Dissolved Oxygen</td>
+                                            <td id="diss-data">0</td>
+                                            <td>Chromium</td>
+                                            <td id="cr-data">0.112</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-md-3 justify-content-center text-center" style="background-color: #324f78">
+                                    <p><h5 class="card-title" style="text-shadow: 2px 2px black">Purification Status</h5>
+                                    <p><h6>Last Purified:</h6>
+                                    <h3>02-02-2022 - 12:23:34 PM</h3>
+                                    <br>
+                                    <button class="show-real-data" style="padding: 20px"><h4>Run Purification Now</h4></button>
+                                </div>
                             </div>
                         </div>
-
                     </div>
-
-                    <div class="col-md-3 justify-content-center text-center" style="background-color: #2d334d; padding: 20px">
-                        <div class="dropdown" id="container">
-                            <button onclick="myFunction()" class="dropbtn">List of Users</button>
-                            <div id="myDropdown" class="dropdown-content">
-                                <ul>
-                                    <button class="name-button">User 1</button>
-                                    <button class="name-button">User 2</button>
-                                    <button class="name-button">User 3</button>
-                                </ul>
+                </div>
+            </div>
+            <br>
+            <div class="row g-5">
+                <div class="col-md-12" style="">
+                    <div class="card-bg card" style="background-color: #32598d">
+                        <div class="card-body">
+                            <div class="row g-5 justify-content-center text-center">
+                                <div class="col-md-3 justify-content-center text-center" style="">
+                                    <p><h5 class="card-title" style="text-shadow: 2px 2px black">Device Type</h5>
+                                    <h3>Drinking Water Purifier</h3>
+                                    <br>
+                                    <p><h5 class="card-title" style="text-shadow: 2px 2px black">Device ID</h5></p>
+                                    <h3>GU001</h3>
+                                </div>
+                                <div class="col-md-5 justify-content-center text-center">
+                                    <p><h5 class="card-title" style="text-shadow: 2px 2px black">Current Water Quality</h5>
+                                    <p>Please wait for it to update after running manual purification</p>
+                                    <table class="styled-table" id="real" style="width: 100%;">
+                                        <tr>
+                                            <th>Parameter</th>
+                                            <th>Data</th>
+                                            <th>Parameter</th>
+                                            <th>Concentration</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Oxygen</td>
+                                            <td id="oxy-data">0.00</td>
+                                            <td>Argon</td>
+                                            <td id="ar-data">0.112</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ammonia</td>
+                                            <td id="amn-data">0</td>
+                                            <td>Lead</td>
+                                            <td id="pb-data">0.120</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PH</td>
+                                            <td id="PH-data">0</td>
+                                            <td>Chlorine</td>
+                                            <td id="cl-data">0.123</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Dissolved Oxygen</td>
+                                            <td id="diss-data">0</td>
+                                            <td>Chromium</td>
+                                            <td id="cr-data">0.112</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-md-3 justify-content-center text-center" style="">
+                                    <p><h5 class="card-title" style="text-shadow: 2px 2px black">Purification Status</h5>
+                                    <p><h6>Last Purified:</h6>
+                                    <h3>02-02-2022 - 12:23:34 PM</h3>
+                                    <br>
+                                    <button class="show-real-data" style="padding: 20px"><h4>Run Purification Now</h4></button>
+                                </div>
                             </div>
                         </div>
-                        <div id="buttons_area" style="padding: 20px">
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="row g-5">
-
-
-                    <div class="col-md-6 justify-content-center text-center" style="background-color: #2d334d; padding: 20px">
-                        <div>
-                            <canvas id="OxygenTable"></canvas>
-                        </div>
-
-                        <div>
-                            <a type="button" class="btn btn-outline-danger" href="oxygen.html">View Detailed Oxygen Data</a>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 justify-content-center text-center" style="background-color: #2d334d; padding: 20px">
-                        <div>
-                            <canvas id="AmmoniaTable"></canvas>
-                        </div>
-                        <div>
-                            <a type="button" class="btn btn-outline-primary" href="ammonia.html">View Detailed Ammonia & Nitrogen
-                                Data
-                            </a>
-                        </div>
                     </div>
                 </div>
-
-                <div class="row g-5">
-
-                    <div class="col-md-6 justify-content-center text-center row-separator" style="background-color: #2d334d; padding: 20px">
-                        <div>
-                            <canvas id="PHTable"></canvas>
-                        </div>
-                        <div>
-                            <a type="button" class="btn btn-outline-light" href="PH.html">View Detailed pH Data</a>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 justify-content-center text-center" style="background-color: #2d334d; padding: 20px">
-                        <div>
-                            <canvas id="DissolvedTable"></canvas>
-                        </div>
-                        <div>
-                            <a type="button" class="btn btn-outline-success" href="Dissolved.html">View Detailed Dissolved Oxygen Data
-                            </a>
+            </div>
+            <br>
+            <div class="row g-5">
+                <div class="col-md-12" style="">
+                    <div class="card-bg card" style="background-color: #426782">
+                        <div class="card-body">
+                            <div class="row g-5 justify-content-center text-center">
+                                <div class="col-md-3 justify-content-center text-center" style="">
+                                    <p><h5 class="card-title" style="text-shadow: 2px 2px black">Device Type</h5>
+                                    <h3>Drinking Water Purifier</h3>
+                                    <br>
+                                    <p><h5 class="card-title" style="text-shadow: 2px 2px black">Device ID</h5></p>
+                                    <h3>GU001</h3>
+                                </div>
+                                <div class="col-md-5 justify-content-center text-center">
+                                    <p><h5 class="card-title" style="text-shadow: 2px 2px black">Current Water Quality</h5>
+                                    <p>Please wait for it to update after running manual purification</p>
+                                    <table class="styled-table" id="real" style="width: 100%;">
+                                        <tr>
+                                            <th>Parameter</th>
+                                            <th>Data</th>
+                                            <th>Parameter</th>
+                                            <th>Concentration</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Oxygen</td>
+                                            <td id="oxy-data">0.00</td>
+                                            <td>Argon</td>
+                                            <td id="ar-data">0.112</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ammonia</td>
+                                            <td id="amn-data">0</td>
+                                            <td>Lead</td>
+                                            <td id="pb-data">0.120</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PH</td>
+                                            <td id="PH-data">0</td>
+                                            <td>Chlorine</td>
+                                            <td id="cl-data">0.123</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Dissolved Oxygen</td>
+                                            <td id="diss-data">0</td>
+                                            <td>Chromium</td>
+                                            <td id="cr-data">0.112</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-md-3 justify-content-center text-center" style="">
+                                    <p><h5 class="card-title" style="text-shadow: 2px 2px black">Purification Status</h5>
+                                    <p><h6>Last Purified:</h6>
+                                    <h3>02-02-2022 - 12:23:34 PM</h3>
+                                    <br>
+                                    <button class="show-real-data" style="padding: 20px"><h4>Run Purification Now</h4></button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-            </main>
-
+            </div>
         </div>
     </div>
 </div>
 </body>
 </html>
 
-<!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCMQlB41vn2nIVOAHuTnt6nrk8QxpEf5o&callback=initMap&v=weekly"></script>-->
+<script src="js/index.js"></script>
 <script src="js/accounts.js"></script>
-<script src="js/quality.js"></script>
-
-
-<script>
-    function myFunction() {
-        document.getElementById("show-real-data").classList.toggle("show");
-    }
-</script>
-
 

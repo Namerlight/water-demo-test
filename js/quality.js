@@ -305,19 +305,19 @@ function refresh() {
 
 setInterval(refresh, 600000);
 
-document.getElementById("directions1").onclick = function() {
-    console.log(this.innerText)
-    url = "https://water-initial-test.herokuapp.com/api/post/read_all_sensor.php?device=" + this.innerText
-    console.log(url)
-    refresh()
-}
-
-document.getElementById("directions2").onclick = function() {
-    console.log(this.innerText)
-    url = "https://water-initial-test.herokuapp.com/api/post/read_all_sensor.php?device=" + this.innerText
-    console.log(url)
-    refresh()
-}
+// document.getElementById("directions1").onclick = function() {
+//     console.log(this.innerText)
+//     url = "https://water-initial-test.herokuapp.com/api/post/read_all_sensor.php?device=" + this.innerText
+//     console.log(url)
+//     refresh()
+// }
+//
+// document.getElementById("directions2").onclick = function() {
+//     console.log(this.innerText)
+//     url = "https://water-initial-test.herokuapp.com/api/post/read_all_sensor.php?device=" + this.innerText
+//     console.log(url)
+//     refresh()
+// }
 
 async function getListofButtons() {
     let list_of_buttons = document.getElementsByClassName("device_element")
@@ -402,51 +402,78 @@ function initMap() {
         return await response.json()
     }
 
-    sensors_list = []
+    let users_list = ["shadabchoudhury@gmail.com", "asmmohsin@gmail.com", "test@test.test"]
 
-    getData().then(async data => {
-        let output = data.data;
-        console.log(output)
+    let list_buttons = document.getElementsByClassName("name-button")
 
-        let current_user = readCookie("Username")
-
-        console.log("Cookie", current_user)
-
-        for (let i = 0; i < (output.length); i++) {
-            if (output[i]["user"] === current_user || current_user === "admin") {
-                sensors_list.push(output[i]["device_id"])
-            }
-        }
-        console.log(sensors_list)
+    function load_buttons(user_param) {
 
         let b_area = document.getElementById("buttons_area")
 
-        for (let j = 0; j < (sensors_list.length); j++) {
-            console.log(sensors_list[j])
+        b_area.innerHTML = ""
 
-            let btn = document.createElement("button");
-            btn.innerHTML = sensors_list[j]
+        getData().then(async data => {
 
-            if (sensors_list[j] === "GU001") {
-                btn.onclick = mapGU001
-            } else if (sensors_list[j] === "GU002") {
-                btn.onclick = mapGU002
-            } else if (sensors_list[j] === "GU003") {
-                btn.onclick = mapGU003
-            } else if (sensors_list[j] === "MO001") {
-                btn.onclick = mapMO001
-            } else if (sensors_list[j] === "MO002") {
-                btn.onclick = mapMO002
-            } else if (sensors_list[j] === "UT001") {
-                btn.onclick = mapUT001
+            let output = data.data;
+            console.log(output)
+
+            let sensors_list = []
+
+            let current_user = readCookie("Username")
+            console.log("Read current user as", current_user)
+
+            if(current_user === "admin") {
+                current_user = this.innerText
             }
-            btn.id = "directions" + j
-            btn.class = "btn btn-light btn-sm device_element"
-            btn.style = "top: 20px; width: 100%; margin-bottom: 11px"
 
-            b_area.appendChild(btn)
+            console.log("Cookie", current_user)
 
-        }
+            for (let i = 0; i < (output.length); i++) {
+                if (output[i]["user"] === current_user) {
+                    sensors_list.push(output[i]["device_id"])
+                }
+            }
+            console.log(sensors_list)
+
+            for (let j = 0; j < (sensors_list.length); j++) {
+                console.log(sensors_list[j])
+
+                let btn = document.createElement("button");
+                btn.innerHTML = sensors_list[j]
+
+                if (sensors_list[j] === "GU001") {
+                    btn.onclick = mapGU001
+                } else if (sensors_list[j] === "GU002") {
+                    btn.onclick = mapGU002
+                } else if (sensors_list[j] === "GU003") {
+                    btn.onclick = mapGU003
+                } else if (sensors_list[j] === "MO001") {
+                    btn.onclick = mapMO001
+                } else if (sensors_list[j] === "MO002") {
+                    btn.onclick = mapMO002
+                } else if (sensors_list[j] === "UT001") {
+                    btn.onclick = mapUT001
+                }
+                btn.id = "directions" + j
+                btn.class = "btn btn-light btn-sm device_element"
+                btn.style = "top: 20px; width: 100%; margin-bottom: 11px"
+
+                b_area.appendChild(btn)
+
+            }
+
+        })
+
+    }
+
+    for (let b = 0; b < list_buttons.length; b++) {
+        console.log(list_buttons[b].innerHTML)
+        list_buttons[b].innerHTML = users_list[b]
+        list_buttons[b].onclick = load_buttons
+    }
+
+    getData().then(async data => {
+
 
         // document.getElementById("directions1").addEventListener("click", onChangeHandler1);
         // document.getElementById("directions2").addEventListener("click", onChangeHandler2);
