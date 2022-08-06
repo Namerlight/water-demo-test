@@ -22,42 +22,47 @@ getData().then(data => {
     let current_user = readCookie("Username")
     console.log(current_user)
 
-    output = data[0].data;
+    output = data[0].data;  // output = purif output
     console.log(output)
 
-    for (let i = 0; i < output.length; i++) {
-        device_array.push(output[i].email)
-        type_array.push(output[i].email)
-        device_array.push(output[i].email)
-        time_array.push(output[i].area)
-    }
-
-    output2 = data[1].data
+    output2 = data[1].data   // output = sensor table
     console.log(output2)
 
-    for (let i = 0; i < email_array.length; i++) {
-        let table = document.getElementById('users-body');
-        var row = document.createElement('tr');
-        cell = row.insertCell();
-        cell.textContent = email_array[i];
-        cell = row.insertCell();
-        cell.textContent = address_array[i];
-        cell = row.insertCell();
+    sensors_array = []
+    type_array = []
 
-        for (let j = 0; j < output2.length; j++) {
-            console.log(output2[j].user)
-            if (output2[j].user === email_array[i]) {
-                let urle = 'quality.html#' + output2[j].device_id
-                cell.innerHTML += `<a href=${urle}>` + output2[j].device_id + ", " + `</a>`
-            }
+    for (let i = 0; i < output2.length; i++) {
+        if (output2[i].user === current_user) {
+            sensors_array.push(output2[i].device_id)
+            type_array.push(output2[i].device_type)
         }
-
-        if (email_array[i] === "admin") {
-            continue
-        }
-
-        table.appendChild(row);
     }
+
+    for (let i = 0; i < output.length; i++) {
+        device_array.push(output[i].device_id)
+        time_array.push(output[i].purification_time)
+    }
+
+    console.log(device_array, time_array)
+
+    console.log(sensors_array, type_array)
+
+    for (let i = 0; i < sensors_array.length; i++) {
+        let type_id = "device_type_" + (i+1)
+        let id_id = "device_id_" + (i+1)
+        let time_id = "purif_time_" + (i+1)
+        document.getElementById(type_id).innerHTML = type_array[i]
+        document.getElementById(id_id).innerHTML = sensors_array[i]
+
+        let idx = device_array.indexOf(sensors_array[i])
+        console.log(idx)
+        console.log(time_array[idx])
+
+        document.getElementById(time_id).innerHTML = time_array[idx]
+
+    }
+
+
 });
 
 
