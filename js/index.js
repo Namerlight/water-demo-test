@@ -1,10 +1,5 @@
 console.log("Running");
 
-var offcanvasElementList = [].slice.call(document.querySelectorAll('.offcanvas'))
-var offcanvasList = offcanvasElementList.map(function (offcanvasEl) {
-    return new bootstrap.Offcanvas(offcanvasEl)
-})
-
 // const url = "http://192.168.0.193/REST_test/api/post/read_last_100.php";
 const db_url = "https://water-initial-test.herokuapp.com/api/post/read_last_100.php";
 const pred_url = "https://flask-ml-test.herokuapp.com/"
@@ -168,11 +163,11 @@ getData().then(data => {
     document.getElementById("cr-data").innerHTML = parseInt(dissolved_array[dissolved_array.length - 10]).toFixed(2) + " ppm"
     document.getElementById("cl-data").innerHTML = (parseInt(ammonia_array[ammonia_array.length - 10]).toFixed(2) + " ppm")
 
-    document.getElementById("quality-data").innerHTML = getQuality()
-    document.getElementById("quantity-data").innerHTML = '\<img src=\"../assets/high.png\" width=\"160px\" height=\"125px\" \>'
+    // document.getElementById("quality-data").innerHTML = getQuality()
+    // document.getElementById("quantity-data").innerHTML = '\<img src=\"../assets/high.png\" width=\"160px\" height=\"125px\" \>'
 
     // document.getElementById("water-cost").innerHTML = cost.toString() + " BDT per L";
-    // document.getElementById("water-usage").innerHTML = water_volume.toString() + " L";
+    document.getElementById("water-usage").innerHTML = water_volume.toString() + " L";
     document.getElementById("water-bill").innerHTML = getBill(cost, water_volume).toString() + " BDT";
 
     console.log(getQuality());
@@ -191,8 +186,8 @@ getData().then(data => {
     for (let i = 0; i < length2; i++) {
         console.log(predOxy_array[i], predAmn_array[i], predPH_array[i], predDiss_array[i])
     }
-    document.getElementById("quality-data-pd").innerHTML = '\<img src="../assets/safe.png" width=\"160px\" height=\"125px\" \>'
-    document.getElementById("quantity-data-pd").innerHTML = '\<img src="../assets/high.png" width=\"160px\" height=\"125px\" \>'
+    // document.getElementById("quality-data-pd").innerHTML = '\<img src="../assets/safe.png" width=\"160px\" height=\"125px\" \>'
+    // document.getElementById("quantity-data-pd").innerHTML = '\<img src="../assets/high.png" width=\"160px\" height=\"125px\" \>'
 
     document.getElementById("date-data").innerHTML = ("Date: " + time_array[time_array.length - 1]);
     document.getElementById("date-data").innerHTML = ("2022-01-30 21:00:00.0");
@@ -204,6 +199,68 @@ getData().then(data => {
     // document.getElementById("diss-pred").innerHTML = parseInt(predDiss_array[predDiss_array.length - 1]).toFixed(2);
     document.getElementById("amn-pred").innerHTML = (0.12 + "ppm")
     document.getElementById("diss-pred").innerHTML = (0.12 + "ppm")
+
+    const quality_real_data = {
+        datasets: [{
+            data: [99, 1, 34],
+            backgroundColor: [
+                'rgb(99,255,130)',
+                'rgb(74,74,74)',
+                'rgba(54, 162, 235, 0.0)',
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 0.0)',
+                'rgba(54, 162, 235, 0.0)',
+            ],
+            rotation: -135,
+        }],
+    };
+
+    const quality_real_config = {
+        type: 'doughnut',
+        data: quality_real_data,
+        options: {
+            events: [],
+            cutout: 70
+
+        }
+    };
+
+    const quality_real_chart = new Chart(
+        document.getElementById('quality_real_chart'),
+        quality_real_config
+    );
+
+    const quantity_real_data = {
+        datasets: [{
+            data: [86, 14, 34],
+            backgroundColor: [
+                'rgb(0,84,134)',
+                'rgb(74,74,74)',
+                'rgba(54, 162, 235, 0.0)',
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 0.0)',
+                'rgba(54, 162, 235, 0.0)',
+            ],
+            rotation: -135,
+        }],
+    };
+
+    const quantity_real_config = {
+        type: 'doughnut',
+        data: quantity_real_data,
+        options: {
+            events: [],
+            cutout: 70
+        }
+    };
+
+    const quantity_real_chart = new Chart(
+        document.getElementById('quantity_real_chart'),
+        quantity_real_config
+
+    );
 
 });
 
@@ -223,8 +280,6 @@ getPred().then(data => {
     for (let i = 0; i < length; i++) {
         console.log(predOxy_array[i], predAmn_array[i], predPH_array[i], predDiss_array[i])
     }
-    document.getElementById("quality-data-pd").innerHTML = '\<img src="../assets/safe.png" width=\"160px\" height=\"125px\" \>'
-    document.getElementById("quantity-data-pd").innerHTML = '\<img src="../assets/high.png" width=\"160px\" height=\"125px\" \>'
 
     document.getElementById("date-data").innerHTML = ("Date: " + time_array[time_array.length - 1]);
     document.getElementById("date-data").innerHTML = ("2022-01-30 21:00:00.0");
@@ -247,74 +302,73 @@ getPred().then(data => {
     //
     // console.log(getQuality());
 
-});
+    const quality_pred_data = {
+        datasets: [{
+            data: [98, 2, 34],
+            backgroundColor: [
+                'rgb(99,255,130)',
+                'rgb(74,74,74)',
+                'rgba(54, 162, 235, 0.0)',
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 0.0)',
+                'rgba(54, 162, 235, 0.0)',
+            ],
+            rotation: -135,
+        }],
+    };
 
-const url = "https://water-initial-test.herokuapp.com/api/post/read_all_purification.php";
-const url2 = "https://water-initial-test.herokuapp.com/api/post/read_all_devices.php";
+    const quality_pred_config = {
+        type: 'doughnut',
+        data: quality_pred_data,
+        options: {
+            events: [],
+            cutout: 70
 
-let device_array = []
-let pdevice_array = []
-let time_array2 = []
-let status_array = []
-let type_array = []
-
-async function getData2() {
-    let response = await fetch(url);
-    let data_purif = await response.json()
-    let response2 = await fetch(url2);
-    let data_sensors = await response2.json()
-    return [data_purif, data_sensors]
-}
-
-getData2().then(data => {
-
-    let current_user = readCookie("Username")
-    console.log(current_user)
-
-    output = data[0].data;  // output = purif output
-    console.log(output)
-
-    output2 = data[1].data   // output = sensor table
-    console.log(output2)
-
-    sensors_array = []
-    type_array = []
-
-    for (let i = 0; i < output2.length; i++) {
-        if (output2[i].user === current_user) {
-            sensors_array.push(output2[i].device_id)
-            type_array.push(output2[i].device_type)
         }
-    }
+    };
 
-    for (let i = 0; i < output.length; i++) {
-        device_array.push(output[i].device_id)
-        time_array2.push(output[i].purification_time)
-    }
+    const quality_pred_chart = new Chart(
+        document.getElementById('quality_pred_chart'),
+        quality_pred_config
+    );
 
-    console.log(device_array, time_array2)
 
-    let purif_div = document.getElementById('purif-status');
 
-    for (let i = device_array.length-3; i < device_array.length; i++) {
-        let type_id = "device_type_" + (i+1)
-        let id_id = "device_id_" + (i+1)
-        let time_id = "purif_time_" + (i+1)
-        // document.getElementById(type_id).innerHTML = type_array[i]
-        // document.getElementById(id_id).innerHTML = sensors_array[i]
-        //
-        let idx = device_array.indexOf(device_array[i])
-        console.log(idx)
-        console.log(time_array[idx])
-        //
-        // document.getElementById(time_id).innerHTML = time_array[idx]
-        var line = document.createElement('span');
-        line.innerHTML = (device_array[i] + " last purified at " + time_array[idx] + "<br>")
-        purif_div.appendChild(line);
+    const quantity_pred_data = {
+        datasets: [{
+            data: [90, 10, 35],
+            backgroundColor: [
+                'rgb(0,84,134)',
+                'rgb(74,74,74)',
+                'rgba(54, 162, 235, 0.0)',
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 0.0)',
+                'rgba(54, 162, 235, 0.0)',
+            ],
+            rotation: -135,
+        }],
+    };
 
-    }
+    const quantity_pred_config = {
+        type: 'doughnut',
+        data: quantity_pred_data,
+        options: {
+            events: [],
+            cutout: 70
+        }
+    };
+
+    const quantity_real_chart = new Chart(
+        document.getElementById('quantity_pred_chart'),
+        quantity_pred_config
+
+    );
 
 });
+
+
 
 
 
