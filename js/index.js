@@ -167,8 +167,8 @@ getData().then(data => {
     // document.getElementById("quantity-data").innerHTML = '\<img src=\"../assets/high.png\" width=\"160px\" height=\"125px\" \>'
 
     // document.getElementById("water-cost").innerHTML = cost.toString() + " BDT per L";
-    document.getElementById("water-usage").innerHTML = water_volume.toString() + " L";
-    document.getElementById("water-bill").innerHTML = getBill(cost, water_volume).toString() + " BDT";
+    // document.getElementById("water-usage").innerHTML = water_volume.toString() + " L";
+    // document.getElementById("water-bill").innerHTML = getBill(cost, water_volume).toString() + " BDT";
 
     console.log(getQuality());
 
@@ -283,24 +283,6 @@ getPred().then(data => {
 
     document.getElementById("date-data").innerHTML = ("Date: " + time_array[time_array.length - 1]);
     document.getElementById("date-data").innerHTML = ("2022-01-30 21:00:00.0");
-    // document.getElementById("oxy-pred").innerHTML = parseInt(predOxy_array[predOxy_array.length-1]).toFixed(2)
-    // document.getElementById("oxy-pred").innerHTML = (0.12 + "ppm")
-    // document.getElementById("PH-pred").innerHTML = parseInt(predPH_array[predPH_array.length - 1]).toFixed(2);
-    // document.getElementById("PH-pred").innerHTML = 7.56
-    // document.getElementById("amn-pred").innerHTML = (predAmn_array[predAmn_array.length - 1]).toFixed(2);
-    // document.getElementById("diss-pred").innerHTML = parseInt(predDiss_array[predDiss_array.length - 1]).toFixed(2);
-
-    // document.getElementById("diss-data").innerHTML = dissolved_array[dissolved_array.length - 1];
-    // document.getElementById("amn-data").innerHTML = ammonia_array[ammonia_array.length - 1];
-    //
-    // document.getElementById("quality-data").innerHTML = getQuality()
-    // document.getElementById("quantity-data").innerHTML = "Lots"
-    //
-    // document.getElementById("water-cost").innerHTML = cost.toString() + " BDT per L";
-    // document.getElementById("water-usage").innerHTML = water_volume.toString() + " L";
-    // document.getElementById("water-bill").innerHTML = getBill(cost, water_volume).toString() + " BDT";
-    //
-    // console.log(getQuality());
 
     const quality_pred_data = {
         datasets: [{
@@ -367,6 +349,50 @@ getPred().then(data => {
     );
 
 });
+
+const bills_data = {
+    labels: ["Previous Month", "This Month", "Next Month (Predicted)"],
+    datasets: [{
+        label: '',
+        data: [151.80, 182.16, 166.99],
+        backgroundColor: [
+            'rgba(255,241,105,0.4)',
+            'rgb(255,0,0)',
+            'rgb(255,111,39)',
+        ],
+    }]
+};
+
+const bills_config = {
+    type: 'bar',
+    data: bills_data,
+    options: {
+        plugins: {
+            legend: {
+                display: false,
+                labels: {
+                    backdropColor: 'rgb(255,255,255)',
+                    textStrokeColor: 'rgb(255,255,255)',
+                }
+            }
+        },
+        scales: {
+            x: {
+                ticks: { color: 'white'},
+            },
+            y: {
+                ticks: { color: 'white', beginAtZero: true },
+            },
+        }
+    },
+};
+
+const bills_chart = new Chart(
+    document.getElementById('bills_chart'),
+    bills_config
+);
+
+
 
 
 
