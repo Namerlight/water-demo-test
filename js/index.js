@@ -414,7 +414,7 @@ const purif1_config = {
     data: purif1_data,
     options: {
         events: [],
-        cutout: 60
+        cutout: 50
 
     }
 };
@@ -445,7 +445,7 @@ const purif2_config = {
     data: purif2_data,
     options: {
         events: [],
-        cutout: 60
+        cutout: 50
 
     }
 };
@@ -477,7 +477,7 @@ const purif3_config = {
     data: purif3_data,
     options: {
         events: [],
-        cutout: 60
+        cutout: 50
 
     }
 };
