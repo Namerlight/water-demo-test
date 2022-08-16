@@ -204,7 +204,7 @@ getData().then(data => {
         datasets: [{
             data: [99, 1, 34],
             backgroundColor: [
-                'rgb(99,255,130)',
+                'rgb(0,255,255)',
                 'rgb(74,74,74)',
                 'rgba(54, 162, 235, 0.0)',
             ],
