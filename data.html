@@ -352,7 +352,7 @@
 
             <div class="row g-5 justify-content-center text-center">
                 <div class="col-md-5 justify-content-center text-center" style="">
-                    <div class="card-bg card justify-content-center text-center" style="background-color: #308075;">
+                    <div class="card-bg card justify-content-center text-center" style="background-color: #4ca66b;">
                         <div class="card-body">
                             <p><h4 class="card-title" style="text-shadow: 2px 2px black">Real-Time Data Monitoring</h4></p>
                             <p><h6 id="date-data" class="card-subtitle mb-2"></h6></p>
@@ -441,7 +441,7 @@
                 </div>
 
                 <div class="col-md-5 justify-content-center text-center" style="">
-                    <div class="card-bg card" style="background-color: #8e7f1d;">
+                    <div class="card-bg card" style="background-color: #3aa394;">
                         <div class="card-body">
                             <p><h4 class="card-title" style="text-shadow: 2px 2px black">Predicted Data Monitoring</h4></p>
                             <p><h6 class="card-subtitle mb-2">Date: 2022-01-31 21:00:00.0</h6></p>
@@ -450,10 +450,9 @@
                                     <div class="relative">
                                         <canvas id="quality_pred_chart"></canvas>
                                         <div class="absolute-center text-center">
-                                            <h1><br><br>SAFE<br></h1>
-                                            <h2><b>98%</b></h2>
-                                            <p style="font-size: medium"><b>Safe for Drinking</b></p>
-
+                                            <h1><br><br>USAFE<br></h1>
+                                            <h2><b>68%</b></h2>
+                                            <p style="font-size: medium"><b>Not Safe for Drinking</b></p>
                                         </div>
                                     </div>
                                 </div>
@@ -537,8 +536,36 @@
                     <div class="card-bg card justify-content-center text-center" style="background-color: #2f77aa;">
                         <div class="card-body">
                             <p><h4 class="card-title" style="text-shadow: 2px 2px black">Purification Status</h4></p>
+                            <div class="row g-10 justify-content-center text-center" style="padding-bottom: 80px">
+                                <div class="col-md-4 justify-content-center text-center" style="">
+                                    <div class="relative">
+                                        <canvas id="purif1_chart"></canvas>
+                                        <div class="absolute-center text-center">
+                                            <h3 style="margin-top: 140px">Water Filter<br></h3>
+                                            <p style="font-size: medium; margin-top: 0px"><b style="font-size: x-large; color: rgb(0,255,255)">SAFE</b><br>Last Purified <span id="purif1_date">2022-02-28 11:24:48:0</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 justify-content-center text-center" style="">
+                                    <div class="relative">
+                                        <canvas id="purif2_chart"></canvas>
+                                        <div class="absolute-center text-center">
+                                            <h3 style="margin-top: 140px">Smart Bottle<br></h3>
+                                            <p style="font-size: medium; margin-top: 0px"><b style="font-size: x-large; color: rgb(0,255,255)">SAFE</b><br>Last Purified <span id="purif2_date">2022-02-28 11:24:48:0</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 justify-content-center text-center" style="">
+                                    <div class="relative">
+                                        <canvas id="purif3_chart"></canvas>
+                                        <div class="absolute-center text-center">
+                                            <h3 style="margin-top: 120px">Water Tank<br></h3>
+                                            <p style="font-size: medium; margin-top: 0px"><b style="font-size: x-large; color: rgb(255,234,0)">UNSAFE</b><br><span id="purif3_date"><b>Needs Purification</b></span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <a type="button" class="btn btn-outline-info" href="purif.html"><h4>View Purification Status</h4></a>
-
                         </div>
                     </div>
                 </div>
@@ -550,13 +577,6 @@
                             <div class="row justify-content-center text-center">
                                 <div class="col-md-6 justify-content-center text-center">
                                 </div>
-<!--                                <div class="col-md-6 justify-content-center text-center">-->
-<!--                                    <p><h5 class="card-title" style="color: #ffffff; text-shadow: 1px 1px black"><b>Next Month (Predicted)</b></h5></p>-->
-<!--                                    <p><h6 class="card-subtitle mb-2" style="text-align: left">Water Usage for Next Month: <span-->
-<!--                                        id="water-usage-pred">9500 L</span></h6></p>-->
-<!--                                    <p><h6 class="card-subtitle mb-2" style="text-align: left">Predicted Bill for Next Month: <span-->
-<!--                                        id="water-bill-pred"> BDT 132.50 </span></h6></p>-->
-<!--                                </div>-->
                                 <canvas id="bills_chart"></canvas>
                                 <p><h6 class="card-subtitle mb-2" style="text-align: center">Bill for Current Month: <span
                                     id="water-bill">BDT 182.16 </span></h6></p>

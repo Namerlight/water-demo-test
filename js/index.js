@@ -221,7 +221,7 @@ getData().then(data => {
         data: quality_real_data,
         options: {
             events: [],
-            cutout: 70
+            cutout: 80
 
         }
     };
@@ -252,7 +252,7 @@ getData().then(data => {
         data: quantity_real_data,
         options: {
             events: [],
-            cutout: 70
+            cutout: 80
         }
     };
 
@@ -286,9 +286,9 @@ getPred().then(data => {
 
     const quality_pred_data = {
         datasets: [{
-            data: [98, 2, 34],
+            data: [68, 32, 34],
             backgroundColor: [
-                'rgb(99,255,130)',
+                'rgb(255,234,0)',
                 'rgb(74,74,74)',
                 'rgba(54, 162, 235, 0.0)',
             ],
@@ -305,7 +305,7 @@ getPred().then(data => {
         data: quality_pred_data,
         options: {
             events: [],
-            cutout: 70
+            cutout: 80
 
         }
     };
@@ -338,7 +338,7 @@ getPred().then(data => {
         data: quantity_pred_data,
         options: {
             events: [],
-            cutout: 70
+            cutout: 80
         }
     };
 
@@ -393,7 +393,99 @@ const bills_chart = new Chart(
 );
 
 
+const purif1_data = {
+    datasets: [{
+        data: [100, 0, 34],
+        backgroundColor: [
+            'rgb(0,255,255)',
+            'rgb(74,74,74)',
+            'rgba(54, 162, 235, 0.0)',
+        ],
+        borderColor: [
+            'rgba(255, 99, 132, 0.0)',
+            'rgba(54, 162, 235, 0.0)',
+        ],
+        rotation: -135,
+    }],
+};
 
+const purif1_config = {
+    type: 'doughnut',
+    data: purif1_data,
+    options: {
+        events: [],
+        cutout: 60
+
+    }
+};
+
+const purif1_chart = new Chart(
+    document.getElementById('purif1_chart'),
+    purif1_config
+);
+
+const purif2_data = {
+    datasets: [{
+        data: [100, 0, 34],
+        backgroundColor: [
+            'rgb(0, 255, 255)',
+            'rgb(74,74,74)',
+            'rgba(54, 162, 235, 0.0)',
+        ],
+        borderColor: [
+            'rgba(255, 99, 132, 0.0)',
+            'rgba(54, 162, 235, 0.0)',
+        ],
+        rotation: -135,
+    }],
+};
+
+const purif2_config = {
+    type: 'doughnut',
+    data: purif2_data,
+    options: {
+        events: [],
+        cutout: 60
+
+    }
+};
+
+const purif2_chart = new Chart(
+    document.getElementById('purif2_chart'),
+    purif2_config
+);
+
+
+const purif3_data = {
+    datasets: [{
+        data: [100, 0, 34],
+        backgroundColor: [
+            'rgb(255,234,0)',
+            'rgb(74,74,74)',
+            'rgba(54, 162, 235, 0.0)',
+        ],
+        borderColor: [
+            'rgba(255, 99, 132, 0.0)',
+            'rgba(54, 162, 235, 0.0)',
+        ],
+        rotation: -135,
+    }],
+};
+
+const purif3_config = {
+    type: 'doughnut',
+    data: purif3_data,
+    options: {
+        events: [],
+        cutout: 60
+
+    }
+};
+
+const purif3_chart = new Chart(
+    document.getElementById('purif3_chart'),
+    purif3_config
+);
 
 
 
