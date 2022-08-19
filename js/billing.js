@@ -37,11 +37,65 @@ getData().then(data => {
         table.appendChild(row);
     }
 
-    document.getElementById("water-usage").innerHTML = (water_used_array[date_array.length - 1] + " L")
-    document.getElementById("water-bill").innerHTML = ("BDT " + total_bill_array[date_array.length - 1])
+    date_array.push("Predicted")
+    total_bill_array.push(166.9)
 
-    document.getElementById("water-usage-pred").innerHTML = water_used_array[date_array.length-1]+1000
-    document.getElementById("water-bill-pred").innerHTML = total_bill_array[date_array.length-1]+15.19
+    let average_bill_array = []
+    sum = 0
+    for (let i = 0; i < total_bill_array.length; i++) {
+        sum += total_bill_array[i]
+        avg = sum/(i+1)
+        average_bill_array.push(avg)
+    }
+
+    document.getElementById("water-usage").innerHTML = (water_used_array[date_array.length - 2] + " L")
+    document.getElementById("water-bill").innerHTML = ("BDT " + total_bill_array[date_array.length - 2])
+
+    document.getElementById("water-usage-pred").innerHTML = water_used_array[date_array.length-2]+1000
+    document.getElementById("water-bill-pred").innerHTML = total_bill_array[date_array.length-2]+15.19
+
+    const billing_data = {
+        labels: date_array,
+        datasets: [
+            {
+                type: 'line',
+                label: 'Average Bill',
+                data: average_bill_array,
+                fill: false,
+                borderColor: 'rgb(255,157,0)'
+
+            }, {
+            type: 'bar',
+            label: 'Monthly Bill',
+            data: total_bill_array,
+            borderColor: 'rgb(94,255,185)',
+            backgroundColor: [
+                'rgb(94,255,185)',
+                'rgb(94,255,185)',
+                'rgb(94,255,185)',
+                'rgb(94,255,185)',
+                'rgb(94,255,185)',
+                'rgb(63,194,206)',
+            ],
+        }]
+    };
+
+    const billing_config = {
+        type: 'scatter',
+        data: billing_data,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    };
+
+    const billing_chart = new Chart(
+        document.getElementById('billing_chart'),
+        billing_config
+    );
 
 });
 
