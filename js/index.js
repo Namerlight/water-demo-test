@@ -315,8 +315,6 @@ getPred().then(data => {
         quality_pred_config
     );
 
-
-
     const quantity_pred_data = {
         datasets: [{
             data: [90, 10, 35],
@@ -342,10 +340,9 @@ getPred().then(data => {
         }
     };
 
-    const quantity_real_chart = new Chart(
+    const quantity_pred_chart = new Chart(
         document.getElementById('quantity_pred_chart'),
         quantity_pred_config
-
     );
 
 });
