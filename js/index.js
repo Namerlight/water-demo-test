@@ -190,7 +190,7 @@ getData().then(data => {
     // document.getElementById("quantity-data-pd").innerHTML = '\<img src="../assets/high.png" width=\"160px\" height=\"125px\" \>'
 
     document.getElementById("date-data").innerHTML = ("Date: " + time_array[time_array.length - 1]);
-    document.getElementById("date-data").innerHTML = ("2022-07-28 12:00:00.0");
+    document.getElementById("date-data").innerHTML = ("2022-01-30 21:00:00.0");
     // document.getElementById("oxy-pred").innerHTML = parseInt(predOxy_array[predOxy_array.length-1]).toFixed(2)
     document.getElementById("oxy-pred").innerHTML = (0.12 + "ppm")
     // document.getElementById("PH-pred").innerHTML = parseInt(predPH_array[predPH_array.length - 1]).toFixed(2);
@@ -204,7 +204,7 @@ getData().then(data => {
         datasets: [{
             data: [99, 1, 34],
             backgroundColor: [
-                'rgb(0,255,255)',
+                'rgb(99,255,130)',
                 'rgb(74,74,74)',
                 'rgba(54, 162, 235, 0.0)',
             ],
@@ -315,8 +315,6 @@ getPred().then(data => {
         quality_pred_config
     );
 
-
-
     const quantity_pred_data = {
         datasets: [{
             data: [90, 10, 35],
@@ -342,10 +340,9 @@ getPred().then(data => {
         }
     };
 
-    const quantity_real_chart = new Chart(
+    const quantity_pred_chart = new Chart(
         document.getElementById('quantity_pred_chart'),
         quantity_pred_config
-
     );
 
 });
@@ -414,7 +411,7 @@ const purif1_config = {
     data: purif1_data,
     options: {
         events: [],
-        cutout: 50
+        cutout: 60
 
     }
 };
@@ -445,7 +442,7 @@ const purif2_config = {
     data: purif2_data,
     options: {
         events: [],
-        cutout: 50
+        cutout: 60
 
     }
 };
@@ -477,7 +474,7 @@ const purif3_config = {
     data: purif3_data,
     options: {
         events: [],
-        cutout: 50
+        cutout: 60
 
     }
 };
