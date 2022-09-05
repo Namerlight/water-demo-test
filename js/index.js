@@ -122,8 +122,23 @@ function getPredQuantity() {
 
 }
 
+function getWidth() {
+    return Math.max(
+        document.body.scrollWidth,
+        document.documentElement.scrollWidth,
+        document.body.offsetWidth,
+        document.documentElement.offsetWidth,
+        document.documentElement.clientWidth
+    );
+}
 
 getData().then(data => {
+
+    let cutout = getWidth()/1920 * 80
+
+    if (getWidth() < 768) {
+        cutout = 70
+    }
 
     output = data.data;
     console.log(output)
@@ -221,7 +236,7 @@ getData().then(data => {
         data: quality_real_data,
         options: {
             events: [],
-            cutout: 80
+            cutout: cutout
 
         }
     };
@@ -252,7 +267,7 @@ getData().then(data => {
         data: quantity_real_data,
         options: {
             events: [],
-            cutout: 80
+            cutout: cutout
         }
     };
 
@@ -265,6 +280,8 @@ getData().then(data => {
 });
 
 getPred().then(data => {
+
+    const cutout = getWidth()/1920 * 80
 
     output = data.data;
     console.log(output)
@@ -305,7 +322,7 @@ getPred().then(data => {
         data: quality_pred_data,
         options: {
             events: [],
-            cutout: 80
+            cutout: cutout
 
         }
     };
@@ -336,7 +353,7 @@ getPred().then(data => {
         data: quantity_pred_data,
         options: {
             events: [],
-            cutout: 80
+            cutout: cutout
         }
     };
 
