@@ -3,10 +3,13 @@
         visibility: hidden;
 
     }
+
     .div-only-mobile {
         visibility:visible;
     }
+
 }
+
 @media screen and (max-width : 1280px){
     .div-only-mobile {
         visibility:hidden;
@@ -17,11 +20,24 @@
         visibility: visible;
     }
 
+    .mobile-size {
+        font-size: 1em;
+    }
+
+    .mobile-size-middle {
+        margin-top: 60%;
+        font-size: 1.75em;
+    }
+
 }
 @media screen and (min-width : 1280px){
     .div-hide-desktop {
         visibility: hidden;
         display: none;
+    }
+
+    .mobile-size-middle {
+        margin-top: 60%;
     }
 }
 
@@ -29,6 +45,15 @@
     .row-separator {
         margin-top: 96px;
     }
+
+    .mobile-size {
+        font-size: 2em;
+    }
+
+    .mobile-size-middle {
+        font-size: xxx-large;
+    }
+
 }
 
 /*.bg {*/

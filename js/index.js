@@ -136,8 +136,8 @@ getData().then(data => {
 
     let cutout = getWidth()/1920 * 80
 
-    if (getWidth() < 768) {
-        cutout = 70
+    if (getWidth() < 771) {
+        cutout = 120
     }
 
     output = data.data;
@@ -281,7 +281,11 @@ getData().then(data => {
 
 getPred().then(data => {
 
-    const cutout = getWidth()/1920 * 80
+    let cutout = getWidth()/1920 * 80
+
+    if (getWidth() < 771) {
+        cutout = 120
+    }
 
     output = data.data;
     console.log(output)
@@ -364,6 +368,16 @@ getPred().then(data => {
 
 });
 
+console.log("Width", getWidth())
+
+let cutout_small = getWidth()/1920 * 50
+
+if (getWidth() < 771) {
+    cutout_small = 100
+}
+
+console.log(cutout_small)
+
 const bills_data = {
     labels: ["Previous Month", "This Month", "Next Month (Future)"],
     datasets: [{
@@ -428,7 +442,7 @@ const purif1_config = {
     data: purif1_data,
     options: {
         events: [],
-        cutout: 60
+        cutout: cutout_small,
 
     }
 };
@@ -459,8 +473,7 @@ const purif2_config = {
     data: purif2_data,
     options: {
         events: [],
-        cutout: 60
-
+        cutout: cutout_small,
     }
 };
 
@@ -491,7 +504,7 @@ const purif3_config = {
     data: purif3_data,
     options: {
         events: [],
-        cutout: 60
+        cutout: cutout_small,
 
     }
 };
