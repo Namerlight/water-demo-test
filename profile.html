@@ -5,77 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
-    <title>Domestic Water Tool</title>
+    <title>Profile - Domestic Water Tools</title>
 
 </head>
 
 <style>
-
-    /* Designing for scroll-bar */
-    ::-webkit-scrollbar {
-        width: 0;
-    }
-
-    #map {
-        height: 30vh;
-        /* The height is 400 pixels */
-        width: 50vw;
-        /* The width is the width of the web page */
-    }
-
-    .dropbtn {
-        background-color: #3498DB;
-        color: white;
-        padding: 16px;
-        font-size: 16px;
-        border: none;
-        cursor: pointer;
-    }
-
-    /* Dropdown button on hover & focus */
-    .dropbtn:hover, .dropbtn:focus {
-        background-color: #2980B9;
-    }
-
-    /* The container <div> - needed to position the dropdown content */
-    .dropdown {
-        position: relative;
-        display: inline-block;
-    }
-
-    /* Dropdown Content (Hidden by Default) */
-    .dropdown-content {
-        display: none;
-        /*position: absolute;*/
-        background-color: #f1f1f1;
-        /*min-width: 160px;*/
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-    }
-
-    /* Links inside the dropdown */
-    .dropdown-content button {
-        background-color: #c3d9ed;
-        font-size: 12px;
-        border: none;
-        cursor: pointer;
-        color: black;
-        width: 175px;
-        text-decoration: none;
-        display: block;
-    }
-
-    /* Change color of dropdown links on hover */
-    .dropdown-content button:hover {background-color: #ddd}
-
-    /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-    .show {display:block;}
-
 </style>
+
 
 <body>
 
@@ -86,7 +26,9 @@
     <a id="user" href="profile.html">Username</a>
     <img src="assets/ict-division-seeklogo.com.png" style="width: 90px; height:50px; padding-left: 12px; padding-top: 10px; float: left;">
     <img src="assets/pinpng.com-academic-png-4230767.png" style="width: 50px; height:47px; padding-left: 12px; padding-top: 10px; float: left;">
-    <h1 style="padding-left: 12px; float: left; color: #eeeeee">DWT</h1></div>
+    <h1 style="padding-left: 12px; float: left; color: #eeeeee" href="home.html">DWT</h1>
+</div>
+
 
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -115,47 +57,47 @@
     </div>
 </div>
 
-<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="registerModalLabel">Register</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Register</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
 
-                <form id="register_form">
+                    <form id="register_form">
 
-                    <label for="usernamebox2">Email Address</label><br>
-                    <input type="text" id="usernamebox2" name="Username"><br/><br/>
+                        <label for="usernamebox2">Email Address</label><br>
+                        <input type="text" id="usernamebox2" name="Username"><br/><br/>
 
-                    <label for="passwordbox2">Password</label> <br>
-                    <input type="password" id="passwordbox2" name="Password"><br/>
-                    <br/>
+                        <label for="passwordbox2">Password</label> <br>
+                        <input type="password" id="passwordbox2" name="Password"><br/>
+                        <br/>
 
-                    <label for="passwordbox2_re">Password</label> <br>
-                    <input type="password" id="passwordbox2_re" name="Password"><br/>
-                    <br/>
+                        <label for="passwordbox2_re">Password</label> <br>
+                        <input type="password" id="passwordbox2_re" name="Password"><br/>
+                        <br/>
 
-                    <label for="locbox2">Location</label><br>
-                    <select name="loc2" id="locbox2">
-                        <option value="Select">Select Location</option>
-                        <option value="Gulshan">Gulshan</option>
-                        <option value="Banani">Banani</option>
-                        <option value="Mohakhali">Mohakhali</option>
-                        <option value="Uttara">Uttara</option>
-                    </select><br/><br/>
+                        <label for="locbox2">Location</label><br>
+                        <select name="loc2" id="locbox2">
+                            <option value="Select">Select Location</option>
+                            <option value="Gulshan">Gulshan</option>
+                            <option value="Banani">Banani</option>
+                            <option value="Mohakhali">Mohakhali</option>
+                            <option value="Uttara">Uttara</option>
+                        </select><br/><br/>
 
-                    <input type="button" name="submit" value="Register" onclick="register()"/>
+                        <input type="button" name="submit" value="Register" onclick="register()"/>
 
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#loginModal">Got an account? Login</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#loginModal">Got an account? Login</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 <div class="offcanvas offcanvas-start" tabindex="1" id="offcanvasExample">
     <div class="col">
@@ -264,12 +206,13 @@
     </div>
 </div>
 
+
 <div class="bg" style="overflow: auto">
     <div class="row">
         <div class="col-sm-2 desk div-only-mobile">
             <div class="bg-dark">
                 <ul class="bg-dark nav-pills text-truncate"
-                    style="height: 100vh; overflow: auto">
+                    style="height: 125vh; overflow: auto">
                     <li class="nav-item">
                         <a href="data.html" class="nav-text-big nav-block text-truncate"
                            style="display: block; background-color: #2d334d; margin-top: 14px">
@@ -356,117 +299,62 @@
                             Billing
                         </a>
                     </li>
-
                 </ul>
             </div>
         </div>
 
+        <div class="col-lg-10 mx-auto p-5 py-md-8" style="height: 100vh">
 
-        <div class="col-lg-8 mx-auto justify-content-center text-center" style="overflow: auto">
-            <main>
-                <a class="btn btn-dark div-vis-mobile div-hide-desktop" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample" style="position: fixed; top: 20px; left: 20px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-list" viewBox="1.5 1 13 13">
-                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-                    </svg>
-                </a>
+            <div class="row g-5 justify-content-center text-center">
+                <div class="col-md-9" style="background-color: #2d334d; padding-top: 10px; padding-bottom: 10px;"><h2>Domestic Water Tool Analytics (DWT) - Profile</h2></div>
+            </div>
 
-                <br>
-                <div class="row g-5 justify-content-center text-center">
-                    <div class="col-md-9" style="background-color: #2d334d; padding-top: 10px; padding-bottom: 10px;"><h2>Domestic Water Tool Analytics (DWT)</h2></div>
-                </div>
-                <p></p>
+            <a class="btn btn-dark div-vis-mobile div-hide-desktop" data-bs-toggle="offcanvas" href="#offcanvasExample"
+               role="button" aria-controls="offcanvasExample" style="position: fixed; top: 58.75px; left: 6.5px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-list"
+                     viewBox="1.5 1 13 13">
+                    <path fill-rule="evenodd"
+                          d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                </svg>
+            </a>
 
-                <div class="row g-5">
+            <br>
+            <div class="row g-5">
+                <div class="col-md-12" style="">
+                    <div class="card-bg card">
+                        <div class="card-body" style="padding: 2% 3% 3% 3%; height: 75vh">
+                            <p><h6 class="card-subtitle mb-2">CURRENT USER PROFILE</h6></p>
+                            <p><h2 class="card-title" id="user-name"></h2></p>
+                            <p><h6 class="card-subtitle mb-2" style="padding-top: 15px">ADDRESS</h6></p>
+                            <p><h4 class="card-title" id="user-addr"></h4></p>
+                            <h6 class="card-subtitle mb-2" style="padding-top: 15px"><a href="#">CHANGE PASSWORD</a></h6>
+                            <div class="col-md-12 justify-content-center text-center" style="color: #eeeeee; overflow: auto; padding: 20px;">
 
-                    <div class="col-md-9 justify-content-center text-center" style="background-color: #2d334d; padding: 20px">
-                        <div style="padding: 20px">
-                            <div id="map" >
+                                <table id="users-table" style="width: 100%;">
+                                    <tbody id="users-body">
+
+                                    </tbody>
+                                </table>
+                                <br>
+                                <hr>
+                                <br>
+                                <a id="summ" class="btn-dark" href="index.html">Return To Index Page</a>
                             </div>
-                        </div>
 
-                    </div>
-
-                    <div class="col-md-3 justify-content-center text-center" style="background-color: #2d334d; padding: 20px">
-                        <div class="dropdown" id="container">
-                            <button onclick="myFunction()" class="dropbtn" id="select-user">List of Users</button>
-                            <div id="myDropdown" class="dropdown-content">
-                                <ul>
-                                    <button class="name-button">User 1</button>
-                                    <button class="name-button">User 2</button>
-                                    <button class="name-button">User 3</button>
-                                </ul>
-                            </div>
-                        </div>
-                        <div id="buttons_area" style="padding: 20px">
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="row g-5">
-
-
-                    <div class="col-md-6 justify-content-center text-center" style="background-color: #2d334d; padding: 20px">
-                        <div>
-                            <canvas id="OxygenTable"></canvas>
-                        </div>
-
-                        <div>
-                            <a type="button" class="btn btn-outline-danger" href="oxygen.html">View Detailed Oxygen Data</a>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 justify-content-center text-center" style="background-color: #2d334d; padding: 20px">
-                        <div>
-                            <canvas id="AmmoniaTable"></canvas>
-                        </div>
-                        <div>
-                            <a type="button" class="btn btn-outline-primary" href="ammonia.html">View Detailed Ammonia & Nitrogen
-                                Data
-                            </a>
+                            <p id="admin_panel"></p>
                         </div>
                     </div>
                 </div>
-
-                <div class="row g-5">
-
-                    <div class="col-md-6 justify-content-center text-center row-separator" style="background-color: #2d334d; padding: 20px">
-                        <div>
-                            <canvas id="PHTable"></canvas>
-                        </div>
-                        <div>
-                            <a type="button" class="btn btn-outline-light" href="PH.html">View Detailed pH Data</a>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 justify-content-center text-center" style="background-color: #2d334d; padding: 20px">
-                        <div>
-                            <canvas id="DissolvedTable"></canvas>
-                        </div>
-                        <div>
-                            <a type="button" class="btn btn-outline-success" href="dissolved.html">View Detailed Dissolved Oxygen Data
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </main>
-
+            </div>
         </div>
     </div>
 </div>
+
 </body>
+
 </html>
 
-<!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCMQlB41vn2nIVOAHuTnt6nrk8QxpEf5o&callback=initMap&v=weekly"></script>-->
 <script src="js/accounts.js"></script>
-<script src="js/quality.js"></script>
-
-
-<script>
-    function myFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
-    }
-</script>
+<script src="js/profile.js"></script>
 
 

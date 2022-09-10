@@ -228,6 +228,27 @@ function refresh() {
             }
         };
 
+        let data_amn = {
+            labels: time_array,
+            datasets: [{
+                label: 'Ammonia and Nitrogen',
+                backgroundColor: 'rgb(0,116,175)',
+                borderColor: 'rgb(0,116,175)',
+                data: ammonia_array,
+            }]
+        };
+
+        let config_amn = {
+            type: 'line',
+            data: data_amn,
+            options: {
+                legend: {
+                    display: false,
+                },
+                pointRadius: 1,
+            }
+        };
+
         let data_ph = {
             labels: time_array,
             datasets: [{
@@ -295,29 +316,10 @@ function refresh() {
         PHChart.update();
         DissolvedChart.update();
 
-        document.getElementById("refresh").innerHTML = "Refresh Data"
     });
 }
 
-// document.getElementById("refresh").onclick = function() {
-//     refresh();
-// }
-
 setInterval(refresh, 600000);
-
-// document.getElementById("directions1").onclick = function() {
-//     console.log(this.innerText)
-//     url = "https://water-initial-test.herokuapp.com/api/post/read_all_sensor.php?device=" + this.innerText
-//     console.log(url)
-//     refresh()
-// }
-//
-// document.getElementById("directions2").onclick = function() {
-//     console.log(this.innerText)
-//     url = "https://water-initial-test.herokuapp.com/api/post/read_all_sensor.php?device=" + this.innerText
-//     console.log(url)
-//     refresh()
-// }
 
 async function getListofButtons() {
     let list_of_buttons = document.getElementsByClassName("device_element")
@@ -419,6 +421,8 @@ function initMap() {
 
             let sensors_list = []
 
+            console.log("User_param:", user_param.target.innerHTML)
+
             let current_user = readCookie("Username")
             console.log("Read current user as", current_user)
 
@@ -466,19 +470,154 @@ function initMap() {
 
     }
 
+    function load_buttons(user_param) {
+
+        let b_area = document.getElementById("buttons_area")
+
+        b_area.innerHTML = ""
+
+        getData().then(async data => {
+
+            let output = data.data;
+            console.log(output)
+
+            let sensors_list = []
+
+            console.log("User_param:", user_param.target.innerHTML)
+
+            let current_user = readCookie("Username")
+            console.log("Read current user as", current_user)
+
+            if(current_user === "admin") {
+                current_user = this.innerText
+            }
+
+            console.log("Cookie", current_user)
+
+            for (let i = 0; i < (output.length); i++) {
+                if (output[i]["user"] === current_user) {
+                    sensors_list.push(output[i]["device_id"])
+                }
+            }
+            console.log(sensors_list)
+
+            for (let j = 0; j < (sensors_list.length); j++) {
+                console.log(sensors_list[j])
+
+                let btn = document.createElement("button");
+                btn.innerHTML = sensors_list[j]
+
+                if (sensors_list[j] === "GU001") {
+                    btn.onclick = mapGU001
+                } else if (sensors_list[j] === "GU002") {
+                    btn.onclick = mapGU002
+                } else if (sensors_list[j] === "GU003") {
+                    btn.onclick = mapGU003
+                } else if (sensors_list[j] === "MO001") {
+                    btn.onclick = mapMO001
+                } else if (sensors_list[j] === "MO002") {
+                    btn.onclick = mapMO002
+                } else if (sensors_list[j] === "UT001") {
+                    btn.onclick = mapUT001
+                }
+                btn.id = "directions" + j
+                btn.class = "btn btn-light btn-sm device_element"
+                btn.style = "top: 20px; width: 100%; margin-bottom: 11px"
+
+                b_area.appendChild(btn)
+
+            }
+        })
+    }
+
     for (let b = 0; b < list_buttons.length; b++) {
         console.log(list_buttons[b].innerHTML)
         list_buttons[b].innerHTML = users_list[b]
         list_buttons[b].onclick = load_buttons
     }
 
-    getData().then(async data => {
+    var queryString = location.search.substring(1);
+    console.log("Query String is", queryString)
 
+    if (queryString !== "") {
+        if (queryString === "GU001") {
+            mapGU001()
+        } else if (queryString === "GU002") {
+            mapGU002()
+        } else if (queryString === "GU003") {
+            mapGU003()
+        } else if (queryString === "MO001") {
+            mapMO001()
+        } else if (queryString === "MO002") {
+            mapMO002()
+        } else if (queryString === "UT001") {
+            mapUT001()
+        }
+    }
 
-        // document.getElementById("directions1").addEventListener("click", onChangeHandler1);
-        // document.getElementById("directions2").addEventListener("click", onChangeHandler2);
+    function load_buttons_auto() {
 
-    });
+        let b_area = document.getElementById("buttons_area")
+
+        b_area.innerHTML = ""
+
+        getData().then(async data => {
+
+            let output = data.data;
+            console.log(output)
+
+            let sensors_list = []
+
+            let current_user = readCookie("Username")
+            console.log("Read current user as", current_user)
+
+            if(current_user === "admin") {
+                current_user = this.innerText
+            }
+
+            console.log("Cookie", current_user)
+
+            for (let i = 0; i < (output.length); i++) {
+                if (output[i]["user"] === current_user) {
+                    sensors_list.push(output[i]["device_id"])
+                }
+            }
+            console.log(sensors_list)
+
+            for (let j = 0; j < (sensors_list.length); j++) {
+                console.log(sensors_list[j])
+
+                let btn = document.createElement("button");
+                btn.innerHTML = sensors_list[j]
+
+                if (sensors_list[j] === "GU001") {
+                    btn.onclick = mapGU001
+                } else if (sensors_list[j] === "GU002") {
+                    btn.onclick = mapGU002
+                } else if (sensors_list[j] === "GU003") {
+                    btn.onclick = mapGU003
+                } else if (sensors_list[j] === "MO001") {
+                    btn.onclick = mapMO001
+                } else if (sensors_list[j] === "MO002") {
+                    btn.onclick = mapMO002
+                } else if (sensors_list[j] === "UT001") {
+                    btn.onclick = mapUT001
+                }
+                btn.id = "directions" + j
+                btn.class = "btn btn-light btn-sm device_element"
+                btn.style = "top: 20px; width: 100%; margin-bottom: 11px"
+
+                b_area.appendChild(btn)
+
+            }
+        })
+    }
+
+    if(readCookie("Username") !== "admin") {
+        document.getElementById("container").style.display = "None"
+        load_buttons_auto()
+    }
+
 
 }
 

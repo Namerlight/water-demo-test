@@ -62,7 +62,6 @@ getData().then(data => {
 
     }
 
-
 });
 
 
