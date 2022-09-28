@@ -97,17 +97,6 @@ function getQuality() {
     quality_flag = check_ph(quality_flag, ph_value)
     quality_flag = check_dissolved(quality_flag, dissolved_value)
 
-    switch(quality_flag) {
-        case 0:
-            return '\<img src=\"../assets/safe.png\" width=\"160px\" height=\"125px\" \>'
-        case 1:
-            return '\<img src=\"../assets/unsafe.png\" width=\"160px\" height=\"125px\"\>'
-        case 2:
-            return '\<img src=\"../assets/unsafe.png\" width=\"160px\" height=\"125px\"\>'
-        default:
-            return '\<img src=\"../assets/danger.png\" width=\"160px\" height=\"125px\"\>'
-    }
-
 }
 
 function getQuantity() {
@@ -178,13 +167,6 @@ getData().then(data => {
     document.getElementById("cr-data").innerHTML = parseInt(dissolved_array[dissolved_array.length - 10]).toFixed(2) + " ppm"
     document.getElementById("cl-data").innerHTML = (parseInt(ammonia_array[ammonia_array.length - 10]).toFixed(2) + " ppm")
 
-    // document.getElementById("quality-data").innerHTML = getQuality()
-    // document.getElementById("quantity-data").innerHTML = '\<img src=\"../assets/high.png\" width=\"160px\" height=\"125px\" \>'
-
-    // document.getElementById("water-cost").innerHTML = cost.toString() + " BDT per L";
-    // document.getElementById("water-usage").innerHTML = water_volume.toString() + " L";
-    // document.getElementById("water-bill").innerHTML = getBill(cost, water_volume).toString() + " BDT";
-
     console.log(getQuality());
 
     output = data.data;
@@ -201,8 +183,6 @@ getData().then(data => {
     for (let i = 0; i < length2; i++) {
         console.log(predOxy_array[i], predAmn_array[i], predPH_array[i], predDiss_array[i])
     }
-    // document.getElementById("quality-data-pd").innerHTML = '\<img src="../assets/safe.png" width=\"160px\" height=\"125px\" \>'
-    // document.getElementById("quantity-data-pd").innerHTML = '\<img src="../assets/high.png" width=\"160px\" height=\"125px\" \>'
 
     document.getElementById("date-data").innerHTML = ("Date: " + time_array[time_array.length - 1]);
     document.getElementById("date-data").innerHTML = ("Date: 2022-07-28 12:00:00.0");

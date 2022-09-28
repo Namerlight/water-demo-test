@@ -3,16 +3,6 @@ console.log("Running");
 Chart.defaults.beginAtZero = true;
 Chart.defaults.color = "#ffffff";
 
-(function () {
-    'use strict'
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    tooltipTriggerList.forEach(function (tooltipTriggerEl) {
-        new bootstrap.Tooltip(tooltipTriggerEl)
-    })
-})()
-
-
-// const url = "http://192.168.0.193/REST_test/api/post/read_all_oxy.php";
 const url = "https://water-initial-test.herokuapp.com/api/post/read_all_oxy.php";
 let preds_url = "https://flask-ml-test.herokuapp.com/"
 
@@ -115,12 +105,6 @@ getData().then(data => {
         else
             oxy_preds.push(NaN)
     }
-
-    // oxygen_array.push(NaN)
-    // for (let i = 0; i < length; i++) {
-    //     time_array.push("Predicted")
-    //     oxygen_array.push(data[i].oxygen)
-    // }
 
     time_array.push("Next")
     time_array.push("Next")

@@ -13,22 +13,17 @@
 
 </head>
 
-<style>
-
-
-</style>
-
 <body>
 
-<div class="topnav">
-    <a id="reg" class="btn-dark" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a>
-    <a id="login" class="btn-dark" data-bs-toggle="modal" data-bs-target="#loginModal">Log In</a>
-    <a id ="logout" class="btn-dark" data-bs-toggle="modal" onclick="logout()">Logout</a>
+<div class="topnav topnav-m main_box" style="z-index: 10000">
+    <a id="reg" class="log-btn-nav" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a>
+    <a id="login" class="log-btn-nav" data-bs-toggle="modal" data-bs-target="#loginModal">Log In</a>
+    <a id ="logout" class="log-btn-nav" data-bs-toggle="modal" onclick="logout()">Logout</a>
     <a id="user" href="profile.html">Username</a>
-    <img src="assets/ict-division-seeklogo.com.png" style="width: 90px; height:50px; padding-left: 12px; padding-top: 10px; float: left;">
-    <img src="assets/pinpng.com-academic-png-4230767.png" style="width: 50px; height:47px; padding-left: 12px; padding-top: 10px; float: left;">
-    <h1 style="padding-left: 12px; float: left; color: #eeeeee">DWT</h1></div>
-
+    <img src="assets/ict-division-seeklogo.com.png" class="logo-img-ict logo-img-ict-m">
+    <img src="assets/pinpng.com-academic-png-4230767.png" class="logo-img-bracu logo-img-bracu-m">
+    <h1 class="logo-text logo-text-m">DWT</h1>
+</div>
 
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -99,201 +94,14 @@
     </div>
 </div>
 
-<!--<div class="offcanvas offcanvas-start" tabindex="1" id="offcanvasExample">-->
-<!--    <div class="col">-->
-<!--        <div class="bg-dark">-->
-<!--            <ul class="bg-dark nav-pills flex-column flex-row text-truncate" style="height: 100vh; overflow: auto">-->
-<!--                <li class="nav-item">-->
-<!--                    <a class="btn btn-dark" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"-->
-<!--                       aria-controls="offcanvasExample" style="margin-top: 20px; margin-left: -10px">-->
-<!--                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-list"-->
-<!--                             viewBox="1.5 1 13 13" style="padding-bottom: 5px">-->
-<!--                            <path fill-rule="evenodd"-->
-<!--                                  d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>-->
-<!--                        </svg>-->
-<!--                        Close Menu-->
-<!--                    </a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                    <a href="data.html" class="nav-text-big nav-block text-truncate"-->
-<!--                       style="display: block; background-color: #2d334d; margin-top: 14px">-->
-<!--                        Home & Summary-->
-<!--                    </a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                    <a href="quality.html" class="nav-block nav-text-big text-truncate" style="margin-top: 20px">-->
-<!--                        Water Quality-->
-<!--                    </a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                    <a href="oxygen.html" class="nav-block nav-text-small text-truncate">-->
-<!--                        Oxygen-->
-<!--                    </a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                    <a href="ammonia.html" class="nav-block nav-text-small text-truncate">-->
-<!--                        Ammonia and Nitrogen-->
-<!--                    </a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                    <a href="PH.html" class="nav-block nav-text-small text-truncate">-->
-<!--                        pH-->
-<!--                    </a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                    <a href="dissolved.html" class="nav-block nav-text-small text-truncate">-->
-<!--                        Dissolved Oxygen-->
-<!--                    </a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                    <a href="#" class="nav-block nav-text-small text-truncate">-->
-<!--                        Chlorine-->
-<!--                    </a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                    <a href="#" class="nav-block nav-text-small text-truncate">-->
-<!--                        Arsenic-->
-<!--                    </a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                    <a href="#" class="nav-block nav-text-small text-truncate">-->
-<!--                        Iron-->
-<!--                    </a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                    <a href="#" class="nav-block nav-text-small text-truncate">-->
-<!--                        Chromium-->
-<!--                    </a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                    <a href="#" class="nav-block nav-text-small text-truncate" style="margin-bottom: 20px">-->
-<!--                        Lead-->
-<!--                    </a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                    <a href="#" class="nav-block nav-text-big text-truncate" style="margin-top: 20px">-->
-<!--                        Water Quantity-->
-<!--                    </a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                    <a href="#" class="nav-block nav-text-small text-truncate">-->
-<!--                        Volume and Usage-->
-<!--                    </a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                    <a href="#" class="nav-block nav-text-small text-truncate">-->
-<!--                        Pressure-->
-<!--                    </a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                    <a href="#" class="nav-block nav-text-small text-truncate">-->
-<!--                        Flow Speed-->
-<!--                    </a>-->
-<!--                </li>-->
-
-<!--            </ul>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
-
 <div class="bg" style="overflow: auto">
     <div class="row">
-<!--        <div class="col-sm-2 desk div-only-mobile">-->
-<!--            <div class="bg-dark">-->
-<!--                <ul class="bg-dark nav-pills text-truncate"-->
-<!--                    style="height: 100vh; overflow: auto">-->
-<!--                    <li class="nav-item">-->
-<!--                        <a href="data.html" class="nav-text-big nav-block text-truncate"-->
-<!--                           style="display: block; background-color: #2d334d; margin-top: 14px">-->
-<!--                            Home & Summary-->
-<!--                        </a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item">-->
-<!--                        <a href="quality.html" class="nav-block nav-text-big text-truncate" style="margin-top: 20px">-->
-<!--                            Water Quality-->
-<!--                        </a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item">-->
-<!--                        <a href="oxygen.html" class="nav-block nav-text-small text-truncate">-->
-<!--                            Oxygen-->
-<!--                        </a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item">-->
-<!--                        <a href="ammonia.html" class="nav-block nav-text-small text-truncate">-->
-<!--                            Ammonia and Nitrogen-->
-<!--                        </a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item">-->
-<!--                        <a href="PH.html" class="nav-block nav-text-small text-truncate">-->
-<!--                            pH-->
-<!--                        </a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item">-->
-<!--                        <a href="dissolved.html" class="nav-block nav-text-small text-truncate">-->
-<!--                            Dissolved Oxygen-->
-<!--                        </a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item">-->
-<!--                        <a href="#" class="nav-block nav-text-small text-truncate">-->
-<!--                            Chlorine-->
-<!--                        </a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item">-->
-<!--                        <a href="#" class="nav-block nav-text-small text-truncate">-->
-<!--                            Arsenic-->
-<!--                        </a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item">-->
-<!--                        <a href="#" class="nav-block nav-text-small text-truncate">-->
-<!--                            Iron-->
-<!--                        </a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item">-->
-<!--                        <a href="#" class="nav-block nav-text-small text-truncate">-->
-<!--                            Chromium-->
-<!--                        </a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item">-->
-<!--                        <a href="#" class="nav-block nav-text-small text-truncate" style="margin-bottom: 20px">-->
-<!--                            Lead-->
-<!--                        </a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item">-->
-<!--                        <a href="#" class="nav-block nav-text-big text-truncate" style="margin-top: 20px">-->
-<!--                            Water Quantity-->
-<!--                        </a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item">-->
-<!--                        <a href="#" class="nav-block nav-text-small text-truncate">-->
-<!--                            Volume and Usage-->
-<!--                        </a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item">-->
-<!--                        <a href="#" class="nav-block nav-text-small text-truncate">-->
-<!--                            Pressure-->
-<!--                        </a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item">-->
-<!--                        <a href="#" class="nav-block nav-text-small text-truncate">-->
-<!--                            Flow Speed-->
-<!--                        </a>-->
-<!--                    </li>-->
-
-<!--                </ul>-->
-<!--            </div>-->
-<!--        </div>-->
-
-        <div class="col-lg-10 mx-auto p-5 py-md-8 justify-content-center text-center" style="height: 100vh">
-            <div class="row g-5 justify-content-center text-center">
-                <div class="col-md-9" style="background-color: #2d334d; padding-top: 10px; padding-bottom: 10px;"><h2>Domestic Water Tool Analytics (DWT)</h2></div>
-            </div>
-            <br>
-
+        <div class="col-lg-8 mx-auto p-5 py-md-8 justify-content-center text-center" style="height: 100vh">
             <div class="row g-5">
                 <div class="col-md-12 justify-content-center text-center" style="">
                     <div class="card-bg card justify-content-center text-center" style="">
-                        <div class="card-body">
+                        <div class="card-body main_box">
+                            <h2>Domestic Water Tool Analytics (DWT)</h2><br>
                             <p><h5 class="card-title">How to Use:</h5></p>
                             <p><h6 class="card-subtitle mb-2">Instructions</h6></p>
                             <ul>
@@ -305,11 +113,7 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
-
-
         </div>
     </div>
 </div>

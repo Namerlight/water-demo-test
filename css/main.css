@@ -1,11 +1,61 @@
-@media screen and (max-width : 1920px){
+:root {
+    --bg-image: url("../assets/IMG_House.jpeg"), linear-gradient(90deg, #364164, #24344a, #233b56);
+    --bg-custom: #162231;
+    --card-bg-custom: linear-gradient(145deg, #22384e, #223c52);
+    --box-shadow-custom: 27px 27px 54px #091b29, -27px -27px 54px #133551;
+    --nav-bg: #134160;
+    --text-color: #F0F8FFFF;
+    --buttons-light: #174f74;
+    --buttons-lighter: #196692;
+}
+
+@media screen and (max-width : 3841px){
     .desk {
         visibility: hidden;
-
     }
 
     .div-only-mobile {
         visibility:visible;
+    }
+
+    .logo-img-ict {
+        width: 125px;
+        height: 70px;
+        padding-left: 12px;
+        padding-top: 10px;
+        float: left;
+    }
+
+    .logo-img-bracu {
+        width: 75px;
+        height: 70px;
+        padding-left: 12px;
+        padding-top: 10px;
+        float: left;
+    }
+
+    .topnav {
+        background: var(--buttons-light); !important;
+        box-shadow: var(--box-shadow-custom); !important;
+        overflow: hidden;
+        height: 75px;
+    }
+
+    .btn-nav {
+        background-color: var(--buttons-light);
+        height: 75px;
+        width: 75px;
+    }
+
+    .log-btn-nav {
+        background-color: var(--buttons-light);
+        height: 75px;
+        font-size: 1.5em;
+    }
+
+    .user-name-display {
+        font-size: 1.5em; !important;
+        max-width: fit-content;
     }
 
 }
@@ -28,8 +78,8 @@
         margin-top: 60%;
         font-size: 1.75em;
     }
-
 }
+
 @media screen and (min-width : 1280px){
     .div-hide-desktop {
         visibility: hidden;
@@ -39,6 +89,36 @@
     .mobile-size-middle {
         margin-top: 60%;
     }
+
+    .logo-img-ict {
+        width: 125px;
+        height: 70px;
+        padding-left: 12px;
+        padding-top: 10px;
+        float: left;
+    }
+
+    .logo-img-bracu {
+        width: 75px;
+        height: 70px;
+        padding-left: 12px;
+        padding-top: 10px;
+        float: left;
+    }
+
+    .topnav {
+        background: var(--nav-bg); !important;
+        box-shadow: var(--box-shadow-custom); !important;
+        overflow: hidden;
+        height: 75px;
+    }
+
+    .btn-nav {
+        background-color: var(--buttons-light);
+        height: 75px;
+        width: 75px;
+    }
+
 }
 
 @media screen and (max-width : 770px){
@@ -54,47 +134,83 @@
         font-size: xxx-large;
     }
 
+    .logo-img-ict-m {
+        width: 85px;
+        height: 50px;
+        padding-left: 12px;
+        padding-top: 10px;
+        float: left;
+    }
+
+    .logo-img-bracu-m {
+        width: 50px;
+        height: 45px;
+        padding-left: 12px;
+        padding-top: 10px;
+        float: left;
+    }
+
+    .logo-text-m {
+        display: none;
+    }
+
+    .topnav-m {
+        background: var(--nav-bg); !important;
+        box-shadow: var(--box-shadow-custom); !important;
+        overflow: hidden;
+        height: 55px;
+    }
+
+    .btn-nav-m {
+        background-color: var(--buttons-light);
+        height: 55px;
+        width: 55px;
+    }
+
+    .user-name-display-m {
+        font-size: 1em; !important;
+        max-width: 125px
+    }
+
 }
 
-/*.bg {*/
-/*    position: fixed;*/
-/*    top: 0;*/
-/*    background-image: url("../assets/waves2.svg"), linear-gradient(90deg, #364164, #24344a, #233b56);*/
-/*    background-position: bottom;*/
-/*    background-repeat: no-repeat;*/
-/*    background-attachment: fixed;*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*}*/
+.main_box {
+    border-radius: 0px;
+    background: var(--card-bg-custom);
+    /*box-shadow:  var(--box-shadow-custom)*/
+}
 
 .bg {
-    background-image: url("../assets/IMG_House.jpeg");
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-    height: auto;
+    /*background-image: var(--bg-image);*/
+    /*background-color: rgb(47, 61, 81);*/
+    /*background-blend-mode: multiply;*/
+    background-color: var(--bg-custom);
 }
 
 .card-bg {
     border-radius: 0;
-    background: rgba(45, 51, 77, 0.98);
-    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.8);
-    color: aliceblue;
+    background: var(--card-bg-custom);
+    color: var(--text-color);
 }
 
-h2 {
-    color: #eeeeee;
+.left-nav-bg {
+    background-color: var(--nav-bg)
 }
+
+.btn-nav:hover {
+    background-color: var(--buttons-lighter);
+}
+
+.log-btn-nav:hover {
+    background-color: var(--buttons-lighter);
+}
+
 
 a:link {
     color: #eeeeee;
-}
-
-a:visited {
+} a:visited {
     color: #eeeeee;
-}
-
-a:hover {
+} a:hover {
     color: #80ffeb;
 }
 
@@ -115,7 +231,7 @@ nav {
 .nav-block {
     display: block;
     text-decoration: none;
-    background-color: #2d334d;
+    background-color: var(--nav-bg);
     margin-top: 0;
     padding: 5px;
     border-radius: 0
@@ -140,7 +256,6 @@ nav {
 ::-webkit-scrollbar {
     width: 0;
 }
-
 
 tbody {
     display:block;
@@ -215,12 +330,6 @@ table {
     border-collapse: collapse;
 }
 
-.topnav {
-    background-color: #2d334d;
-    overflow: hidden;
-    height: 55px;
-}
-
 /* Style the links inside the navigation bar */
 .topnav a {
     float: right;
@@ -228,7 +337,7 @@ table {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
+
 }
 
 ul {
@@ -238,42 +347,10 @@ ul {
     padding-bottom: 4px;
 }
 
- /* .styled-table {
-     border-collapse: collapse;
-     margin: 25px 0;
-     font-size: 0.9em;
-     font-family: sans-serif;
-     min-width: 400px;
-     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
- }
-
-.styled-table thead tr {
-    background-color: #009879;
-    color: #ffffff;
-    text-align: left;
+.offcanvas-start {
+    width: 25%;
+    min-width: 250px;
 }
-
-.styled-table th,
-.styled-table td {
-    padding: 12px 15px;
-}
-
-.styled-table tbody tr {
-    border-bottom: 1px solid #dddddd;
-}
-
-.styled-table tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
-}
-
-.styled-table tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
-}
-
-.styled-table tbody tr.active-row {
-    font-weight: bold;
-    color: #009879;
-} */
 
 .show-real-data {
     background-color: #3498DB;
