@@ -58,7 +58,7 @@ getData().then(data => {
         console.log(idx)
         console.log(time_array[idx])
 
-        document.getElementById(time_id).innerHTML = time_array[idx]
+        // document.getElementById(time_id).innerHTML = time_array[idx]
 
     }
 
