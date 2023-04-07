@@ -19,8 +19,8 @@ Chart.defaults.color = "#ffffff";
 
 
 // const url = "http://192.168.0.193/REST_test/api/post/read_last_100.php";
-let url = "https://water-initial-test.herokuapp.com/api/post/read_last_100.php";
-const device_url = "https://water-initial-test.herokuapp.com/api/post/read_all_sensor.php?device="
+let url = "https://water-domestic-backend-production.up.railway.app/api/post/read_last_100.php";
+const device_url = "https://water-domestic-backend-production.up.railway.app/api/post/read_all_sensor.php?device="
 
 let time_array = [];
 let oxygen_array = [];
@@ -352,7 +352,7 @@ function initMap() {
     const mapGU001 = function () {
         console.log("GU001 clicked")
         map.panTo({ lat: 23.789067, lng: 90.409911 });
-        url = "https://water-initial-test.herokuapp.com/api/post/read_all_sensor.php?device=" + "GU001"
+        url = "https://water-domestic-backend-production.up.railway.app/api/post/read_all_sensor.php?device=" + "GU001"
         console.log("New URL", url)
         refresh()
     };
@@ -360,7 +360,7 @@ function initMap() {
     const mapGU002 = function () {
         console.log("GU002 clicked")
         map.panTo({ lat: 23.789167, lng: 90.410911 });
-        url = "https://water-initial-test.herokuapp.com/api/post/read_all_sensor.php?device=" + "GU002"
+        url = "https://water-domestic-backend-production.up.railway.app/api/post/read_all_sensor.php?device=" + "GU002"
         console.log("New URL", url)
         refresh()
     };
@@ -368,7 +368,7 @@ function initMap() {
     const mapGU003 = function () {
         console.log("GU003 clicked")
         map.panTo({ lat: 23.778967, lng: 90.408911 });
-        url = "https://water-initial-test.herokuapp.com/api/post/read_all_sensor.php?device=" + "GU003"
+        url = "https://water-domestic-backend-production.up.railway.app/api/post/read_all_sensor.php?device=" + "GU003"
         console.log("New URL", url)
         refresh()
     };
@@ -376,7 +376,7 @@ function initMap() {
     const mapMO001 = function () {
         console.log("MO001 clicked")
         map.panTo({ lat: 23.789067, lng: 90.409911 });
-        url = "https://water-initial-test.herokuapp.com/api/post/read_all_sensor.php?device=" + "MO001"
+        url = "https://water-domestic-backend-production.up.railway.app/api/post/read_all_sensor.php?device=" + "MO001"
         console.log("New URL", url)
         refresh()
     };
@@ -384,7 +384,7 @@ function initMap() {
     const mapMO002 = function () {
         console.log("MO002 clicked")
         map.panTo({ lat: 23.790067, lng: 90.406911 });
-        url = "https://water-initial-test.herokuapp.com/api/post/read_all_sensor.php?device=" + "MO002"
+        url = "https://water-domestic-backend-production.up.railway.app/api/post/read_all_sensor.php?device=" + "MO002"
         console.log("New URL", url)
         refresh()
     };
@@ -392,12 +392,12 @@ function initMap() {
     const mapUT001 = function () {
         console.log("UT001 clicked")
         map.panTo({ lat: 23.779985274999273, lng: 90.40728374683908});
-        url = "https://water-initial-test.herokuapp.com/api/post/read_all_sensor.php?device=" + "UT001"
+        url = "https://water-domestic-backend-production.up.railway.app/api/post/read_all_sensor.php?device=" + "UT001"
         console.log("New URL", url)
         refresh()
     };
 
-    let url_users = "https://water-initial-test.herokuapp.com/api/post/read_all_devices.php";
+    let url_users = "https://water-domestic-backend-production.up.railway.app/api/post/read_all_devices.php";
 
     async function getData() {
         let response = await fetch(url_users);

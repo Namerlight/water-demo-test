@@ -1,6 +1,6 @@
 console.log("Running");
 
-const url = "https://water-initial-test.herokuapp.com/api/post/read_all_billing.php";
+const url = "https://water-domestic-backend-production.up.railway.app/api/post/read_all_billing.php";
 
 
 let date_array = []

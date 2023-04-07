@@ -1,7 +1,7 @@
 console.log("Running");
 
-const url = "https://water-initial-test.herokuapp.com/api/post/read_all_purification.php";
-const url2 = "https://water-initial-test.herokuapp.com/api/post/read_all_devices.php";
+const url = "https://water-domestic-backend-production.up.railway.app/api/post/read_all_purification.php";
+const url2 = "https://water-domestic-backend-production.up.railway.app/api/post/read_all_devices.php";
 
 let device_array = []
 let pdevice_array = []

@@ -15,7 +15,7 @@ function readCookie(name) {
 function login() {
 
     // login_url = "http://192.168.0.193/REST_test/api/post/login.php"
-    login_url = "https://water-initial-test.herokuapp.com/api/post/login.php"
+    login_url = "https://water-domestic-backend-production.up.railway.app/api/post/login.php"
     console.log("Logging in")
 
     let email = document.getElementById('usernamebox1').value
@@ -80,7 +80,7 @@ function logout() {
 function register() {
 
     // register_url = "http://192.168.0.193/REST_test/api/post/register.php"
-    register_url = "https://water-initial-test.herokuapp.com/api/post/register.php"
+    register_url = "https://water-domestic-backend-production.up.railway.app/api/post/register.php"
     console.log("Logging in")
 
     let email = document.getElementById('usernamebox2').value
