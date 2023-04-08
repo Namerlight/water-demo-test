@@ -2,7 +2,7 @@ console.log("Running");
 
 // const url = "http://192.168.0.193/REST_test/api/post/read_last_100.php";
 const db_url = "https://water-domestic-backend-production.up.railway.app/api/post/read_last_100.php";
-const pred_url = "https://flask-ml-test.herokuapp.com/"
+const pred_url = "https://web-production-c673.up.railway.app/"
 
 let time_array = [];
 let oxygen_array = [];

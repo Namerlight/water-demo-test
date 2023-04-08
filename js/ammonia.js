@@ -14,7 +14,7 @@ Chart.defaults.color = "#ffffff";
 
 // const url = "http://192.168.0.193/REST_test/api/post/read_all_amn.php";
 const url = "https://water-domestic-backend-production.up.railway.app/api/post/read_all_amn.php";
-let preds_url = "https://flask-ml-test.herokuapp.com/"
+let preds_url = "https://web-production-c673.up.railway.app/"
 
 let time_array = [];
 let ammonia_array = [];
