@@ -21,7 +21,7 @@ getData().then(data => {
     for (let i = 0; i < output.length; i++) {
         date_array.push(output[i].billing_date)
         water_used_array.push(output[i].total_usage)
-        total_bill_array.push(output[i].total_bill)
+        total_bill_array.push(parseInt(output[i].total_bill))
     }
 
     for (let i = 0; i < date_array.length; i++) {
@@ -38,7 +38,7 @@ getData().then(data => {
     }
 
     date_array.push("Predicted")
-    total_bill_array.push(166.9)
+    total_bill_array.push(1300)
 
     let average_bill_array = []
     sum = 0
@@ -51,8 +51,13 @@ getData().then(data => {
     document.getElementById("water-usage").innerHTML = (water_used_array[date_array.length - 2] + " L")
     document.getElementById("water-bill").innerHTML = ("BDT " + total_bill_array[date_array.length - 2])
 
-    document.getElementById("water-usage-pred").innerHTML = water_used_array[date_array.length-2]+1000
-    document.getElementById("water-bill-pred").innerHTML = total_bill_array[date_array.length-2]+15.19
+    // document.getElementById("water-usage-pred").innerHTML = water_used_array[date_array.length-2]+85
+    // document.getElementById("water-bill-pred").innerHTML = total_bill_array[date_array.length-2]+15.19
+
+    document.getElementById("water-usage-pred").innerHTML = "130 L"
+    document.getElementById("water-bill-pred").innerHTML = "BDT " +  130 * 15
+
+    console.log("Total bill:", total_bill_array)
 
     const billing_data = {
         labels: date_array,
